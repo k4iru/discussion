@@ -1,0 +1,121 @@
+/* Layout */
+:root {
+    --link-color  : white;
+    --link-hover  : #F45B69;
+    --main-bg     : #141414;
+    --secondary-bg: blue;
+    --text-main   : white;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin : 0;
+}
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.page-container {
+    max-width: 1200px;
+}
+
+/* Header */
+
+header {
+    background-color: var(--main-bg);
+}
+
+nav {
+    margin : auto;
+    padding: 0.75em;
+}
+
+.navbar-nav {
+    vertical-align: center;
+}
+
+.nav-item {
+    display       : inline-block;
+    vertical-align: center;
+    line-height   : 30px;
+    padding-right : 1em;
+}
+
+.nav-link {
+    text-decoration: none;
+    color          : var(--link-color);
+}
+
+header .nav-link {
+    font-size: 1.2em;
+    ;
+}
+
+.nav-link:hover {
+    color: var(--link-hover);
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.navbar {
+    display       : flex;
+    flex-direction: row;
+}
+
+/* search bar */
+
+.search-input {
+    font-style   : inherit;
+    padding      : 0.5em 1em;
+    border-radius: 5px;
+    border       : none;
+    margin-right : 0.5em;
+}
+
+.search-input:focus {
+    border-style: solid 1px;
+    border-color: var(--link-hover);
+}
+
+.search-btn {
+    font-style      : inherit;
+    background-color: transparent;
+    color           : var(--link-color);
+    border-color    : var(--link-color);
+    border-style    : solid 1px;
+    border-radius   : 5px;
+    padding         : 0.4em 0.6em;
+}
+
+.search-btn:hover,
+search-btn:active {
+    color       : var(--link-hover);
+    border-color: var(--link-hover);
+}
+
+/* Footer */
+
+footer .nav-link {
+    font-size: 0.9em;
+}
+
+footer {
+    color           : var(--text-main);
+    background-color: var(--main-bg);
+    padding         : 1em;
+}
+
+footer>ul {
+    text-align: center;
+}
+
+.copyright {
+    font-size : 0.9em;
+    text-align: center;
+}
