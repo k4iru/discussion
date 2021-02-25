@@ -99,6 +99,75 @@ search-btn:active {
     border-color: var(--link-hover);
 }
 
+/* Main */
+#main {
+    min-height: 78.6vh;
+    /* height: 80.6vh; */
+    text-align: center;
+}
+
+#main h1 {
+    margin: 7vh 0px 0px 0px;
+    font-size: 3em;
+}
+
+.homepage-bio {
+    margin-top: 3vh;
+}
+
+.homepage-header img{
+    height: 600px;
+    width: auto;
+}
+
+.homepage-grid {
+    display: flex;
+    justify-content: center;
+    margin: 2vh 0px;
+}
+
+.homepage-grid img {
+    height: 200px;
+    width: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 5vh 5vw;
+    width: 400px;
+    padding: 3vh 2vw;
+    transition: all .2s ease-in-out;
+}
+
+.card:hover {
+    background-color: #141414;
+    transform: scale(1.1);
+    color: white;
+    
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.card img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.card-container {
+    margin: 2vh 0px 0px 0px;
+}
+
 /* Footer */
 
 footer .nav-link {
