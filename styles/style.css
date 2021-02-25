@@ -16,7 +16,13 @@
 
 html,
 body {
+    height: 100%;
     font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 .page-container {
@@ -104,6 +110,7 @@ search-btn:active {
     min-height: 78.6vh;
     /* height: 80.6vh; */
     text-align: center;
+    flex-grow: 1;
 }
 
 #main h1 {
