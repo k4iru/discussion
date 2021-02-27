@@ -1,1 +1,1 @@
-# HTTP 5202 Group project
+# The Movie Tracker
