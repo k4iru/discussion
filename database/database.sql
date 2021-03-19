@@ -32,3 +32,43 @@ CREATE TABLE posts (
     FOREIGN KEY (thread_id) REFERENCES threads(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE lists (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    creation_date DATETIME NOT NULL,
+    user_id INT,
+    movie_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (movie_id) REFERENCES moviews(id)
+)
+
+CREATE TABLE movies (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    release_date DATETIME NOT NULL,
+    movie_name VARCHAR NOT NULL,
+)
+
+CREATE TABLE listsxmovies (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    list_id INT,
+    movie_id INT,
+    FOREIGN KEY (list_id) REFERENCES lists(id),
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+)
+
+CREATE TABLE listsxgenres (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    list_id INT,
+    genre_id INT,
+    FOREIGN KEY (list_id) REFERENCES lists(id),
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+)
+
+CREATE TABLE usersxmovies (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    movie_progress INT NOT NULL,
+    user_id INT,
+    movie_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+)
