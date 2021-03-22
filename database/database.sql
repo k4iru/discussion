@@ -87,3 +87,47 @@ CREATE TABLE review (
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (movie_id) REFERENCES movies (id)
 );
+
+CREATE TABLE list_table (
+	id				INT 	NOT NULL	AUTO_INCREMENT,
+	date_generated	DATE	NOT NULL	DEFAULT(NOW()),
+	user_id 		INT		NOT NULL,
+	movie_id 		INT 	NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (user_id) 	REFERENCES user_information(id),
+	FOREIGN KEY (movie_id)	REFERENCES movie_info(id)
+);
+
+CREATE TABLE movie_info (
+	id				INT 				NOT NULL,
+	name			VARCHAR(255)		NOT NULL,
+	description		VARCHAR(255)		NOT NULL,
+	movieLength		DECIMAL(3, 2)		NOT NULL,
+	actor_id		INT 				NOT NULL,
+	trailer_id		INT					NOT NULL,
+	poster_id		INT					NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (actor_id)		REFERENCES actors(actor_id),
+	FOREIGN KEY	(trailer_id) 	REFERENCES trailers(trailer_id),
+	FOREIGN KEY	(poster_id)		REFERENCES posters(poster_id)
+);
+
+CREATE TABLE actors (
+	id			INT				NOT NULL	AUTO_INCREMENT,
+	first_name 	VARCHAR(255) 	NOT NULL,
+	last_name 	VARCHAR(255) 	NOT NULL,
+	birth_date	DATE			NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE posters (
+	id 			INT 			NOT NULL	AUTO_INCREMENT,
+	movie_path 	VARCHAR(255) 	NOT NULL,
+	PRIMARY KEY (id) 
+);
+
+CREATE TABLE trailers (
+	id 				INT				NOT NULL	AUTO_INCREMENT,
+	trailer_length	DECIMAL(3,2)	NOT NULL,
+	PRIMARY KEY (id)
+);
