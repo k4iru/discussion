@@ -2,19 +2,21 @@
 
 //database connection here
 
-
-
-if (isset($_GET['search']))
-{
+if (isset($_GET['search'])) {
     $key = $_GET["search"]; //Key = getting search input
 
-        //search query
+    //search query
     $query = "Select * from movies where `movie_name` like '%$key%'";
 
     $result = $db->prepare($query);
     $result->execute();
 
-    return $result->fetch(\PDO::FETCH_OBJ);
+    if ($result < 0) {
+        echo "No results found";
+    } else {
+        return $result->fetch(\PDO::FETCH_OBJ);
+    }
+
 }
 ?>
 
@@ -37,13 +39,13 @@ if (isset($_GET['search']))
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($movies as $movie) { ?>
+            <?php foreach ($movies as $movie) {?>
             <tr>
                 <!-- fetching associative array, will fill out when our database has info -->
-                <th>
-                <th>
+                <td></td>
+                <td></td>
             </tr>
-            <?php } ?>
+            <?php }?>
             <!-- end of associative array -->
 
         </tbody>
