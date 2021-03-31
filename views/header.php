@@ -9,8 +9,8 @@
             <li class="nav-item"><a class="nav-link" href="views/trailers.php">Trailers</a></li>
         </ul>
         <span class="spacer"></span>
-        <form class="search-form" action="search.php" method="GET">
-            <input class="search-input" type="search" placeholder="Search" aria-label="Search" name="search"/>
+        <form class="search-form" action="views/search.php" method="GET">
+            <input class="search-input" type="search" placeholder="Search" aria-label="Search" name="search" />
             <button class="search-btn" type="submit">Search</button>
         </form>
     </nav>
