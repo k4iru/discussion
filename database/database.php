@@ -1,6 +1,6 @@
 <?php
 
-// namespace Lab7\Model;
+namespace HTTP_5202_GROUP\database;
 
 class Database
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace HTTP-5202-GROUP\models;
+namespace HTTP_5202_GROUP\models;
 
-class List
+class Lists
 {
     public function getAllLists($dbcon){
 
