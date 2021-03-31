@@ -1,13 +1,12 @@
 <?php
-
-namespace HTTP_5202_GROUP\database;
+namespace PhPKnights\Model;
 
 class Database
 {
     //properties
-    private static $user = 'root';
-    private static $pass = '';
-    private static $dsn = 'mysql:host=localhost;dbname=movie_db'; // Change this to shared Database
+    private static $user = 'hughesbu_bryan_hughes';
+    private static $pass = 'xsSt(3rtE2uk$y';
+    private static $dsn = 'mysql:host=167.114.195.192;dbname=hughesbu_PHPKNIGHTS_ASSIGNMENT';
     private static $dbcon;
 
     private function __construct()

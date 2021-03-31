@@ -1,6 +1,5 @@
 <?php
-
-namespace HTTP_5202_GROUP\models;
+namespace PhPKnights\Model;
 
 class Lists
 {

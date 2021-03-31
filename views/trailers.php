@@ -1,3 +1,9 @@
+<?php
+use PhPKnights\Model\{Database, TrailerData};
+require_once '../vendor/autoload.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="EN">
   <head>

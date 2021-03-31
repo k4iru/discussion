@@ -1,21 +1,24 @@
 <?php
+namespace PhPKnights\Model;
 
 class TrailerData
 {
-    public string $IMDbId;
-    public string $Title;
-    public string $FullTitle;
-    public string $Type;
-    public string $Year;
+    public static string $IMDbId;
+    public static string $Title;
+    public static string $FullTitle;
+    public static string $Type;
+    public static string $Year;
 
-    public string $VideoId;
-    public string $VideoTitle;
-    public string $VideoDescription;
-    public string $ThumbnailUrl;
-    public string $UploadDate;
-    public string $Link;
-    public string $LinkEmbed;
+    public static string $VideoId;
+    public static string $VideoTitle;
+    public static string $VideoDescription;
+    public static string $ThumbnailUrl;
+    public static string $UploadDate;
+    public static string $Link;
+    public static string $LinkEmbed;
 
-    public string $ErrorMessage;
+    public static string $ErrorMessage;
 }
+
+
 ?>
