@@ -17,36 +17,13 @@
     <div class="master-container">
       <div class="trailer-container">
         <?php
-        $curl = curl_init();
+        //URL to IMDb Trailer API
+        $url = 'https://imdb-api.com/en/API/Trailer/k_tlju98cy/tt1375666';
+        $response = file_get_contents($url);
+        //echo $response;
+        var_dump(json_decode($response));
 
 
-        curl_setopt_array($curl, array(
-
-          CURLOPT_URL => "https://imdb-api.com/en/API/Title/k_1234567/tt1832382",
-
-          CURLOPT_RETURNTRANSFER => true,
-
-          CURLOPT_ENCODING => "",
-
-          CURLOPT_MAXREDIRS => 10,
-
-          CURLOPT_TIMEOUT => 0,
-
-          CURLOPT_FOLLOWLOCATION => true,
-
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-
-          CURLOPT_CUSTOMREQUEST => "GET",
-
-        ));
-
-
-        $response = curl_exec($curl);
-
-
-        curl_close($curl);
-
-        echo $response;
         ?>
       </div>
     </div>
