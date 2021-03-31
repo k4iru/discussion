@@ -1,0 +1,8 @@
+
+{
+  "autoload": {
+    "psr-4": {
+        "HTTP_5202_GROUP\\Model\\" : "Model/"
+    }
+  }
+}

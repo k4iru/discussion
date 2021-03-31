@@ -1,0 +1,11 @@
+.master-container {
+  display: grid;
+  place-content: center;
+  height: 80vh;
+}
+
+.trailer-container {
+  border: solid #000 2px;
+  height: 50vh;
+  width: 60vw;
+}
