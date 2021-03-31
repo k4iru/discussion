@@ -2,21 +2,20 @@
 
 class TrailerData
 {
-    public string IMDbId { get; set; }
-    public string Title { get; set; }
-    public string FullTitle { get; set; }
-    public string Type { get; set; }
-    public string Year { get; set; }
+    public string $IMDbId;
+    public string $Title;
+    public string $FullTitle;
+    public string $Type;
+    public string $Year;
 
-    public string VideoId { get; set; }
-    public string VideoTitle { get; set; }
-    public string VideoDescription { get; set; }
-    public string ThumbnailUrl { get; set; }
-    public string UploadDate { get; set; }
-    public string Link { get; set; }
-    public string LinkEmbed { get; set; }
+    public string $VideoId;
+    public string $VideoTitle;
+    public string $VideoDescription;
+    public string $ThumbnailUrl;
+    public string $UploadDate;
+    public string $Link;
+    public string $LinkEmbed;
 
-    public string ErrorMessage { get; set; }
+    public string $ErrorMessage;
 }
-
 ?>
