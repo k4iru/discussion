@@ -7,7 +7,7 @@ class Database
     //properties
     private static $user = 'root';
     private static $pass = '';
-    private static $dsn = 'mysql:host=localhost;dbname=movie_db';
+    private static $dsn = 'mysql:host=localhost;dbname=movie_db'; // Change this to shared Database
     private static $dbcon;
 
     private function __construct()
