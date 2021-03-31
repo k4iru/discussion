@@ -22,6 +22,9 @@
         $response = file_get_contents($url);
         //echo $response;
         var_dump(json_decode($response));
+        $decodedResponse = json_decode($response);
+
+
 
 
         ?>
