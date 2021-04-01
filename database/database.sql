@@ -41,11 +41,10 @@ CREATE TABLE posts (
 
 CREATE TABLE lists (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    list_name VARCHAR(255) NOT NULL,
     creation_date DATETIME NOT NULL,
     user_id INT,
-    movie_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (movie_id) REFERENCES movies(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE listsxmovies (

@@ -8,7 +8,7 @@ class Database
     private static $pass = 'xsSt(3rtE2uk$y';
     private static $dsn = 'mysql:host=167.114.195.192;dbname=hughesbu_PHPKNIGHTS_ASSIGNMENT';
     private static $dbcon;
-
+    
     private function __construct()
     {
     }
