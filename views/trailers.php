@@ -1,7 +1,5 @@
 <?php
-use PhPKnights\Model\{Database, TrailerData};
 require_once '../vendor/autoload.php';
-
 
 ?>
 <!DOCTYPE html>
@@ -23,20 +21,25 @@ require_once '../vendor/autoload.php';
     <div class="master-container">
       <div class="trailer-container">
         <?php
+        require_once "../Model/TrailerData.php";
+        //use PhPKnights\Model\TrailerData;
+        // $localTrailer = new TrailerData();
+
         //URL to IMDb Trailer API
         $url = 'https://imdb-api.com/en/API/Trailer/k_tlju98cy/tt1375666';
         $response = file_get_contents($url);
-        //echo $response;
-        var_dump(json_decode($response));
         $decodedResponse = json_decode($response);
 
-
-
-
+        foreach ($decodedResponse as $key => $value) {
+          if ($key == "linkEmbed")
+          {
+            $trailerToDisplay = TrailerData::makeTrailer($value);
+            echo $trailerToDisplay;
+          }
+        }
         ?>
       </div>
     </div>
-
     <!--Footer-->
     <?php require_once './footer.php' ?>
   </body>

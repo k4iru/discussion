@@ -1,7 +1,5 @@
 <?php
-
 // namespace PhPKnights\Model;
-
 use PhPKnights\Model\{Database, Lists};
 // require_once '../vendor/autoload.php';  <---- Not working for some reason, to figure out later
 

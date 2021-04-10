@@ -1,5 +1,5 @@
 <?php
-namespace PhPKnights\Model;
+//namespace PhPKnights\Model;
 
 class TrailerData
 {
@@ -18,7 +18,15 @@ class TrailerData
     public static string $LinkEmbed;
 
     public static string $ErrorMessage;
+
+    function __construct()
+    {
+
+    }
+
+    public static function makeTrailer($url) {
+        $embedLink = '<iframe class="trailers" src="' . $url . '" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        return $embedLink;
+    }
 }
-
-
 ?>

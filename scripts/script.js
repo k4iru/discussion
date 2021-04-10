@@ -1,6 +1,6 @@
 // script
 window.onload = function(){
- 
+
     // Selecting the cards
     let cardOne = document.getElementsByClassName('card')[0];
     let cardTwo = document.getElementsByClassName('card')[1];

@@ -6,6 +6,12 @@
 
 .trailer-container {
   border: solid #000 2px;
-  height: 50vh;
-  width: 60vw;
+  height: 60vh;
+  width: 70vw;
+}
+
+.trailers {
+  /*position: inherit;*/
+  height: 200px;
+  width: 400px;
 }
