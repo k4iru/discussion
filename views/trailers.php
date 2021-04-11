@@ -26,15 +26,18 @@ require_once '../vendor/autoload.php';
         // $localTrailer = new TrailerData();
 
         //URL to IMDb Trailer API
-        $url = 'https://imdb-api.com/en/API/Trailer/k_tlju98cy/tt1375666';
+        $url = 'http://www.omdbapi.com/?i=tt3896198&apikey=3f654760';
         $response = file_get_contents($url);
         $decodedResponse = json_decode($response);
+        //var_dump($decodedResponse);
 
         foreach ($decodedResponse as $key => $value) {
-          if ($key == "linkEmbed")
+
+          if ($key == "Poster")
           {
-            $trailerToDisplay = TrailerData::makeTrailer($value);
-            echo $trailerToDisplay;
+            //$trailerToDisplay = TrailerData::makePoster($value);
+            //echo $trailerToDisplay;
+
           }
         }
         ?>

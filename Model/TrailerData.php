@@ -25,8 +25,13 @@ class TrailerData
     }
 
     public static function makeTrailer($url) {
-        $embedLink = '<iframe class="trailers" src="' . $url . '" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        $embedLink = '<iframe height="400px" width="800px" src="'.$url.'" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         return $embedLink;
+    }
+
+    public static function makePoster($url) {
+        $poster = "<img class='movie-poster' src='$url' alt='Movie Poster'>";
+        return $poster;
     }
 }
 ?>
