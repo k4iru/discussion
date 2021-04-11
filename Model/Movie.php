@@ -1,7 +1,7 @@
 <?php
 //namespace PhPKnights\Model;
 
-class TrailerData
+class Movie
 {
     public static string $IMDbId;
     public static string $Title;

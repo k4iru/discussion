@@ -14,8 +14,12 @@
   </head>
   <body>
     <div class="form-container">
-
-
+      <form>
+        <fieldset>
+          <label for="movieName">Search A Movie Title:</label>
+          <input type="text" name="movieName" class="input">
+        </fieldset>
+      </form>
     </div>
   </body>
 </html>
