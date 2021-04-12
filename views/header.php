@@ -7,6 +7,7 @@
             <li class="nav-item"><a class="nav-link" href="#">Discussions</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="views/trailers.php">Trailers</a></li>
+            <li class="nav-item"><a class="nav-link" href="views/posters.php">Posters</a></li>
         </ul>
         <span class="spacer"></span>
         <form class="search-form" action="views/search.php" method="GET">

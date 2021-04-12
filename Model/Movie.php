@@ -1,23 +1,20 @@
 <?php
-//namespace PhPKnights\Model;
+namespace PhPKnights\Model;
 
 class Movie
 {
-    public static string $IMDbId;
-    public static string $Title;
-    public static string $FullTitle;
-    public static string $Type;
-    public static string $Year;
+    public static string $id;
+    public static string $title;
+    public static string $fullTitle;
+    public static int    $rank;
+    public static int    $year;
 
-    public static string $VideoId;
-    public static string $VideoTitle;
-    public static string $VideoDescription;
-    public static string $ThumbnailUrl;
-    public static string $UploadDate;
-    public static string $Link;
-    public static string $LinkEmbed;
+    public static string $imageUrl;
+    public static string $crew;
+    public static float  $IMDbRating;
+    public static int    $IMDbRatingCount;
 
-    public static string $ErrorMessage;
+    public static string $errorMessage;
 
     function __construct()
     {
@@ -32,6 +29,11 @@ class Movie
     public static function makePoster($url) {
         $poster = "<img class='movie-poster' src='$url' alt='Movie Poster'>";
         return $poster;
+    }
+
+    public static function searchMovie($movieName) {
+        $queryString = "https://imdb-api.com/en/API/SearchMovie/k_tlju98cy/$movieName";
+        return $queryString;
     }
 }
 ?>

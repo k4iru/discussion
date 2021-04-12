@@ -1,5 +1,6 @@
 <?php
-
+namespace PhPKnights\Model;
+use PhPKnights\Model\Database;
 
 ?>
 <!DOCTYPE html>
@@ -14,11 +15,20 @@
   </head>
   <body>
     <div class="form-container">
-      <form>
+      <form action="" method="POST">
         <fieldset>
           <label for="movieName">Search A Movie Title:</label>
           <input type="text" name="movieName" class="input">
+
+          <input type="submit" name="submit">
         </fieldset>
+        <?php
+          $submit = $_POST["submit"];
+          if(isset($submit)) {
+            $movieName = $_POST["movieName"];
+
+          }
+        ?>
       </form>
     </div>
   </body>
