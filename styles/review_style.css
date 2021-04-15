@@ -1,0 +1,41 @@
+h1 {
+    margin: 0 auto;
+}
+
+/* General table style */
+.review-table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling header */
+.review-table thead tr {
+    background-color: #cfb7ae;
+    color: #ffffff;
+    text-align: left;
+}
+
+/* Styling table cells */
+.review-table th, .review-table td {
+    padding: 12px 15px;
+}
+
+/* Styling table rows - bottom border for separation */
+.review-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Styling table rows - lighter background to every other row */
+.review-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+
+/* Styling table rows - dark border to show end of the table */
+.review-table tbody tr:last-of-type {
+    border-bottom: 2px solid #7ea4b3;
+}

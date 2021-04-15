@@ -1,23 +1,18 @@
 <?php
 
-use HTTP_5202_GROUP\database\Database;
-require_once '../database/database.php';
-$dbcon = Database::getDb();
+use PhPKnights\Model\Database;
+// require_once '../vendor/autoload.php';
+require_once '../Model/Database.php';
 
 if (isset($_GET['search'])) {
-    $key = $_GET["search"]; //getting search input
+    $db = Database::getDb(); //connecting to database
+    $key = trim($_GET["search"]); //getting search input
 
     //search query
-    $query = "Select * from movies where `movie_name` like '%$key%'";
+    $query = "SELECT * FROM top250Movies WHERE `title` LIKE '%$key%'";
 
-    $result = $dbcon->prepare($query);
+    $result = $db->prepare($query);
     $result->execute();
-
-    if ($result < 0) {
-        echo "No results found";
-    } else {
-        return $result->fetchAll(\PDO::FETCH_OBJ);
-    }
 
 }
 ?>
