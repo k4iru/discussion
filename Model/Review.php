@@ -17,6 +17,8 @@ class Review {
 
    //get reviews based on user id
 
+   //get reviews based on movie title
+
    //create a review
 
    //update a review
