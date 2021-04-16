@@ -38,6 +38,8 @@ header {
 nav {
     margin : auto;
     padding: 0.75em;
+    display: flex;
+    flex-flow: nowrap column;
 }
 
 .navbar-nav {
@@ -46,8 +48,7 @@ nav {
 
 .nav-item {
     display       : inline-block;
-    vertical-align: center;
-    line-height   : 30px;
+    vertical-align: middle;
     padding-right : 1em;
 }
 
@@ -58,7 +59,6 @@ nav {
 
 header .nav-link {
     font-size: 1.2em;
-    ;
 }
 
 .nav-link:hover {
@@ -72,6 +72,12 @@ header .nav-link {
 .navbar {
     display       : flex;
     flex-direction: row;
+}
+
+/* php knights logo */
+.logo {
+    height: 100px;
+    width: 100px;
 }
 
 /* search bar */

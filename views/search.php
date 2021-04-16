@@ -1,19 +1,17 @@
 <?php
 
 use PhPKnights\Model\Database;
+use PhPKnights\Model\Search;
+
 // require_once '../vendor/autoload.php';
 require_once '../Model/Database.php';
+require_once '../Model/Search.php';
 
 if (isset($_GET['search'])) {
-    $db = Database::getDb(); //connecting to database
-    $key = trim($_GET["search"]); //getting search input
+    $dbcon = Database::getDb();
+    $searchModel = new Search();
 
-    //search query
-    $query = "SELECT * FROM top250Movies WHERE `title` LIKE '%$key%'";
-
-    $result = $db->prepare($query);
-    $result->execute();
-
+    $searchResults = $searchModel->SearchTop250Movies(Database::getDb());
 }
 ?>
 
@@ -21,7 +19,8 @@ if (isset($_GET['search'])) {
 
 <head>
     <title>Search Results</title>
-    <link rel="stylesheet" type="text/css" href="..." />
+    <link rel="stylesheet" href="../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../styles/search-style.css" type="text/css">
 </head>
 
 <body>
@@ -42,11 +41,12 @@ if (isset($_GET['search'])) {
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($movies as $movie) {?>
+            <?php foreach ($searchResults as $results) {?>
             <tr>
                 <!-- fetching associative array, will fill out when our database has info -->
-                <td></td>
-                <td></td>
+                <td><?=$results->title;?></td>
+                <td><?=$results->image;?></td>
+                <td><?=$results->crew;?></td>
             </tr>
             <?php }?>
             <!-- end of associative array -->
