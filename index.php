@@ -1,5 +1,8 @@
 <?php
 session_start();
+// change documentroot if needed
+$_SESSION['root'] = $_SERVER['DOCUMENT_ROOT'] . '/http-5202-group';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +17,7 @@ session_start();
 </head>
 
 <body>
+    <!--  require_once $_SESSION['root'] .'/views/header.php';  -->
     <?php require_once 'views/header.php'; ?>
     <main id="main">
         <h1>The Movie Tracker</h1>
@@ -53,10 +57,10 @@ session_start();
                     <!-- https://fontawesome.com/license -->
                     <!-- Reduced Size of Image -->
                     <div class="black">
-                        <img src="resources/door-open-solid-black.svg" alt="register image">
+                        <img src="images/door-open-solid-black.svg" alt="register image">
                     </div>
                     <div class="white hide">
-                        <img src="resources/door-open-solid-white.svg" alt="register image">
+                        <img src="images/door-open-solid-white.svg" alt="register image">
                     </div>
                     <div class="card-container">
                         <h2>Register!</h2>
