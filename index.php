@@ -36,10 +36,10 @@ session_start();
                     <!-- https://fontawesome.com/license -->
                     <!-- Reduced Size of Image -->
                     <div class="black">
-                        <img src="resources/sign-in-alt-solid-black.svg" alt="login image">
+                        <img src="images/sign-in-alt-solid-black.svg" alt="login image">
                     </div>
                     <div class="white hide">
-                        <img src="resources/sign-in-alt-solid-white.svg" alt="login image">
+                        <img src="images/sign-in-alt-solid-white.svg" alt="login image">
                     </div>
                     <div class="card-container">
                         <h2>Login!</h2>
