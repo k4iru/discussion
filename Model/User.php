@@ -30,4 +30,20 @@ class User {
         $searchResults = $pdostm->fetchAll(\PDO::FETCH_OBJ);
         return $searchResults;
     }
+
+    public function userNameExists($db, $username) {
+        $query ="SELECT * FROM users WHERE username = :username";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':username', $username);
+        $pst->execute();
+        return $pst->fetch(\PDO::FETCH_OBJ);
+    }
+
+    public function emailExists($db, $email) {
+        $query ="SELECT * FROM users WHERE email = :email";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':email', $email);
+        $pst->execute();
+        return $pst->fetch(\PDO::FETCH_OBJ);
+    }
 }

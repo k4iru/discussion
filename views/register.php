@@ -8,9 +8,24 @@ require_once '../Model/User.php';
 use PhPKnights\Model\Database;
 use PhPKnights\Model\User;
 
+$err = "";
+
 if (isset($_POST['submit'])) {
     $user = new User();
     $db = Database::getDB();
+
+    $username = $user->userNameExists($db, $_POST['username']);
+    // username exists do stuff
+    if ($username !== false) {
+        $err = "Username Exists";
+    }
+
+    $email = $user->emailExists($db, $_POST['email']);
+
+    // email exists do stuff
+    if ($email !== false) {
+        $err = "Email already used";
+    }
 
     // TODO 
     // validate form
@@ -34,6 +49,9 @@ if (isset($_POST['submit'])) {
     <?php require_once 'header.php'; ?>
     <main>
         <form action="" method="POST">
+        <div>
+            <span> <?= $err; ?></span>
+        </div>
             <div>
                 <label for="first">First Name</label>
                 <input type="text" name="first">
