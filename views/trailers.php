@@ -1,6 +1,7 @@
 <?php
-use PhPKnights\Model\Database;
+use PhPKnights\Model\{Database, Trailer};
 require_once '../vendor/autoload.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="EN">
@@ -21,9 +22,6 @@ require_once '../vendor/autoload.php';
     <div class="master-container">
       <div class="trailer-container">
         <?php
-        require_once "../Model/Movie.php";
-        //use PhPKnights\Model\TrailerData;
-
         //URL to IMDb Trailer API
         $trailerURL = 'https://imdb-api.com/en/API/Title/k_tlju98cy/tt1375666/FullActor,Posters,Trailer,';
         $response = file_get_contents($trailerURL);

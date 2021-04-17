@@ -21,6 +21,8 @@ class Movie
 
     }
 
+
+
     public static function makeTrailer($url) {
         $embedLink = '<iframe height="400px" width="800px" src="'.$url.'" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         return $embedLink;
