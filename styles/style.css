@@ -35,6 +35,11 @@ header {
     background-color: var(--main-bg);
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 nav {
     width: auto;
     height: auto;

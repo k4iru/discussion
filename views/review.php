@@ -1,6 +1,7 @@
 <?php
 
-use PhPKnights\Model\{Database, Review};
+use PhPKnights\Model\Database;
+use PhPKnights\Model\Review;
 
 require_once '../Model/Review.php';
 require_once '../Model/Database.php';
@@ -36,14 +37,14 @@ $reviews = $reviewModel->getAllReviews(Database::getDb());
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($reviews as $review) { ?>
+            <?php foreach ($reviews as $review) {?>
             <tr>
-                <td><?= $review->review_movie; ?></td>
-                <td><?= $review->review_content; ?></td>
-                <td><?= $review->review_rating; ?></td>
+                <td><?=$review->review_movie;?></td>
+                <td><?=$review->review_content;?></td>
+                <td><?=$review->review_rating;?></td>
 
             </tr>
-            <?php } ?>
+            <?php }?>
         </tbody>
     </table>
 

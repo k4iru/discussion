@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,36 +30,40 @@
 
 
         <div class="homepage-grid">
-            <div class="card">
-                <!-- Image Sourced from fontawesome.com -->
-                <!-- https://fontawesome.com/license -->
-                <!-- Reduced Size of Image -->
-                <div class="black">
-                    <img src="resources/sign-in-alt-solid-black.svg" alt="login image">
+            <a href="views/login.php">
+                <div class="card">
+                    <!-- Image Sourced from fontawesome.com -->
+                    <!-- https://fontawesome.com/license -->
+                    <!-- Reduced Size of Image -->
+                    <div class="black">
+                        <img src="resources/sign-in-alt-solid-black.svg" alt="login image">
+                    </div>
+                    <div class="white hide">
+                        <img src="resources/sign-in-alt-solid-white.svg" alt="login image">
+                    </div>
+                    <div class="card-container">
+                        <h2>Login!</h2>
+                        <p>Continue Watching Your Favourite Movies</p>
+                    </div>
                 </div>
-                <div class="white hide">
-                    <img src="resources/sign-in-alt-solid-white.svg" alt="login image">
+            </a>
+            <a href="views/register.php">
+                <div class="card">
+                    <!-- Image Sourced from fontawesome.com -->
+                    <!-- https://fontawesome.com/license -->
+                    <!-- Reduced Size of Image -->
+                    <div class="black">
+                        <img src="images/door-open-solid-black.svg" alt="register image">
+                    </div>
+                    <div class="white hide">
+                        <img src="images/door-open-solid-white.svg" alt="register image">
+                    </div>
+                    <div class="card-container">
+                        <h2>Register!</h2>
+                        <p>Watch Movies With Us</p>
+                    </div>
                 </div>
-                <div class="card-container">
-                    <h2>Login!</h2>
-                    <p>Continue Watching Your Favourite Movies</p>
-                </div>
-            </div>
-            <div class="card">
-                <!-- Image Sourced from fontawesome.com -->
-                <!-- https://fontawesome.com/license -->
-                <!-- Reduced Size of Image -->
-                <div class="black">
-                    <img src="resources/door-open-solid-black.svg" alt="register image">
-                </div>
-                <div class="white hide">
-                    <img src="resources/door-open-solid-white.svg" alt="register image">
-                </div>
-                <div class="card-container">
-                    <h2>Register!</h2>
-                    <p>Watch Movies With Us</p>
-                </div>
-            </div>
+            </a>
         </div>
     </main>
     <?php require_once 'views/footer.php'; ?>
