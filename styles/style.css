@@ -30,7 +30,7 @@ body {
 /* Header */
 
 header {
-    height: 40vh;
+    /* height: 40vh;  why is the height set to 40% view height? */
     width: 100vw;
     background-color: var(--main-bg);
 }
