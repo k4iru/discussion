@@ -1,7 +1,5 @@
 <?php
 session_start();
-// change documentroot if needed
-$_SESSION['root'] = $_SERVER['DOCUMENT_ROOT'] . '/http-5202-group';
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +15,6 @@ $_SESSION['root'] = $_SERVER['DOCUMENT_ROOT'] . '/http-5202-group';
 </head>
 
 <body>
-    <!--  require_once $_SESSION['root'] .'/views/header.php';  -->
     <?php require_once 'views/header.php'; ?>
     <main id="main">
         <h1>The Movie Tracker</h1>

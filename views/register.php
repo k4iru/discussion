@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <html lang="en">
 
 <head>
@@ -11,7 +15,11 @@
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>Register Page</h1>
+    <main>
+        <form action="" method="POST">
+        <input type="submit" name="submit" value="Register">
+        </form>
+    </main>
     <?php require_once 'footer.php'; ?>
 </body>
 

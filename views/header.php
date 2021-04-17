@@ -1,6 +1,6 @@
 <header class="header">
     <nav class="navbar page-container">
-        <a href="./index.php"><img src="images/newlogo.png" alt="php knights logo" class="logo nav-item" /></a>
+        <a href="./index.php"><img src="/http-5202-group/images/newlogo.png" alt="php knights logo" class="logo nav-item" /></a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="#">Movies</a></li>
             <li class="nav-item"><a class="nav-link" href="#">People</a></li>
