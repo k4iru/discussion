@@ -45,10 +45,10 @@ if(isset($_POST['updList'])){
     $userId = $_POST['userId'];
 
     $db = Database::getDb();
-    $carClass = new Lists();
+    $listClass = new Lists();
     
     // setting the values of a car to be held in count
-    $count = $carClass->updateCar($id, $title, $creationDate, $userId, $db);
+    $count = $listClass->updateList($id, $title, $creationDate, $userId, $db);
 
     // checking if count is set
     if($count){

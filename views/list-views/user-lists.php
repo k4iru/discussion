@@ -36,6 +36,7 @@ $lists =  $listClass->getAllLists(Database::getDb());
                     <th scope="col">User ID</th>
                     <th scope="col">Update</th>
                     <th scope="col">Delete</th>
+                    <th scope="col">Details</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,12 @@ $lists =  $listClass->getAllLists(Database::getDb());
                             <form action="delete-list.php" method="post">
                                 <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
                                 <input type="submit" class="button btn btn-danger" name="deleteList" value="Delete"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="details-list.php" method="post">
+                                <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
+                                <input type="submit" class="button btn btn-danger" name="detailsList" value="Details"/>
                             </form>
                         </td>
                     </tr>

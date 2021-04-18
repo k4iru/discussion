@@ -39,9 +39,9 @@ class Lists
         $pst->bindParam(':id', $id);
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
-    }
+    }   
 
-    public function updateCar($id, $title, $creationDate, $userId, $db){
+    public function updateList($id, $title, $creationDate, $userId, $db){
         $sql = "Update lists
                 set list_name = :title,
                 creation_date = :creationDate,
@@ -70,5 +70,27 @@ class Lists
         $count = $pst->execute();
         return $count;
 
+    }
+
+    // ListXMovies Database Methods
+    public function getListDetails($listId, $db){
+        $sql = "SELECT * FROM listsxmovies where list_id = :id";
+        $pst = $db->prepare($sql);
+        $pst->bindParam(':id', $listId);
+        $pst->execute();
+
+        $lists = $pst->fetchAll(\PDO::FETCH_OBJ);
+        return $lists;
+
+        // return $pst->fetch(\PDO::FETCH_OBJ);
+    }
+
+    public function getMovie($movieId, $db){
+        $sql = "SELECT * FROM movie_info where id = :id";
+        $pst = $db->prepare($sql);
+        $pst->bindParam(':id', $movieId);
+        $pst->execute();
+
+        return $pst->fetch(\PDO::FETCH_OBJ);
     }
 }
