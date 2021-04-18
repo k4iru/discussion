@@ -5,8 +5,8 @@
 use PhPKnights\Model\{Database, Lists};
 // require_once '../vendor/autoload.php';  <---- Not working for some reason, to figure out later
 
-require_once '../Model/list.php';
-require_once '../Model/database.php';
+require_once '../../Model/Database.php';
+require_once '../../Model/List.php';
 
 // $s = new Make();
 // $makes = $s->getAllMakes(Database::getDb());
@@ -110,7 +110,7 @@ if(isset($_POST['updList'])){
         <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
         <button type="submit" name="updList"
                 class="btn btn-primary float-right" id="btn-submit">
-            Update Car
+            Update List
         </button>
     </form>
 </div>
