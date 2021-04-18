@@ -5,6 +5,7 @@
     --main-bg     : #141414;
     --secondary-bg: blue;
     --text-main   : white;
+    --error-color : red;
 }
 
 *,
@@ -57,6 +58,10 @@ nav {
     display: inline-block;
     vertical-align: middle;
     padding-right : 1em;
+}
+
+.error {
+    color: var(--error-color);
 }
 
 .links {

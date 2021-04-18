@@ -66,9 +66,9 @@ if (isset($_POST['submit'])) {
         </div>
         <div>
             <label for="password">Password</label> <span class="error">
-                <input type="password" name="password"> <?= $passwordError; ?></span>
+                <input type="password" name="password"> <span class="error"> <?= $passwordError; ?></span>
         </div>
-        <span><?= $err; ?></span>
+        <span class="error"><?= $err; ?></span>
         <input type="submit" name="submit" value="Login">
     </form>
     <?php require_once 'footer.php'; ?>
