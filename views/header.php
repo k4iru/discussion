@@ -15,5 +15,14 @@
             <input class="search-input" type="search" placeholder="Search" aria-label="Search" name="search" />
             <button class="search-btn" type="submit">Search</button>
         </form>
+        <?php
+        // logout button if logged in
+        if (isset($_SESSION['valid']) == true) {
+            echo "
+            <form action='/http-5202-group/views/logout.php' method='POST'>
+                <input type='submit' name='logout' value='Logout'>
+            </form>";
+        } 
+        ?>
     </nav>
 </header>

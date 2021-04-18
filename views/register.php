@@ -8,29 +8,109 @@ require_once '../Model/User.php';
 use PhPKnights\Model\Database;
 use PhPKnights\Model\User;
 
-$err = "";
+// variables
+$username = $email = $emailConfirm = $first = $last = $password = $passwordConfirm = "";
+// Error messages
+$passwordError = $lastNameError = $firstNameError = $userNameError = $emailError = "";
+$err = false;
+
 
 if (isset($_POST['submit'])) {
+    // set up User and Database objects
     $user = new User();
     $db = Database::getDB();
 
-    $username = $user->userNameExists($db, $_POST['username']);
-    // username exists do stuff
-    if ($username !== false) {
-        $err = "Username Exists";
+    // get form values
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $emailConfirm = $_POST['emailConfirm'];
+    $first = $_POST['first'];
+    $last = $_POST['last'];
+    $password = $_POST['password'];
+    $passwordConfirm = $_POST['passwordConfirm'];
+
+    // first name 
+    if (empty($_POST['first'])) {
+        $firstNameError = "*";
+        $err = true;
+    } else {
+        $first = filter_var($_POST['first'], FILTER_SANITIZE_STRING);
     }
 
-    $email = $user->emailExists($db, $_POST['email']);
-
-    // email exists do stuff
-    if ($email !== false) {
-        $err = "Email already used";
+    // last name 
+    if (empty($_POST['last'])) {
+        $lastNameError = "*";
+        $err = true;
+    } else {
+        $last = filter_var($_POST['last'], FILTER_SANITIZE_STRING);
     }
 
-    // TODO 
-    // validate form
-    // check database for existing users
-    // add to db
+    // username 
+    if (empty($_POST['username'])) {
+        $userNameError = "*";
+        $err = true;
+    } else {
+        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    }
+
+    // password
+    if (empty($_POST['password'])) {
+        $passwordError = "*";
+        $err = true;
+    } else {
+        if ($_POST['password'] != $_POST['passwordConfirm']) {
+            $passwordError = "Password does not match";
+            $err = true;
+        } else {
+            $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+        }
+    }
+
+    // email
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $emailError = "Invalid Email Address";
+        $err = true;
+    } else {
+
+        if ($_POST['email'] != $_POST['emailConfirm']) {
+            $emailError = "Email does not match";
+            $err = true;
+        } else {
+            // sanitize string
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        }
+    }
+
+
+    // check if email or username exists
+    $usernameTest = $user->userNameExists($db, $_POST['username']);
+    // username exists, set error
+    if ($usernameTest !== false) {
+        $userNameError = "Username Exists";
+        $err = true;
+    }
+
+    $emailTest = $user->emailExists($db, $_POST['email']);
+    // email exists, set error
+    if ($emailTest !== false) {
+        $emailError = "Email already in use";
+        $err = true;
+    }
+
+    // no errors, add user to table
+    if ($err == false) {
+        $count = $user->addUser($db, $first, $last, $username, $password, $email);
+        // success!
+        if ($count) {
+            // set up session
+            $userId = $user->getUserId($db, $username);
+            $_SESSION['username'] = $username;
+            $_SESSION['valid'] = true;
+            $_SESSION['userId'] = $userId->id;
+            header ('Location: ../index.php');
+            exit;
+        }
+    }
 }
 
 ?>
@@ -49,44 +129,33 @@ if (isset($_POST['submit'])) {
     <?php require_once 'header.php'; ?>
     <main>
         <form action="" method="POST">
-        <div>
-            <span> <?= $err; ?></span>
-        </div>
+            <div>
+            </div>
             <div>
                 <label for="first">First Name</label>
-                <input type="text" name="first">
+                <input type="text" name="first" value=<?= $first; ?>> <span class="error"> <?= $firstNameError; ?></span>
             </div>
             <div>
                 <label for="last">Last Name</label>
-                <input type="text" name="last">
+                <input type="text" name="last" value=<?= $last; ?>> <span class="error"> <?= $lastNameError; ?></span>
             </div>
             <div>
                 <label for="username">Username</label>
-                <input type="text" name="username">
-            </div>
-
-            <div>
-                <label for="postal">Postal Code</label>
-                <input type="text" name="postal">
-            </div>
-
-            <div>
-                <label for="credit">Credit Card</label>
-                <input type="text" name="credit">
+                <input type="text" name="username" value=<?= $username; ?>> <span class="error"> <?= $userNameError; ?></span>
             </div>
 
             <div>
                 <label for="email">Email</label>
-                <input type="text" name="email">
+                <input type="text" name="email" value=<?= $email; ?>> <span class="error"> <?= $emailError; ?></span>
             </div>
             <div>
                 <label for="emailConfirm">Confirm Email</label>
-                <input type="text" name="emailConfirm">
+                <input type="text" name="emailConfirm" >
             </div>
 
             <div>
-                <label for="password">Password</label>
-                <input type="password" name="password">
+                <label for="password">Password</label> <span class="error"> <?= $passwordError; ?></span>
+                <input type="password" name="password" >
             </div>
 
             <div>

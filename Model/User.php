@@ -46,4 +46,40 @@ class User {
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
+
+    public function addUser($db, $first, $last, $username, $password, $email) {
+        $query = "INSERT INTO users 
+        (first_name, last_name, date_added, username, password, email) 
+        VALUES (:first, :last, NOW(), :username, :password, :email)";
+
+        $hash = hash('sha256', $password);
+        $pst = $db->prepare($query);
+        $pst->bindParam(':first', $first);
+        $pst->bindParam(':last', $last);
+        $pst->bindParam(':username', $username);
+        $pst->bindParam(':password', $hash);
+        $pst->bindParam(':email', $email);
+
+        return $pst->execute();
+    }
+
+    public function getUserId($db, $username) {
+        $query = "SELECT id FROM users WHERE username = :username";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':username', $username);
+
+        $pst->execute();
+        return $pst->fetch(\PDO::FETCH_OBJ);
+    }
+
+    public function authenticateUser($db, $username, $password) {
+        $query = 
+        "SELECT id FROM users WHERE username = :username AND password = :password";
+        $hash = hash('sha256', $password);
+        $pst = $db->prepare($query);
+        $pst->bindParam(':username', $username);
+        $pst->bindParam(':password', $hash);
+        $pst->execute();
+        return $pst->fetch(\PDO::FETCH_OBJ);
+    }
 }

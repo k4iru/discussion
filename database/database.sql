@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS movie_db;
 
 CREATE DATABASE movie_db;
 
+DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,
@@ -9,10 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
     date_added DATETIME NOT NULL,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    postal VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    credit_card VARCHAR(255) NOT NULL
+    email VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE threads (
