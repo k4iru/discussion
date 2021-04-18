@@ -50,7 +50,7 @@ CREATE TABLE listsxmovies (
     list_id INT,
     movie_id INT,
     FOREIGN KEY (list_id) REFERENCES lists(id),
-    FOREIGN KEY (movie_id) REFERENCES movies(id)
+    FOREIGN KEY (movie_id) REFERENCES movie_info(id)
 );
 
 CREATE TABLE genres (
@@ -72,7 +72,7 @@ CREATE TABLE usersxmovies (
     user_id INT,
     movie_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (movie_id) REFERENCES movies(id)
+    FOREIGN KEY (movie_id) REFERENCES movie_info(id)
 );
 
 CREATE TABLE search (
