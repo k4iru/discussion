@@ -71,4 +71,14 @@ class User
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
+
+    public function getUser($db, $userId)
+    {
+        $query = "SELECT * FROM users WHERE id = :id";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':id', $userId);
+
+        $pst->execute();
+        return $pst->fetch(\PDO::FETCH_OBJ);
+    }
 }

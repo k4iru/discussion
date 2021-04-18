@@ -85,6 +85,7 @@ class Lists
         // return $pst->fetch(\PDO::FETCH_OBJ);
     }
 
+    // Movie_Info Database Methods
     public function getMovie($movieId, $db){
         $sql = "SELECT * FROM movie_info where id = :id";
         $pst = $db->prepare($sql);
@@ -93,4 +94,6 @@ class Lists
 
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
+
+    
 }

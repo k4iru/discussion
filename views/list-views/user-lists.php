@@ -1,14 +1,16 @@
 <?php
 // namespace PhPKnights\Model;
-use PhPKnights\Model\{Database, Lists};
+use PhPKnights\Model\{Database, Lists, User};
 // require_once '../vendor/autoload.php';  <---- Not working for some reason, to figure out later
 
 require_once '../../Model/Database.php';
 require_once '../../Model/List.php';
+require_once '../../Model/User.php';
 
 $dbcon = Database::getDb();
 $listClass = new Lists();
 $lists =  $listClass->getAllLists(Database::getDb());
+$userClass = new User();
 
 ?>
 <html lang="en">
@@ -40,12 +42,15 @@ $lists =  $listClass->getAllLists(Database::getDb());
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($lists as $list) { ?>
+                <?php foreach ($lists as $list) { 
+                    $user =  $userClass->getUser(Database::getDb(), $list->user_id);
+                    ?>
+                
                     <tr>
                         <th><?= $list->id; ?></th>
                         <td><?= $list->creation_date; ?></td>
                         <td><?= $list->list_name; ?></td>
-                        <td><?= $list->user_id; ?></td>
+                        <td><?= $user->username; ?></td>
                         <td>
                             <form action="update-list.php" method="post">
                                 <input type="hidden" name="id" value="<?= $list->id; ?>"/>
