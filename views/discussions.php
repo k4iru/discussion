@@ -11,6 +11,10 @@ $db = Database::getDB();
 $thread = new Discussion();
 
 $threads = $thread->listThreads($db);
+
+if (isset($_GET['submit'])) {
+    echo "test";
+}
 ?>
 
 
@@ -22,7 +26,8 @@ $threads = $thread->listThreads($db);
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="/http-5202-group/styles/discussion.css">
+    <script src="/http-5202-group/scripts/discussion.js"></script>
 </head>
 
 <body>
@@ -35,14 +40,26 @@ $threads = $thread->listThreads($db);
     <?php
     foreach ($threads as $t) {
         $id = $t->id;
+        $creation_date = new DateTime($t->creation_date);
+        $creation_date = date_format($creation_date, "Y-m-d");
         $title = $t->title;
-        $last_post = $t->last_post;
+        $last_post = new DateTime($t->last_post);
+        $last_post = date_format($last_post, "Y-m-d");
         $last_post_user_id = $t->last_post_user_id;
         $user_id = $t->user_id;
     ?>
-    <ul>
-    <li><?= $id?></li>
-    </ul>
+
+        <div class="discussion" onclick="getPage(<?= $id;?>)">
+            <div>
+                <h3><?= $title ?></h3>
+                <p><?= $user_id ?></p>
+                <p><?= $creation_date ?></p>
+            </div>
+            <div>
+                <p><?= $last_post_user_id ?></p>
+                <p><?= $last_post ?></p>
+            </div>
+        </div>
 
     <?php
     }

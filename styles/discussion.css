@@ -1,0 +1,6 @@
+.discussion {
+    color: blue;
+}
+.discussion:hover {
+    border: 1px solid red;
+}
