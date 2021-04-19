@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 // namespace PhPKnights\Model;
 
 use PhPKnights\Model\{Database, Lists};
@@ -30,6 +31,20 @@ if(isset($_POST['detailsList'])){
     // }
     $title = $specificList->list_name;
     // var_dump($title);
+} else {
+
+    $userListId = $_SESSION['userListId'] ;
+
+    $db = Database::getDb();
+
+    $listClass = new Lists();
+
+    // getting the info for the car based on the id
+    $lists = $listClass->getListDetails($userListId, $db);
+    $specificList = $listClass->getListById($userListId,$db);
+
+    $title = $specificList->list_name;
+
 }
 
 ?>

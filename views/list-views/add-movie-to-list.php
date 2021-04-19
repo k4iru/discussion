@@ -28,6 +28,7 @@ require_once '../../Model/List.php';
 
 
        if($newMovieInList){
+            header('Location: details-list.php');
            echo "Added Movie To your List sucessfully";
        } else {
            echo "problem adding the movie to your list";
