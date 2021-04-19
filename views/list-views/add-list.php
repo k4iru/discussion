@@ -8,9 +8,6 @@ use PhPKnights\Model\{Database, Lists};
 require_once '../../Model/Database.php';
 require_once '../../Model/List.php';
 
-$s = new Lists();
-// $makes = $s->getAllMakes(Database::getDb());
-
     // Checking to see that the submit button is set
     if(isset($_POST['addList'])){
        // Retrieving the values from the form
@@ -44,8 +41,12 @@ $s = new Lists();
     <title>Add A List</title>
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
+    <link rel="stylesheet" href="../../styles/style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
+
+<!--Header-->
+<?php require_once '../header.php' ?>
 
 <body>
 
@@ -85,6 +86,7 @@ $s = new Lists();
     </form>
 </div>
 
-
+        <!--Footer-->
+        <?php require_once '../footer.php' ?>
 </body>
 </html
