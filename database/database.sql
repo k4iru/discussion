@@ -17,8 +17,11 @@ CREATE TABLE threads (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     creation_date DATETIME NOT NULL,
+    last_post DATETIME NOT NULL,
+    last_post_user_id INT,
     user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY(last_post_user_id) REFERENCES users(id)
 );
 
 CREATE TABLE movies (

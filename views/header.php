@@ -4,8 +4,8 @@
         <ul class="nav-list">
             <li class="options"><a class="links" href="#">Movies</a></li>
             <li class="options"><a class="links" href="#">People</a></li>
-            <li class="options"><a class="links" href="#">Discussions</a></li>
-            <li class="options"><a class="links" href="#">Profile</a></li>
+            <li class="options"><a class="links" href="/http-5202-group/views/discussions.php">Discussions</a></li>
+            <li class="options"><a class="links" href="/http-5202-group/views/profile.php">Profile</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/trailers.php">Trailers</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/posters.php">Posters</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/review.php">Reviews</a></li>
