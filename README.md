@@ -10,6 +10,7 @@
 - [x] Users can update a list
 - [x] Users can delete a list
 - [x] Users can see details about a list (information retrieved from movies table & listsxmovies bridging table)
+- [X] Add movies to a list
 
 #### Qualitative
 - [ ] Pages are styled and responsive
@@ -17,7 +18,6 @@
 
 #### To Add
 - [ ] Different Priviledges for admins and users for Lists
-- [ ] Add movies to a list
 - [ ] Delete Movies on a list
 
 ### In-Progress Status:
