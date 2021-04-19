@@ -85,6 +85,25 @@ class Lists
         // return $pst->fetch(\PDO::FETCH_OBJ);
     }
 
+    public function addMovieToList($listId, $movieId, $db)
+    {
+        // SQL with placeholders (eg. :make)
+        $sql = "INSERT INTO listsxmovies (list_id, movie_id) 
+              VALUES (:listId, :movieId) ";
+        $pst = $db->prepare($sql);
+
+        // binding the values to the placeholders
+        $pst->bindParam(':listId', $listId);
+        $pst->bindParam(':movieId', $movieId);
+
+        // Running the SQL query
+        $count = $pst->execute();
+
+        // returns the count variable which is holding #of rows affected by query.
+        return $count;
+    }
+
+
     // Movie_Info Database Methods
     public function getMovie($movieId, $db){
         $sql = "SELECT * FROM movie_info where id = :id";
@@ -95,5 +114,5 @@ class Lists
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
 
-    
+
 }
