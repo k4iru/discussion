@@ -114,5 +114,17 @@ class Lists
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
 
+    public function getAllMovies($dbcon){
+
+
+        $sql = "SELECT * FROM movie_info";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->execute();
+
+        $movies = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $movies;
+    }
+
+
 
 }

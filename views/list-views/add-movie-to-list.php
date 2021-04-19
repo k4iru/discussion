@@ -11,21 +11,22 @@ use PhPKnights\Model\{Database, Lists};
 
 require_once '../../Model/Database.php';
 require_once '../../Model/List.php';
+require_once '../../library/functions.php';
+
+    // Accessing the Database
+    $db = Database::getDb();
+
+    $listClass = new Lists();
+
+    $listOfMovies = $listClass->getAllMovies($db); 
 
     // Checking to see that the submit button is set
     if(isset($_POST['addList'])){
        // Retrieving the values from the form
        $movieId = $_POST['movieId'];
 
-        // Accessing the Database
-       $db = Database::getDb();
-
-       // Creating a new Instance of Car
-       $listClass = new Lists();
-
-       // Creating a new car with the values retrieved from the form.
        $newMovieInList = $listClass->addMovieToList($listId, $movieId, $db);
-
+       
 
        if($newMovieInList){
             header('Location: details-list.php');
@@ -48,15 +49,22 @@ require_once '../../Model/List.php';
 </head>
 
 <body>
-
 <div>
     <!--    Form to Add Movie To a user created list -->
     <form action="" method="post">
         <input type="hidden" name="listId" value="<?= $listId; ?>"/>
         <div class="form-group">
-            <label for="movieId">Movie ID :</label>
-            <input type="text" name="movieId" value="" class="form-control"
-                   id="movieId" placeholder="Enter Movie ID">
+            <label for="movieId">Add a Movie to your List! :</label>
+            <select name="movieId" id="movieId">
+            <?php
+            $html_dropdown = "";
+            foreach ($listOfMovies as $movie) {
+                $html_dropdown .= "<option value='$movie->id'>$movie->name</option>";
+            }
+            echo($html_dropdown);
+            ?>
+            </select>
+
             <span style="color: red">
 
             </span>
