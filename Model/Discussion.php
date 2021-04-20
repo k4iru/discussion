@@ -23,4 +23,12 @@ class Discussion {
         $pst->execute();
         return $pst->fetchAll(\PDO::FETCH_OBJ);
     }
+
+    public function getThread($db, $id) {
+        $query = "SELECT * FROM threads WHERE id = :id";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':id', $id);
+        $pst->execute();
+        return $pst->fetch(\PDO::FETCH_OBJ);
+    }
 }

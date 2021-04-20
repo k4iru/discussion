@@ -14,4 +14,12 @@ class Post {
 
         return $pst->execute();
     }
+    public function getPosts($db, $threadId) {
+        $query = "SELECT * FROM posts WHERE thread_id = :thread_id ORDER BY creation_date ASC";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':thread_id', $threadId);
+        $pst->execute();
+
+        return $pst->fetchAll(\PDO::FETCH_OBJ);
+    }
 }
