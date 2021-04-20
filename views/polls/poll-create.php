@@ -50,7 +50,7 @@ include_once "../header.php";
     <!--    Form to Add  Poll -->
     <div class="content update">
 	<h2>Create Poll</h2>
-    <form action="add-poll.php" method="post">
+    <form action="poll-create.php" method="post">
         <label for="title">Title</label>
         <input type="text" name="title" id="title">
         <label for="options">Options (1 per line)</label>
@@ -61,7 +61,10 @@ include_once "../header.php";
     <p><?=$msg?></p>
     <?php endif; ?>
 </div>
-
+<div>
+           
+           <a href="poll-list.php">Back to List</a>
+       </div>
 <?php
 include_once "../footer.php";                
 ?>

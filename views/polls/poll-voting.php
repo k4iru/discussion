@@ -71,7 +71,10 @@ include_once "../header.php";
         </div>
     </form>
 </div>
-
+<div>
+           
+           <a href="poll-list.php">Back to List</a>
+       </div>
 <?php
 include_once "../footer.php";                
 ?>
