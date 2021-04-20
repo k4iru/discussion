@@ -5,8 +5,8 @@
 use PhPKnights\Model\{Database, Lists};
 // require_once '../vendor/autoload.php';  <---- Not working for some reason, to figure out later
 
-require_once '../Model/list.php';
-require_once '../Model/database.php';
+require_once '../../Model/Database.php';
+require_once '../../Model/List.php';
 
 // $s = new Make();
 // $makes = $s->getAllMakes(Database::getDb());
@@ -45,10 +45,10 @@ if(isset($_POST['updList'])){
     $userId = $_POST['userId'];
 
     $db = Database::getDb();
-    $carClass = new Lists();
+    $listClass = new Lists();
     
     // setting the values of a car to be held in count
-    $count = $carClass->updateCar($id, $title, $creationDate, $userId, $db);
+    $count = $listClass->updateList($id, $title, $creationDate, $userId, $db);
 
     // checking if count is set
     if($count){
@@ -60,17 +60,19 @@ if(isset($_POST['updList'])){
 
 
 ?>
-
 <html lang="en">
 
 <head>
     <title>Update A List</title>
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
+    <link rel="stylesheet" href="../../styles/style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
 <body>
+        <!--Header-->
+        <?php require_once '../header.php' ?>
 
 <div>
     <!--    Form to Update Car -->
@@ -110,11 +112,12 @@ if(isset($_POST['updList'])){
         <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
         <button type="submit" name="updList"
                 class="btn btn-primary float-right" id="btn-submit">
-            Update Car
+            Update List
         </button>
     </form>
 </div>
 
-
+        <!--Footer-->
+        <?php require_once '../footer.php' ?>
 </body>
 </html

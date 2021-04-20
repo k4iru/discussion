@@ -5,11 +5,8 @@
 use PhPKnights\Model\{Database, Lists};
 // require_once '../vendor/autoload.php';  <---- Not working for some reason, to figure out later
 
-require_once '../Model/list.php';
-require_once '../Model/database.php';
-
-$s = new Lists();
-// $makes = $s->getAllMakes(Database::getDb());
+require_once '../../Model/Database.php';
+require_once '../../Model/List.php';
 
     // Checking to see that the submit button is set
     if(isset($_POST['addList'])){
@@ -21,17 +18,17 @@ $s = new Lists();
         // Accessing the Database
        $db = Database::getDb();
 
-       // Creating a new Instance of Car
+       // Creating a new Instance of List
        $listClass = new Lists();
 
-       // Creating a new car with the values retrieved from the form.
+       // Creating a new List with the values retrieved from the form.
        $newList = $listClass->addList($title, $creationDate, $userId, $db);
 
 
        if($newList){
-           echo "Added car sucessfully";
+           echo "Added List sucessfully";
        } else {
-           echo "problem adding a car";
+           echo "problem adding a List";
        }
 
     }
@@ -44,13 +41,17 @@ $s = new Lists();
     <title>Add A List</title>
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
+    <link rel="stylesheet" href="../../styles/style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
+
+<!--Header-->
+<?php require_once '../header.php' ?>
 
 <body>
 
 <div>
-    <!--    Form to Add  Car -->
+    <!--    Form to Add List -->
     <form action="" method="post">
 
         <div class="form-group">
@@ -85,6 +86,7 @@ $s = new Lists();
     </form>
 </div>
 
-
+        <!--Footer-->
+        <?php require_once '../footer.php' ?>
 </body>
 </html

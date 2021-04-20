@@ -5,8 +5,8 @@
 use PhPKnights\Model\{Database, Lists};
 // require_once '../vendor/autoload.php';  <---- Not working for some reason, to figure out later
 
-require_once '../Model/list.php';
-require_once '../Model/database.php';
+require_once '../../Model/Database.php';
+require_once '../../Model/List.php';
 
 if(isset($_POST['id'])){
     $id = $_POST['id'];
