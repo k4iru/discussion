@@ -1,6 +1,10 @@
 <?php
 use PhPKnights\Model\{Database, TrailerData, polls};
-require_once '../vendor/autoload.php';
+//require_once '../vendor/autoload.php';
+
+require_once '../../Model/Database.php';
+require_once '../../Model/Polls.php';
+require_once '../../Model/User.php';
 
 if(isset($_POST['id'])) {
     $id = $_POST['id'];

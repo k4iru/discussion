@@ -53,7 +53,8 @@ class Polls
     }
 
     public function deletePoll($id, $db){
-        $sql = "DELETE FROM polls WHERE id = :id";
+        //$sql = "DELETE FROM polls WHERE id = :id";
+        $sql = "DELETE FROM polls WHERE id = :id; DELETE FROM poll_answers WHERE poll_id = :id";
 
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);

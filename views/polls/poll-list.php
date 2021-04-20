@@ -49,7 +49,7 @@ include_once "../header.php";
                 <a href="poll-voting.php?id=<?=$poll->id?>" class="view" title="View Poll">Vote Now</i></a>
                 </td>
                 <td>
-                    <form action="./poll-delete.php" method="post">
+                    <form action="./poll-confirmdelete.php" method="post">
                         <input type="hidden" name="id" value="<?= $poll->id ?>"/>
                         <input type="submit" class="button btn btn-danger" name="deletePoll" value="Delete"/>
                     </form>
