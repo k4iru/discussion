@@ -23,3 +23,15 @@
 ### In-Progress Status:
 
 ### Payment System:
+
+
+## Muhammad Danyal Effendi
+
+### User Created Polls:
+
+#### Basic Crud
+- [x] Users can create a new poll
+- [x] Users can read a list of polls
+- [x] Users can delete a poll
+- [x] Users can vote in a poll
+- [x] Users can see results of voting
