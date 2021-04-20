@@ -47,6 +47,7 @@ nav {
     /*padding: 0.75em;*/
     display: flex;
     flex-flow: nowrap column;
+    justify-content: space-around;
 }
 
 .nav-list {
@@ -57,6 +58,12 @@ nav {
     display: inline-block;
     vertical-align: middle;
     padding-right : 1em;
+    justify-content: space-evenly;
+}
+
+.links:hover {
+    color: ;
+    transition: 1s;
 }
 
 .links {
@@ -69,9 +76,6 @@ nav {
     color: var(--link-hover);
 }
 
-.spacer {
-    flex-grow: 1;
-}
 
 .navbar {
     display       : flex;

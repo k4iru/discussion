@@ -1,6 +1,8 @@
 <?php
-use PhPKnights\Model\{Database, Trailer};
+use PhPKnights\Model\Database;
+use PhPKnights\Model\Movie;
 require_once '../vendor/autoload.php';
+
 
 ?>
 <!DOCTYPE html>
