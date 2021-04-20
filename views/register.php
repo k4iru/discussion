@@ -128,7 +128,8 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php require_once 'header.php'; ?>
-    <main>
+    <main id="main">
+    <h1>Register</h1>
         <form action="" method="POST">
             <div>
             </div>

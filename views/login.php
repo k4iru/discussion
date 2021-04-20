@@ -59,19 +59,21 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>Login Page</h1>
-    <form action="" method="POST">
-        <div>
-            <label for="first">Username</label>
-            <input type="text" name="username" value=<?= $username; ?>> <span class="error"> <?= $userNameError; ?></span>
-        </div>
-        <div>
-            <label for="password">Password</label> <span class="error">
-                <input type="password" name="password"> <span class="error"> <?= $passwordError; ?></span>
-        </div>
-        <span class="error"><?= $err; ?></span>
-        <input type="submit" name="submit" value="Login">
-    </form>
+    <main id="main">
+        <h1>Login Page</h1>
+        <form action="" method="POST">
+            <div>
+                <label for="first">Username</label>
+                <input type="text" name="username" value=<?= $username; ?>> <span class="error"> <?= $userNameError; ?></span>
+            </div>
+            <div>
+                <label for="password">Password</label> <span class="error">
+                    <input type="password" name="password"> <span class="error"> <?= $passwordError; ?></span>
+            </div>
+            <span class="error"><?= $err; ?></span>
+            <input type="submit" name="submit" value="Login">
+        </form>
+    </main>
     <?php require_once 'footer.php'; ?>
 </body>
 

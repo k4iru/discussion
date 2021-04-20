@@ -32,38 +32,40 @@ if (isset($_GET['submit'])) {
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>Discussion Board</h1>
+    <main id="main">
+        <h1>Discussion Board</h1>
 
-    <a href="/http-5202-group/views/create_discussion.php"><button>New Thread</button></a>
+        <a href="/http-5202-group/views/create_discussion.php"><button>New Thread</button></a>
 
-    <!-- have a php loop that lists threads by last updated date -->
-    <?php
-    foreach ($threads as $t) {
-        $id = $t->id;
-        $creation_date = new DateTime($t->creation_date);
-        $creation_date = date_format($creation_date, "Y-m-d");
-        $title = $t->title;
-        $last_post = new DateTime($t->last_post);
-        $last_post = date_format($last_post, "Y-m-d");
-        $last_post_user_id = $t->last_post_user_id;
-        $user_id = $t->user_id;
-    ?>
+        <!-- have a php loop that lists threads by last updated date -->
+        <?php
+        foreach ($threads as $t) {
+            $id = $t->id;
+            $creation_date = new DateTime($t->creation_date);
+            $creation_date = date_format($creation_date, "Y-m-d");
+            $title = $t->title;
+            $last_post = new DateTime($t->last_post);
+            $last_post = date_format($last_post, "Y-m-d");
+            $last_post_user_id = $t->last_post_user_id;
+            $user_id = $t->user_id;
+        ?>
 
-        <div class="discussion" onclick="getPage(<?= $id;?>)">
-            <div>
-                <h3><?= $title ?></h3>
-                <p><?= $user_id ?></p>
-                <p><?= $creation_date ?></p>
+            <div class="discussion" onclick="getPage(<?= $id; ?>)">
+                <div>
+                    <h3><?= $title ?></h3>
+                    <p><?= $user_id ?></p>
+                    <p><?= $creation_date ?></p>
+                </div>
+                <div>
+                    <p><?= $last_post_user_id ?></p>
+                    <p><?= $last_post ?></p>
+                </div>
             </div>
-            <div>
-                <p><?= $last_post_user_id ?></p>
-                <p><?= $last_post ?></p>
-            </div>
-        </div>
 
-    <?php
-    }
-    ?>
+        <?php
+        }
+        ?>
+    </main>
 
     <?php require_once 'footer.php'; ?>
 </body>
