@@ -5,6 +5,7 @@ function logout()
 {
     unset($_SESSION["username"]);
     unset($_SESSION["userId"]);
+    unset($_SESSION["userGroup"]);
     unset($_SESSION["valid"]);
     header('Location: /http-5202-group/index.php');
     exit;

@@ -35,9 +35,11 @@ class User
 
     public function addUser($db, $first, $last, $username, $password, $email)
     {
+        // admin is usergroup 0
+        // regular user is usergroup 1
         $query = "INSERT INTO users 
-        (first_name, last_name, date_added, username, password, email) 
-        VALUES (:first, :last, NOW(), :username, :password, :email)";
+        (first_name, last_name, date_added, user_group, username, password, email) 
+        VALUES (:first, :last, NOW(), 1, :username, :password, :email)";
 
         $hash = hash('sha256', $password);
         $pst = $db->prepare($query);
@@ -46,24 +48,20 @@ class User
         $pst->bindParam(':username', $username);
         $pst->bindParam(':password', $hash);
         $pst->bindParam(':email', $email);
-
-        return $pst->execute();
-    }
-
-    public function getUserId($db, $username)
-    {
-        $query = "SELECT id FROM users WHERE username = :username";
-        $pst = $db->prepare($query);
-        $pst->bindParam(':username', $username);
-
         $pst->execute();
-        return $pst->fetch(\PDO::FETCH_OBJ);
+
+        // if added to db then return the last inserted id, else return 0;
+        if ($pst->execute()) {
+            $lastInsertId = $db->lastInsertId();
+            return $lastInsertId;
+        }
+        return 0;
     }
 
     public function authenticateUser($db, $username, $password)
     {
         $query =
-            "SELECT id FROM users WHERE username = :username AND password = :password";
+            "SELECT * FROM users WHERE username = :username AND password = :password";
         $hash = hash('sha256', $password);
         $pst = $db->prepare($query);
         $pst->bindParam(':username', $username);

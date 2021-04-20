@@ -99,14 +99,15 @@ if (isset($_POST['submit'])) {
 
     // no errors, add user to table
     if ($err == false) {
-        $count = $user->addUser($db, $first, $last, $username, $password, $email);
+        $lastUserId = $user->addUser($db, $first, $last, $username, $password, $email);
         // success!
-        if ($count) {
+        if ($lastUserId) {
             // set up session
-            $userId = $user->getUserId($db, $username);
+            $authenticatedUser = $user->getUser($db, $lastUserId);
             $_SESSION['username'] = $username;
             $_SESSION['valid'] = true;
-            $_SESSION['userId'] = $userId->id;
+            $_SESSION['userGroup'] = $authenticatedUser->user_group;
+            $_SESSION['userId'] = $authenticatedUser->id;
             header ('Location: ../index.php');
             exit;
         }

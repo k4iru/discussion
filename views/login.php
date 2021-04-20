@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
     if ($authenticatedUser) {
         $_SESSION['username'] = $username;
         $_SESSION['valid'] = true;
+        $_SESSION['userGroup'] = $authenticatedUser->user_group;
         $_SESSION['userId'] = $authenticatedUser->id;
         header('Location: ../index.php');
         exit;
