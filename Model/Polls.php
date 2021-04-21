@@ -3,7 +3,7 @@ namespace PhPKnights\Model;
 
 class Polls
 {
-    public function getOptions($db){
+    public function getOptions($poll_id, $db){
         $query = "SELECT * FROM poll_answers WHERE poll_id = ?";
         $pdostm = $db->prepare($query);
         $pdostm->execute();

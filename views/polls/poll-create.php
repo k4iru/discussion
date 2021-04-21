@@ -1,14 +1,9 @@
 <?php
 use PhPKnights\Model\{Database, Polls};
-//require_once '../vendor/autoload.php';
-require_once '../../Model/Database.php';
-require_once '../../Model/Polls.php';
-require_once '../../Model/User.php';
+require_once '../../vendor/autoload.php';
 
 session_start();
 if (isset($_SESSION['username'])) {
-
-    $db = Database::getDb();
     $msg = '';
     if (!empty($_POST)) {
         // Post data not empty insert a new record
@@ -58,7 +53,7 @@ if (isset($_SESSION['username'])) {
         <label for="title">Title</label>
         <input type="text" name="title" id="title">
         <label for="options">Options (1 per line)</label>
-        <textarea name="options" id="options"></textarea>
+        <textarea name="options" id="options" ></textarea>
         <input type="submit" value="Create">
     </form>
     <?php if ($msg): ?>
