@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require_once '../Model/Database.php';
-require_once '../Model/Discussion.php';
+require_once '../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\Discussion;
@@ -35,10 +34,16 @@ if (isset($_GET['submit'])) {
     <main id="main">
         <h1>Discussion Board</h1>
 
-        <a href="/http-5202-group/views/create_discussion.php"><button>New Thread</button></a>
+        <?php if (isset($_SESSION['valid']) == true) { ?>
+            <a href="/http-5202-group/views/create_discussion.php"><button>New Thread</button></a>
+        <?php } else { ?>
+            <a href="/http-5202-group/views/login.php"><button>New Thread</button></a>
 
-        <!-- have a php loop that lists threads by last updated date -->
+
+            <!-- have a php loop that lists threads by last updated date -->
         <?php
+
+        }
         foreach ($threads as $t) {
             $id = $t->id;
             $creation_date = new DateTime($t->creation_date);
@@ -51,12 +56,15 @@ if (isset($_GET['submit'])) {
         ?>
 
             <div class="discussion" onclick="getPage(<?= $id; ?>)">
-                <div>
+                <div class="discussion-title">
                     <h3><?= $title ?></h3>
-                    <p><?= $user_id ?></p>
-                    <p><?= $creation_date ?></p>
+
+                    <p>User: <?= $user_id ?> <?= $creation_date ?></p>
                 </div>
-                <div>
+                <div class="discussion-replies">
+                    <p>Replies: 20</p>
+                </div>
+                <div class="discussion-last">
                     <p><?= $last_post_user_id ?></p>
                     <p><?= $last_post ?></p>
                 </div>

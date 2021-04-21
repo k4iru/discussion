@@ -1,7 +1,6 @@
 <header>
     <nav class="navbar">
-        <a href="/http-5202-group/index.php"><img src="/http-5202-group/images/newlogo.png" alt="php knights logo"
-                class="logo" /></a>
+        <a href="/http-5202-group/index.php"><img src="/http-5202-group/images/newlogo.png" alt="php knights logo" class="logo" /></a>
         <ul class="nav-list">
             <li class="options"><a class="links" href="#">Movies</a></li>
             <li class="options"><a class="links" href="#">People</a></li>
@@ -22,13 +21,13 @@
             <button class="search-btn" type="submit">Search</button>
         </form>
         <?php
-// logout button if logged in
-if (isset($_SESSION['valid']) == true) {
-    echo "
+        // logout button if logged in
+        if (isset($_SESSION['valid']) == true) {
+            echo "
             <form action='/http-5202-group/views/logout.php' method='POST'>
                 <input type='submit' name='logout' value='Logout'>
             </form>";
-}
-?>
+        }
+        ?>
     </nav>
 </header>

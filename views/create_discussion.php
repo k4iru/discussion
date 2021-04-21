@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-require_once '../Model/Database.php';
-require_once '../Model/Discussion.php';
-require_once '../Model/Post.php';
+require_once '../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\Discussion;
@@ -16,6 +13,10 @@ if (isset($_POST['submit'])) {
     $db = Database::getDB();
     $thread = new Discussion();
     $post = new Post();
+
+    if (!isset($_SESSION['valid'])) {
+        header ("Location: /http-5202-group/views/login.php");
+    }
 
     // check if title is empty then sanitize
     if (empty($_POST['title'])) {
@@ -34,18 +35,17 @@ if (isset($_POST['submit'])) {
     }
 
     // no errors post thread
-    if ($err == false ) {
+    if ($err == false) {
         $lastInsertId = $thread->addThread($db, $title, $_SESSION['userId']);
         echo $lastInsertId;
 
-        $count = $post->addPost($db, $content, $lastInsertId, $_SESSION['userId'] );
+        $count = $post->addPost($db, $content, $lastInsertId, $_SESSION['userId']);
         echo $count;
         // $count true means successully posted
         if ($count) {
-            header ('Location: /http-5202-group/views/discussions.php');
+            header('Location: /http-5202-group/views/discussions.php');
             exit;
-        }
-        else {
+        } else {
             // add custom error later
             echo "error";
         }
@@ -67,22 +67,23 @@ if (isset($_POST['submit'])) {
 
 <body>
     <?php require_once 'header.php'; ?>
-    <h1>Create Thread</h1>
+    <main id="main">
+        <h1>Create Thread</h1>
 
-    <form action="" method="POST">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" name="title" value=<?= $title; ?>> <span class="error"> <?= $titleError; ?></span>
-        </div>
+        <form action="" method="POST">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" name="title" value=<?= $title; ?>> <span class="error"> <?= $titleError; ?></span>
+            </div>
 
-        <div>
-            <label for="content">Message</label>
-            <textarea name="content" rows="10" cols="80" value=<?= $content; ?>></textarea> <span class="error"> <?= $contentError; ?></span>
-        </div>
+            <div>
+                <label for="content">Message</label>
+                <textarea name="content" rows="10" cols="80" value=<?= $content; ?>></textarea> <span class="error"> <?= $contentError; ?></span>
+            </div>
 
-        <input type="submit" name="submit" value="post">
-    </form>
-
+            <input type="submit" name="submit" value="post">
+        </form>
+    </main>
     <?php require_once 'footer.php'; ?>
 </body>
 
