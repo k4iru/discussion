@@ -49,44 +49,43 @@ require_once '../../Model/List.php';
 <?php require_once '../header.php' ?>
 
 <body>
+    <main id="main">
+        <div>
+            <!--    Form to Add List -->
+            <form action="" method="post">
+                <div class="form-group">
+                    <label for="title">Title :</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                        
+                    
+                    <span style="color: red">
 
-<div>
-    <!--    Form to Add List -->
-    <form action="" method="post">
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="creationDate">Date :</label>
+                    <input type="date" class="form-control" id="creationDate" name="creationDate">
+                    <span style="color: red">
 
-        <div class="form-group">
-            <label for="title">Title :</label>
-            <input type="text" class="form-control" name="title" id="title">
-                
-            
-            <span style="color: red">
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="userId">User ID :</label>
+                    <input type="text" name="userId" value="" class="form-control"
+                        id="userId" placeholder="Enter User ID">
+                    <span style="color: red">
 
-            </span>
+                    </span>
+                </div>
+                <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
+                <button type="submit" name="addList"
+                        class="btn btn-primary float-right" id="btn-submit">
+                    Add List
+                </button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="creationDate">Date :</label>
-            <input type="date" class="form-control" id="creationDate" name="creationDate">
-            <span style="color: red">
-
-            </span>
-        </div>
-        <div class="form-group">
-            <label for="userId">User ID :</label>
-            <input type="text" name="userId" value="" class="form-control"
-                   id="userId" placeholder="Enter User ID">
-            <span style="color: red">
-
-            </span>
-        </div>
-        <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
-        <button type="submit" name="addList"
-                class="btn btn-primary float-right" id="btn-submit">
-            Add List
-        </button>
-    </form>
-</div>
-
-        <!--Footer-->
-        <?php require_once '../footer.php' ?>
+    </main>
+    <!--Footer-->
+    <?php require_once '../footer.php' ?>
 </body>
 </html

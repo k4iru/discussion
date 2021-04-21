@@ -25,36 +25,37 @@ $progress =  $progressClass->getMovieProgress(Database::getDb(), 2, 1);
         <!--Header-->
         <?php require_once '../header.php' ?>
 
-        <p class="h1 text-center">Movie Progress</p>
-        <div class="m-1">
-            <!--    Displaying Data in Table-->
-            <table class="table table-bordered tbl">
-                <thead>
-                <tr>
-                    <th scope="col">Progress</th>
-                </tr>
-                </thead>
-                <tbody>
-                        <td><?= $progress->movie_progress; ?></td>
-                        <td>
-                            <form action="update-list.php" method="post">
-                                <input type="hidden" name="id" value="<?= $progress->id; ?>"/>
-                                <input type="submit" class="button btn btn-primary" name="updateList" value="Update"/>
-                                <!-- <a href="./update-car.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add Car</a> -->
-                            </form>
-                        </td>
-                        <td>
-                            <form action="delete-list.php" method="post">
-                                <input type="hidden" name="id" value="<?=  $progress->id; ?>"/>
-                                <input type="submit" class="button btn btn-danger" name="deleteList" value="Delete"/>
-                            </form>
-                        </td>
+        <main id="main">
+            <p class="h1 text-center">Movie Progress</p>
+            <div class="m-1">
+                <!--    Displaying Data in Table-->
+                <table class="table table-bordered tbl">
+                    <thead>
+                    <tr>
+                        <th scope="col">Progress</th>
                     </tr>
-                </tbody>
-            </table>
-            <a href="./add-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add List</a>
-
-        </div>
+                    </thead>
+                    <tbody>
+                            <td><?= $progress->movie_progress; ?></td>
+                            <td>
+                                <form action="update-list.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $progress->id; ?>"/>
+                                    <input type="submit" class="button btn btn-primary" name="updateList" value="Update"/>
+                                    <!-- <a href="./update-car.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add Car</a> -->
+                                </form>
+                            </td>
+                            <td>
+                                <form action="delete-list.php" method="post">
+                                    <input type="hidden" name="id" value="<?=  $progress->id; ?>"/>
+                                    <input type="submit" class="button btn btn-danger" name="deleteList" value="Delete"/>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="./add-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add List</a>
+            </div>
+        </main>
 
         <!--Footer-->
         <?php require_once '../footer.php' ?>

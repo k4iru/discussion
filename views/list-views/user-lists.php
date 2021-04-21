@@ -25,58 +25,59 @@ $userClass = new User();
     <body>
         <!--Header-->
         <?php require_once '../header.php' ?>
-
-        <p class="h1 text-center">List Of All User Created Lists</p>
-        <div class="m-1">
-            <!--    Displaying Data in Table-->
-            <table class="table table-bordered tbl">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Creation Date</th>
-                    <th scope="col">List Title</th>
-                    <th scope="col">User ID</th>
-                    <th scope="col">Update</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">Details</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($lists as $list) { 
-                    $user =  $userClass->getUser(Database::getDb(), $list->user_id);
-                    ?>
-                
+        
+        <main id="main">
+            <p class="h1 text-center">List Of All User Created Lists</p>
+            <div class="m-1">
+                <!--    Displaying Data in Table-->
+                <table class="table table-bordered tbl">
+                    <thead>
                     <tr>
-                        <th><?= $list->id; ?></th>
-                        <td><?= $list->creation_date; ?></td>
-                        <td><?= $list->list_name; ?></td>
-                        <td><?= $user->username; ?></td>
-                        <td>
-                            <form action="update-list.php" method="post">
-                                <input type="hidden" name="id" value="<?= $list->id; ?>"/>
-                                <input type="submit" class="button btn btn-primary" name="updateList" value="Update"/>
-                                <!-- <a href="./update-car.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add Car</a> -->
-                            </form>
-                        </td>
-                        <td>
-                            <form action="delete-list.php" method="post">
-                                <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
-                                <input type="submit" class="button btn btn-danger" name="deleteList" value="Delete"/>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="details-list.php" method="post">
-                                <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
-                                <input type="submit" class="button btn btn-danger" name="detailsList" value="Details"/>
-                            </form>
-                        </td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Creation Date</th>
+                        <th scope="col">List Title</th>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Details</th>
                     </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-            <a href="./add-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add List</a>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($lists as $list) { 
+                        $user =  $userClass->getUser(Database::getDb(), $list->user_id);
+                        ?>
+                    
+                        <tr>
+                            <th><?= $list->id; ?></th>
+                            <td><?= $list->creation_date; ?></td>
+                            <td><?= $list->list_name; ?></td>
+                            <td><?= $user->username; ?></td>
+                            <td>
+                                <form action="update-list.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $list->id; ?>"/>
+                                    <input type="submit" class="button btn btn-primary" name="updateList" value="Update"/>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="delete-list.php" method="post">
+                                    <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
+                                    <input type="submit" class="button btn btn-danger" name="deleteList" value="Delete"/>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="details-list.php" method="post">
+                                    <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
+                                    <input type="submit" class="button btn btn-danger" name="detailsList" value="Details"/>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <a href="./add-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add List</a>
 
-        </div>
+            </div>
+        </main>
 
         <!--Footer-->
         <?php require_once '../footer.php' ?>

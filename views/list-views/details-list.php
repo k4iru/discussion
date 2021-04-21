@@ -61,32 +61,37 @@ if(isset($_POST['detailsList'])){
     <body>
         <!--Header-->
         <?php require_once '../header.php' ?>
-        <p class="h1 text-center"> <?= $title; ?></p>
-        <div class="m-1">
-            <!--    Displaying Data in Table-->
-            <table class="table table-bordered tbl">
-                <thead>
-                <tr>
-                    <th scope="col">Movie Id</th>
-                    <th scope="col">Movie Name</th>
-                    <th scope="col">Movie Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($lists as $list) { 
-                    $movies = $listClass->getMovie($list->movie_id, $db);
-                    ?>
-                    <tr>
-                        <td><?= $list->movie_id; ?></td>
-                        <td><?= $movies->name; ?></td>
-                        <td><?= $movies->description; ?></td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-            <a href="./add-movie-to-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add Movie To List</a>
 
-        </div>
+        <main id="main">
+            <p class="h1 text-center"> <?= $title; ?></p>
+            <div class="m-1">
+                <!--    Displaying Data in Table-->
+                <table class="table table-bordered tbl">
+                    <thead>
+                    <tr>
+                        <th scope="col">Movie Id</th>
+                        <th scope="col">Movie Name</th>
+                        <th scope="col">Movie Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($lists as $list) { 
+                        $movies = $listClass->getMovie($list->movie_id, $db);
+                        ?>
+                        <tr>
+                            <td><?= $list->movie_id; ?></td>
+                            <td><?= $movies->name; ?></td>
+                            <td><?= $movies->description; ?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <a href="./add-movie-to-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add Movie To List</a>
+                <div>
+                    <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
+                </div>
+            </div>
+        </main>
 
         <!--Footer-->
         <?php require_once '../footer.php' ?>

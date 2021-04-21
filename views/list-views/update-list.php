@@ -74,48 +74,49 @@ if(isset($_POST['updList'])){
         <!--Header-->
         <?php require_once '../header.php' ?>
 
-<div>
-    <!--    Form to Update Car -->
-    <form action="" method="post">
-        <input type="hidden" name="list-id" value="<?= $id; ?>" />
-        <div class="form-group">
-            <label for="title">Title :</label>
-            <input type="text" value="<?= $title; ?>" class="form-control" name="title" id="title">
-                
-            
-            <span style="color: red">
+        <main id="main">
+            <div>
+                <form action="" method="post">
+                    <input type="hidden" name="list-id" value="<?= $id; ?>" />
+                    <div class="form-group">
+                        <label for="title">Title :</label>
+                        <input type="text" value="<?= $title; ?>" class="form-control" name="title" id="title">
+                            
+                        
+                        <span style="color: red">
 
-            </span>
-        </div>
-        <div class="form-group">
-            <label for="creationDate">Creation Date :</label>
-            <input type="text" class="form-control" id="creationDate" name="creationDate"
-                   value="<?= $creationDate; ?>" placeholder="Enter creationDate">
-            <span style="color: red">
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="creationDate">Creation Date :</label>
+                        <input type="text" class="form-control" id="creationDate" name="creationDate"
+                            value="<?= $creationDate; ?>" placeholder="Enter creationDate">
+                        <span style="color: red">
 
-            </span>
+                        </span>
 
-            <!-- <label for="creationDate">Date :</label>
-            <input type="date" class="form-control" id="creationDate" name="creationDate" value="<?= $creationDate; ?>" >
-            <span style="color: red">
+                        <!-- <label for="creationDate">Date :</label>
+                        <input type="date" class="form-control" id="creationDate" name="creationDate" value="<?= $creationDate; ?>" >
+                        <span style="color: red">
 
-            </span> -->
-        </div>
-        <div class="form-group">
-            <label for="userId">userId :</label>
-            <input type="text" name="userId" value="<?= $userId; ?>" class="form-control"
-                   id="userId" placeholder="Enter userId">
-            <span style="color: red">
+                        </span> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="userId">userId :</label>
+                        <input type="text" name="userId" value="<?= $userId; ?>" class="form-control"
+                            id="userId" placeholder="Enter userId">
+                        <span style="color: red">
 
-            </span>
-        </div>
-        <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
-        <button type="submit" name="updList"
-                class="btn btn-primary float-right" id="btn-submit">
-            Update List
-        </button>
-    </form>
-</div>
+                        </span>
+                    </div>
+                    <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
+                    <button type="submit" name="updList"
+                            class="btn btn-primary float-right" id="btn-submit">
+                        Update List
+                    </button>
+                </form>
+            </div>
+        </main>
 
         <!--Footer-->
         <?php require_once '../footer.php' ?>
