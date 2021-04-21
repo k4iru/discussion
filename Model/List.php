@@ -101,6 +101,16 @@ class Lists
         return $count;
     }
 
+    public function deleteMovieFromList($listId, $movieId, $db){
+        $sql = "DELETE FROM listsxmovies WHERE list_id = :listId AND movie_id = :movieId";
+
+        $pst = $db->prepare($sql);
+        $pst->bindParam(':listId', $listId);
+        $pst->bindParam(':movieId', $movieId);
+        $count = $pst->execute();
+        return $count;
+
+    }
 
     // Movie_Info Database Methods
     public function getMovie($movieId, $db){

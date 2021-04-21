@@ -8,14 +8,18 @@ use PhPKnights\Model\{Database, Lists};
 require_once '../../Model/Database.php';
 require_once '../../Model/List.php';
 
+session_start();
+
+// $_SESSION['userListId']
+
 if(isset($_POST['id'])){
-    $id = $_POST['id'];
+    $movieId = $_POST['id'];
     $db = Database::getDb();
 
     $listClass = new Lists();
-    $count = $listClass->deleteList($id, $db);
+    $count = $listClass->deleteMovieFromList($_SESSION['userListId'], $movieId ,$db);
     if($count){
-        header("Location: details-list.php");
+        header("Location: user-lists.php");
     }
     else {
         echo " problem deleting";

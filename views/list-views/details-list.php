@@ -74,6 +74,7 @@ if(isset($_POST['detailsList'])){
                         <th scope="col">Movie Id</th>
                         <th scope="col">Movie Name</th>
                         <th scope="col">Movie Description</th>
+                        <th scope="col">Delete Movie From List</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -84,11 +85,17 @@ if(isset($_POST['detailsList'])){
                             <td class="table-td"><?= $list->movie_id; ?></td>
                             <td class="table-td"><?= $movies->name; ?></td>
                             <td class="table-td"><?= $movies->description; ?></td>
+                            <td class="table-td">
+                                <form action="../../views/list-views/delete-movie-from-list.php" method="post">
+                                    <input type="hidden" name="id" value="<?=  $list->movie_id; ?>"/>
+                                    <input type="submit" class="button" name="deleteList" value="Delete"/>
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                     </tbody>
                 </table>
-                <a href="./add-movie-to-list.php" id="btn_addList" class="button navigation-button">Add Movie To List</a>
+                <a href="../../views/list-views/add-movie-to-list.php" id="btn_addList" class="button navigation-button">Add Movie To List</a>
             </div>
         </main>
 
@@ -96,3 +103,4 @@ if(isset($_POST['detailsList'])){
         <?php require_once '../footer.php' ?>
     </body>
 </html>
+
