@@ -9,15 +9,16 @@ if (isset($_SESSION['username'])) {
 
     $id = $_GET['id'];
     $db = Database::getDb();
+    $p = new Polls();
     $poll_id = $id;
     
     $title = $option = "";
-    $op = new Polls();
-    $optionsall = $op->getOptions(Database::getDb());
+    
+    $optionsall = $p->getOptionsforPoll($db, $poll_id);
 
-    $p = new Polls();
     $poll = $p->getPollById($id, $db);    
     var_dump($poll);
+    var_dump($optionsall);
 
      $title =  $poll->title;
 //     $option = $poll->options;
@@ -30,16 +31,18 @@ if(isset($_POST['update'])){
 
     $id = $_POST['sid'];
     $title = $_POST['title'];
-    $options = $_POST['options'];
+    $options = $_POST[$o->options];
 
     $db = Database::getDb();
     $p = new Polls();
-    $count = $p->updatePoll($db, $id, $title, $options);
-
-    if($count){
+    $count = $p->updatePoll($db, $id, $title);
+    foreach ($optionsall as $o) {
+    $countoptions = $p->updateOptions($db, $id, $options);
+    }
+    if($count && $countoptions){
        header('Location:  poll-list.php');
     } else {
-        echo "problem";
+        echo "Error Updating Records";
     } 
 }
 
@@ -68,12 +71,11 @@ if(isset($_POST['update'])){
     <input type="hidden" name="sid" value="<?= $id; ?>" />
         <label for="title">Title</label>
         <input type="text" name="title" id="title" value="<?= $title; ?>">
-        <label for="options">Options (1 per line)</label>
-        <textarea name="options" id="options" ><?php 
-        //foreach ($poll as $poll) { 
-         $options; 
-        //}
-        ?></textarea>
+        <label for="options">Options </label>
+       <?php 
+        foreach ($optionsall as $o) { ?>
+            <input type="text" name="<?= $o->options; ?>" id="options" value="<?= $o->options; ?>">
+        <?php   }       ?>
         <input type="submit" name="update"value="Update">
     </form>
 
@@ -86,7 +88,7 @@ if(isset($_POST['update'])){
        </main>
 <?php include_once "../footer.php";
 } else {
-    header('Location: ../../index.php');
+    header('Location: ../login.php');
     die();
 }
 
