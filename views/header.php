@@ -6,7 +6,7 @@
             <li class="options"><a class="links" href="#">People</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/discussions.php">Discussions</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/profile.php">Profile</a></li>
-            <li class="options"><a class="links" href="/http-5202-group/views/trailers.php">Trailers</a></li>
+            <li class="options"><a class="links" href="/http-5202-group/views/trailer-views/trailers.php">Trailers</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/posters.php">Posters</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/review.php">Reviews</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/list-views/user-lists.php">Movie Lists</a></li>
@@ -24,7 +24,7 @@
             <form action='/http-5202-group/views/logout.php' method='POST'>
                 <input type='submit' name='logout' value='Logout'>
             </form>";
-        } 
+        }
         ?>
     </nav>
 </header>
