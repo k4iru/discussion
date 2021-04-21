@@ -39,3 +39,29 @@ h1 {
 .review-table tbody tr:last-of-type {
     border-bottom: 2px solid #7ea4b3;
 }
+
+.button {
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:linear-gradient(to bottom, #ffc477 5%, #f0b873 100%);
+	background-color:#ffc477;
+	border-radius:6px;
+	border:1px solid #faca78;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c99c54;
+}
+
+.button:hover {
+	background:linear-gradient(to bottom, #f0b873 5%, #ffc477 100%);
+	background-color:#f0b873;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
