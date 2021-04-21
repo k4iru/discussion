@@ -3,28 +3,25 @@ namespace PhPKnights\Model;
 
 class Movie
 {
-    public static string $id;
-    public static string $title;
-    public static string $fullTitle;
-    public static int    $rank;
-    public static int    $year;
+    private static string $id;
+    private static string $title;
+    private static string $fullTitle;
+    private static int    $rank;
+    private static int    $year;
 
-    public static string $imageUrl;
-    public static string $crew;
-    public static float  $IMDbRating;
-    public static int    $IMDbRatingCount;
+    private static string $imageUrl;
+    private static string $crew;
+    private static float  $IMDbRating;
+    private static int    $IMDbRatingCount;
 
-    public static string $errorMessage;
+    private static string $errorMessage;
 
     function __construct()
     {
 
     }
 
-    public static function makeTrailer($url) {
-        $embedLink = '<iframe class="trailer-frame" src="'.$url.'" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        return $embedLink;
-    }
+
 
     public static function makePoster($url) {
         $poster = "<img class='movie-poster' src='$url' alt='Movie Poster'>";

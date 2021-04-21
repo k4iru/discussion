@@ -29,7 +29,7 @@ $id = $title = $fullTitle = "";
 
       <div class="form-container">
         <h1>Search a Trailer</h1>
-        <form action>
+        <form action="../../scripts/TrailerScript.php" method="POST">
           <fieldset>
             <input type="text" class="input" required>
           </fieldset>
