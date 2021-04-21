@@ -41,7 +41,6 @@ $progress =  $progressClass->getMovieProgress(Database::getDb(), 2, 1);
                                 <form action="update-list.php" method="post">
                                     <input type="hidden" name="id" value="<?= $progress->id; ?>"/>
                                     <input type="submit" class="button btn btn-primary" name="updateList" value="Update"/>
-                                    <!-- <a href="./update-car.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add Car</a> -->
                                 </form>
                             </td>
                             <td>

@@ -41,10 +41,9 @@ class Lists
         return $pst->fetch(\PDO::FETCH_OBJ);
     }   
 
-    public function updateList($id, $title, $creationDate, $userId, $db){
+    public function updateList($id, $title, $userId, $db){
         $sql = "Update lists
                 set list_name = :title,
-                creation_date = :creationDate,
                 user_id = :userId
                 WHERE id = :id
         
@@ -53,7 +52,6 @@ class Lists
         $pst =  $db->prepare($sql);
 
         $pst->bindParam(':title', $title);
-        $pst->bindParam(':creationDate', $creationDate);
         $pst->bindParam(':userId', $userId);
         $pst->bindParam(':id', $id);
 
