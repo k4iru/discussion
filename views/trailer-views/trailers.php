@@ -1,9 +1,12 @@
 <?php
-use PhPKnights\Model\Database;
-use PhPKnights\Model\Movie;
-require_once '../vendor/autoload.php';
+//Start a new server session
+session_start();
+//Include the Database and the Movie models
+use PhPKnights\Model\Database, Movie;
+//Autoload Documents
+require_once '../../vendor/autoload.php';
 
-
+$id = $title = $fullTitle = "";
 ?>
 <!DOCTYPE html>
 <html lang="EN">
@@ -18,10 +21,22 @@ require_once '../vendor/autoload.php';
     <script src="../scripts/script.js"></script>
   </head>
   <body>
-    <!--Header-->
-    <?php require_once './header.php' ?>
+    <header>
+      <?php require_once '../header.php' ?>
+    </header>
     <!--Master Container-->
-    <div class="master-container">
+    <main class="master-container">
+
+      <div class="form-container">
+        <h1>Search a Trailer</h1>
+        <form action>
+          <fieldset>
+            <input type="text" class="input" required>
+          </fieldset>
+        </form>
+      </div>
+
+
       <div class="trailer-container">
         <?php
         //URL to IMDb Trailer API
@@ -31,12 +46,17 @@ require_once '../vendor/autoload.php';
         //var_dump($decodedResponse);
 
         foreach ($decodedResponse as $key => $value) {
-          var_dump($key, $value);
+          //var_dump($key, $value);
         }
         ?>
       </div>
+
+
+      </main>
+
+    <div class="footer-container">
+      <!--Footer-->
+      <?php require_once './footer.php' ?>
     </div>
-    <!--Footer-->
-    <?php require_once './footer.php' ?>
   </body>
 </html>

@@ -1,9 +1,6 @@
 <?php
 use PhPKnights\Model\{Database, Polls};
-//require_once '../vendor/autoload.php';
-require_once '../../Model/Database.php';
-require_once '../../Model/Polls.php';
-require_once '../../Model/User.php';
+require_once '../../vendor/autoload.php';
 
 session_start();
 if (isset($_SESSION['username'])) {
