@@ -48,7 +48,6 @@ class User
         $pst->bindParam(':username', $username);
         $pst->bindParam(':password', $hash);
         $pst->bindParam(':email', $email);
-        $pst->execute();
 
         // if added to db then return the last inserted id, else return 0;
         if ($pst->execute()) {

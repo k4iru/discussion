@@ -1,0 +1,54 @@
+label {
+  display: block;
+}
+
+input[type="submit"] {
+  display: block;
+}
+
+.col-2 {
+  width: 194px;
+}
+
+.form-inputs input {
+  padding: 10px 5px;
+  margin: 2px;
+
+}
+
+#registration-form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-inputs input[type="submit"] {
+  background-color: var(--main-bg);
+  color: var(--text-main);
+  box-shadow: 1px 1px #888888;
+}
+
+.form-inputs {
+  box-sizing: content-box;
+  width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--main-bg);
+  padding: 10px;
+  height: auto;
+  box-shadow: 2px 2px #888888;
+  border-radius: 5px;
+}
+
+.blurb {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.blurb h1 {
+    padding: 0;
+}

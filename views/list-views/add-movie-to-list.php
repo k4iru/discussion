@@ -41,42 +41,48 @@ require_once '../../library/functions.php';
 
 <html lang="en">
 
-<head>
-    <title>Add A Movie</title>
-    <meta name="description" content="User Created Movie Lists">
-    <meta name="keywords" content="Movie Lists">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-</head>
+    <head>
+        <title>Add A Movie</title>
+        <meta name="description" content="User Created Movie Lists">
+        <meta name="keywords" content="Movie Lists">
+        <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    </head>
 
-<body>
-<div>
-    <!--    Form to Add Movie To a user created list -->
-    <form action="" method="post">
-        <input type="hidden" name="listId" value="<?= $listId; ?>"/>
-        <div class="form-group">
-            <label for="movieId">Add a Movie to your List! :</label>
-            <select name="movieId" id="movieId">
-            <?php
-            $html_dropdown = "";
-            foreach ($listOfMovies as $movie) {
-                $html_dropdown .= "<option value='$movie->id'>$movie->name</option>";
-            }
-            echo($html_dropdown);
-            ?>
-            </select>
+    <body>
+    <!--Header-->
+    <?php require_once '../header.php' ?>
+        <main id="main">
+            <div>
+                <!--    Form to Add Movie To a user created list -->
+                <form action="" method="post">
+                    <input type="hidden" name="listId" value="<?= $listId; ?>"/>
+                    <div class="form-group">
+                        <label for="movieId">Add a Movie to your List! :</label>
+                        <select name="movieId" id="movieId">
+                        <?php
+                        $html_dropdown = "";
+                        foreach ($listOfMovies as $movie) {
+                            $html_dropdown .= "<option value='$movie->id'>$movie->name</option>";
+                        }
+                        echo($html_dropdown);
+                        ?>
+                        </select>
 
-            <span style="color: red">
+                        <span style="color: red">
 
-            </span>
-        </div>
-        <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
-        <button type="submit" name="addList"
-                class="btn btn-primary float-right" id="btn-submit">
-            Add List
-        </button>
-    </form>
-</div>
-
-
-</body>
+                        </span>
+                    </div>
+                    <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
+                    <button type="submit" name="addList"
+                            class="btn btn-primary float-right" id="btn-submit">
+                        Add List
+                    </button>
+                </form>
+            </div>
+        </main>
+        
+        <!--Footer-->
+        <?php require_once '../footer.php' ?>
+    </body>
 </html

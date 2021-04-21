@@ -25,13 +25,29 @@
 ### Payment System:
 
 
+
+
 ## Muhammad Danyal Effendi
 
-### User Created Polls:
+### Poll Feature:
+Only Registered and logged in Users can access Poll.
 
-#### Basic Crud
-- [x] Users can create a new poll
+#### Admin Functionality
+- [x] Admins can create a new poll
+- [x] Admins can read a list of polls
+- [x] Admins can delete a poll
+- [x] Admins can vote in a poll
+- [x] Admins can see results of voting
+-
+#### User Functionality
 - [x] Users can read a list of polls
-- [x] Users can delete a poll
 - [x] Users can vote in a poll
 - [x] Users can see results of voting
+
+#### Qualitative
+- [ ] Pages are styled and responsive
+- [ ] Code is formatted & commented
+
+#### Addional Features
+- [ ] Update the pole & options (in progress)
+- [ ] Allow users to create poll and update/delete their own created polls
