@@ -59,6 +59,7 @@ if(isset($_POST['updList'])){
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
     <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../../styles/list-style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
@@ -67,8 +68,10 @@ if(isset($_POST['updList'])){
         <?php require_once '../header.php' ?>
 
         <main id="main">
-            <div>
-                <form action="" method="post">
+            <div class="container">
+                <a href="./user-lists.php" id="btn_back" class="button back">Back</a>
+                <h1 class="main-header">Update Your List Title!</h1>
+                <form action="" method="post" class="form">
                     <input type="hidden" name="list-id" value="<?= $id; ?>" />
                     <div class="form-group">
                         <label for="title">Title :</label>
@@ -89,16 +92,15 @@ if(isset($_POST['updList'])){
 
                     </div> -->
                     <div class="form-group">
-                        <label for="userId">userId :</label>
-                        <input type="text" name="userId" value="<?= $userId; ?>" class="form-control"
+                        <!-- <label for="userId">userId :</label> -->
+                        <input type="hidden" name="userId" value="<?= $userId; ?>" class="form-control"
                             id="userId" placeholder="Enter userId">
                         <span style="color: red">
 
                         </span>
                     </div>
-                    <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
                     <button type="submit" name="updList"
-                            class="btn btn-primary float-right" id="btn-submit">
+                            class="button" id="btn-submit">
                         Update List
                     </button>
                 </form>

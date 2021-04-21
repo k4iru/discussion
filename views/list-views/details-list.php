@@ -55,6 +55,7 @@ if(isset($_POST['detailsList'])){
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
     <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../../styles/list-style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
@@ -63,10 +64,11 @@ if(isset($_POST['detailsList'])){
         <?php require_once '../header.php' ?>
 
         <main id="main">
-            <p class="h1 text-center"> <?= $title; ?></p>
-            <div class="m-1">
+            <div class="container">
+                <a href="./user-lists.php" id="btn_back" class="button back">Back</a>
+                <h1 class="main-header"> <?= $title; ?></h1>
                 <!--    Displaying Data in Table-->
-                <table class="table table-bordered tbl">
+                <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">Movie Id</th>
@@ -79,17 +81,14 @@ if(isset($_POST['detailsList'])){
                         $movies = $listClass->getMovie($list->movie_id, $db);
                         ?>
                         <tr>
-                            <td><?= $list->movie_id; ?></td>
-                            <td><?= $movies->name; ?></td>
-                            <td><?= $movies->description; ?></td>
+                            <td class="table-td"><?= $list->movie_id; ?></td>
+                            <td class="table-td"><?= $movies->name; ?></td>
+                            <td class="table-td"><?= $movies->description; ?></td>
                         </tr>
                     <?php } ?>
                     </tbody>
                 </table>
-                <a href="./add-movie-to-list.php" id="btn_addList" class="btn btn-success btn-lg float-right">Add Movie To List</a>
-                <div>
-                    <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
-                </div>
+                <a href="./add-movie-to-list.php" id="btn_addList" class="button navigation-button">Add Movie To List</a>
             </div>
         </main>
 
