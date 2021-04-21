@@ -13,6 +13,14 @@ input[type="submit"] {
 .form-inputs input {
   padding: 10px 5px;
   margin: 2px;
+
+}
+
+#registration-form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-inputs input[type="submit"] {
@@ -28,9 +36,11 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid red;
+  border: 1px solid var(--main-bg);
   padding: 10px;
   height: auto;
+  box-shadow: 1px 1px #888888;
+  border-radius: 5px;
 }
 
 .blurb {
