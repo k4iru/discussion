@@ -54,24 +54,24 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/authentication.css">
     <script src="scripts/script.js"></script>
 </head>
 
 <body>
     <?php require_once 'header.php'; ?>
     <main id="main">
-        <h1>Login Page</h1>
-        <form action="" method="POST">
-            <div>
-                <label for="first">Username</label>
-                <input type="text" name="username" value=<?= $username; ?>> <span class="error"> <?= $userNameError; ?></span>
+        <form id="registration-form" action="" method="POST">
+            <div class="form-inputs">
+                <h1>Login Now!</h1>
+
+                <input type="text" name="username" placeholder="Username" value=<?= $username; ?>> <span class="error"> <?= $userNameError; ?></span>
+                <input type="password" name="password" placeholder="Password"> <span class="error"> <?= $passwordError; ?></span>
+
+                <span class="error"><?= $err; ?></span>
+                <input type="submit" name="submit" value="Login">
+                <a href="/http-5202-group/views/register.php">Register Now</a>
             </div>
-            <div>
-                <label for="password">Password</label> <span class="error">
-                    <input type="password" name="password"> <span class="error"> <?= $passwordError; ?></span>
-            </div>
-            <span class="error"><?= $err; ?></span>
-            <input type="submit" name="submit" value="Login">
         </form>
     </main>
     <?php require_once 'footer.php'; ?>
