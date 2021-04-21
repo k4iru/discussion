@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
     // get form values
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $emailConfirm = $_POST['emailConfirm'];
     $first = $_POST['first'];
     $last = $_POST['last'];
     $password = $_POST['password'];
@@ -31,7 +30,7 @@ if (isset($_POST['submit'])) {
 
     // first name 
     if (empty($_POST['first'])) {
-        $firstNameError = "*";
+        $firstNameError = "Empty First Name";
         $err = true;
     } else {
         $first = filter_var($_POST['first'], FILTER_SANITIZE_STRING);
@@ -39,7 +38,7 @@ if (isset($_POST['submit'])) {
 
     // last name 
     if (empty($_POST['last'])) {
-        $lastNameError = "*";
+        $lastNameError = "Empty Last Name";
         $err = true;
     } else {
         $last = filter_var($_POST['last'], FILTER_SANITIZE_STRING);
@@ -47,7 +46,7 @@ if (isset($_POST['submit'])) {
 
     // username 
     if (empty($_POST['username'])) {
-        $userNameError = "*";
+        $userNameError = "Empty Username";
         $err = true;
     } else {
         $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -55,7 +54,7 @@ if (isset($_POST['submit'])) {
 
     // password
     if (empty($_POST['password'])) {
-        $passwordError = "*";
+        $passwordError = "Empty Password";
         $err = true;
     } else {
         if ($_POST['password'] != $_POST['passwordConfirm']) {
@@ -71,15 +70,10 @@ if (isset($_POST['submit'])) {
         $emailError = "Invalid Email Address";
         $err = true;
     } else {
-
-        if ($_POST['email'] != $_POST['emailConfirm']) {
-            $emailError = "Email does not match";
-            $err = true;
-        } else {
-            // sanitize string
-            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-        }
+        // sanitize string
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     }
+
 
 
     // check if email or username exists
@@ -108,7 +102,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['valid'] = true;
             $_SESSION['userGroup'] = $authenticatedUser->user_group;
             $_SESSION['userId'] = $authenticatedUser->id;
-            header ('Location: ../index.php');
+            header('Location: ../index.php');
             exit;
         }
     }
@@ -123,49 +117,44 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="Stylesheet" href="../styles/authentication.css">
     <script src="scripts/script.js"></script>
 </head>
 
 <body>
     <?php require_once 'header.php'; ?>
     <main id="main">
-    <h1>Register</h1>
-        <form action="" method="POST">
-            <div>
-            </div>
-            <div>
-                <label for="first">First Name</label>
-                <input type="text" name="first" value=<?= $first; ?>> <span class="error"> <?= $firstNameError; ?></span>
-            </div>
-            <div>
-                <label for="last">Last Name</label>
-                <input type="text" name="last" value=<?= $last; ?>> <span class="error"> <?= $lastNameError; ?></span>
-            </div>
-            <div>
-                <label for="username">Username</label>
-                <input type="text" name="username" value=<?= $username; ?>> <span class="error"> <?= $userNameError; ?></span>
-            </div>
 
-            <div>
-                <label for="email">Email</label>
-                <input type="text" name="email" value=<?= $email; ?>> <span class="error"> <?= $emailError; ?></span>
-            </div>
-            <div>
-                <label for="emailConfirm">Confirm Email</label>
-                <input type="text" name="emailConfirm" >
-            </div>
+        <form id="registration-form" action="" method="POST">
+            <div class="form-inputs">
+                <div class="blurb">
+                    <h1>Sign Up</h1>
+                    <p>It's quick and easy.</p>
+                </div>
 
-            <div>
-                <label for="password">Password</label> <span class="error"> <?= $passwordError; ?></span>
-                <input type="password" name="password" >
-            </div>
+                <div>
+                    <input class="col-2" type="text" name="first" placeholder="First Name" value=<?= $first; ?>>
+                    <input class="col-2" type="text" name="last" placeholder="Last Name" value=<?= $last; ?>>
+                </div>
 
-            <div>
-                <label for="passwordConfirm">Confirm Password</label>
-                <input type="password" name="passwordConfirm">
-            </div>
+                <input class="col-1" type="text" name="username" placeholder="Username" value=<?= $username; ?>>
 
-            <input type="submit" name="submit" value="Register">
+
+                <input class="col-1" type="text" name="email" placeholder="Email" value=<?= $email; ?>>
+
+                <input class="col-1" type="password" placeholder="Password" name="password">
+
+
+                <input class="col-1" type="password" name="passwordConfirm" placeholder="Password">
+
+                <input type="submit" name="submit" value="Register">
+
+                <span class="error"> <?= $firstNameError; ?></span>
+                <span class="error"> <?= $lastNameError; ?></span>
+                <span class="error"> <?= $userNameError; ?></span>
+                <span class="error"> <?= $emailError; ?></span>
+                <span class="error"> <?= $passwordError; ?></span>
+            </div>
         </form>
     </main>
     <?php require_once 'footer.php'; ?>
