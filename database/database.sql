@@ -79,20 +79,12 @@ CREATE TABLE usersxmovies (
     FOREIGN KEY (movie_id) REFERENCES movie_info(id)
 );
 
-CREATE TABLE search (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    search_input varchar(255) NOT NULL,
-    search_result varchar(255),
-    search_click BIT,
-);
-
 CREATE TABLE review (
     id INT PRIMARY KEY AUTO_INCREMENT,
     review_movie VARCHAR(255) NOT NULL,
     review_content VARCHAR(255) NOT NULL,
     review_rating INT(5) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (movie_id) REFERENCES movies (id)
 );
 
 CREATE TABLE list_table (

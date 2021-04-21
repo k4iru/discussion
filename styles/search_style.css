@@ -1,0 +1,19 @@
+h1 {
+    margin: 0 auto;
+}
+
+.search-table {
+    margin: 0 auto;
+}
+
+.search-table #title {
+    font-size: 36px;
+}
+
+.search-table img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+

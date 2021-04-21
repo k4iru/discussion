@@ -1,11 +1,10 @@
 <?php
 //Start a new server session
 session_start();
-
-use PhPKnights\Model\Database;
-use PhPKnights\Model\Movie;
-
-//require_once '../vendor/autoload.php';
+//Include the Database and the Movie models
+use PhPKnights\Model\Database, Movie;
+//Autoload Documents
+require_once '../../vendor/autoload.php';
 
 $id = $title = $fullTitle = "";
 ?>

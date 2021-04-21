@@ -8,35 +8,27 @@ use PhPKnights\Model\{Database, Lists};
 require_once '../../Model/Database.php';
 require_once '../../Model/List.php';
 
-// $s = new Make();
-// $makes = $s->getAllMakes(Database::getDb());
-
 $title = $creationDate = $userId = "";
 
-// Checkign to see if the updateCar button is set? From list???? 
+// Checkign to see if the updateList button is set? From list???? 
 if(isset($_POST['updateList'])){
-    // retrieving the id of the car to be updated
+    // retrieving the id of the list to be updated
     $id= $_POST['id'];
     $db = Database::getDb();
 
     $listClass = new Lists();
 
-    // getting the info for the car based on the id
+    // getting the info for the list based on the id
     $list = $listClass->getListById($id, $db);
     
-    // $makes = $carClass->getAllMakes($db);
-    // Creating a new instance of the "Make" class"
-    // $makeClass = new Make();
-    // $carMake = getMakeById()
-
-    // setting the values in the form to be populated with the values of the car.
+    // setting the values in the form to be populated with the values of the list.
     $title = $list->list_name;
     $creationDate = $list->creation_date;
     $userId = $list->user_id;
 
 }
 
-// Checking to see if the updCar button is set
+// Checking to see if the updList button is set
 if(isset($_POST['updList'])){
     // Selecting the values of the form
     $id= $_POST['list-id'];
@@ -47,7 +39,7 @@ if(isset($_POST['updList'])){
     $db = Database::getDb();
     $listClass = new Lists();
     
-    // setting the values of a car to be held in count
+    // setting the values of a list to be held in count
     $count = $listClass->updateList($id, $title, $creationDate, $userId, $db);
 
     // checking if count is set
@@ -87,7 +79,7 @@ if(isset($_POST['updList'])){
 
                         </span>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="creationDate">Creation Date :</label>
                         <input type="text" class="form-control" id="creationDate" name="creationDate"
                             value="<?= $creationDate; ?>" placeholder="Enter creationDate">
@@ -95,12 +87,7 @@ if(isset($_POST['updList'])){
 
                         </span>
 
-                        <!-- <label for="creationDate">Date :</label>
-                        <input type="date" class="form-control" id="creationDate" name="creationDate" value="<?= $creationDate; ?>" >
-                        <span style="color: red">
-
-                        </span> -->
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="userId">userId :</label>
                         <input type="text" name="userId" value="<?= $userId; ?>" class="form-control"

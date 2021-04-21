@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 80vw; */
+    
+}
+
+.main-header {
+    margin-top: 5vh;
+}
+
+.table {
+    width: 50vw;
+    margin: 3vh 0;
+    align-self: center;
+}
+
+.table-td {
+    text-align: center;
+}

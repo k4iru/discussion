@@ -14,14 +14,14 @@ $dbcon = Database::getDb();
 
 // Checkign to see if the detailsList button is set? From list???? 
 if(isset($_POST['detailsList'])){
-    // retrieving the id of the car to be updated
+    // retrieving the id of the list to be updated
     $userListId= $_POST['id'];
     $_SESSION['userListId'] = $userListId;
     $db = Database::getDb();
 
     $listClass = new Lists();
 
-    // getting the info for the car based on the id
+    // getting the info for the list based on the id
     $lists = $listClass->getListDetails($userListId, $db);
     $specificList = $listClass->getListById($userListId,$db);
 
@@ -39,7 +39,7 @@ if(isset($_POST['detailsList'])){
 
     $listClass = new Lists();
 
-    // getting the info for the car based on the id
+    // getting the info for the list based on the id
     $lists = $listClass->getListDetails($userListId, $db);
     $specificList = $listClass->getListById($userListId,$db);
 
