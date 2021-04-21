@@ -20,6 +20,7 @@
 - [X] Users are able to see all Custom Lists and Details about those lists
 - [X] Users can only edit Custom Lists they've created
 - [X] Users can only delete Custom Lists they've created
+- [X] Admins can edit and delete any custom list
 
 #### To Add
 - [ ] Delete Movies on a custom list

@@ -61,7 +61,7 @@ if (isset($_SESSION['username'])) {
                             <td class="table-td">                                        
                                 <form action="update-list.php" method="post">
                                 <input type="hidden" name="id" value="<?= $list->id; ?>"/>
-                                <?php if($user->username == $_SESSION['username']) {
+                                <?php if($user->username == $_SESSION['username'] || $_SESSION['userGroup'] == 0) {
                                     ?>
                                             <input type="submit" class="button" name="updateList" value="Update"/>
                                     <?php
@@ -70,7 +70,7 @@ if (isset($_SESSION['username'])) {
                                 </form>
                             </td>
                             <td class="table-td">
-                                <?php if($user->username == $_SESSION['username']) {
+                                <?php if($user->username == $_SESSION['username'] || $_SESSION['userGroup'] == 0) {
                                         ?>
                                             <form action="delete-list.php" method="post">
                                                 <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
