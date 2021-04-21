@@ -14,9 +14,7 @@ if (isset($_SESSION['username'])) {
     $dbcon = Database::getDb();
     $reviewModel = new Review();
     $reviews = $reviewModel->getAllReviews(Database::getDb());
-}
-
-if (!isset($_SESSION['username'])) {
+} else if (!isset($_SESSION['username'])) {
     header('Location: ../../views/reviews/notUser.php');
 }
 

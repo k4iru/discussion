@@ -39,6 +39,20 @@ class Review
         return $results;
     }
 
+    //get movie posters for each review
+    public function getMoviePoster($db, $review_movie)
+    {
+        $sql = "SELECT image FROM `top250Movies` WHERE title = :review_movie";
+
+        $pdostm = $db->prepare($sql);
+        $pdostm->bindParam(':review_movie', $review_movie);
+        $pdostm->execute();
+
+        //getting results
+        $results = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $results;
+    }
+
     //create a review
     public function addReview($dbcon, $review_movie, $review_rating, $review_content)
     {
