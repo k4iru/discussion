@@ -68,7 +68,7 @@ if (isset($_SESSION['username'])) {
        </main>
 <?php include_once "../footer.php";
 } else {
-    header('Location: ../../index.php');
+    header('Location: ../login.php');
     die();
 }
 ?>
