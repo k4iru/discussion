@@ -1,0 +1,235 @@
+.home .create-poll {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #38b673;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      color: #FFFFFF;
+      padding: 10px 15px;
+      margin: 15px 0;
+}
+.home .create-poll:hover {
+      background-color: #32a367;
+}
+.view-poll {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #3d5ef0;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      color: #FFFFFF;
+      padding: 10px 15px;
+      margin: 15px 0;
+}
+.view-poll:hover {
+      background-color: #2347e4;
+}
+
+.delete-poll {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #ff0000;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      color: #FFFFFF;
+      padding: 10px 15px;
+      margin: 15px 0;
+      border-style: none;
+}
+.delete-poll:hover {
+      background-color: #db0000;
+}
+
+.content {
+      width: 1000px;
+      margin: 0 auto;
+      margin: auto;
+      justify-content: space-around;
+}
+.content h2 {
+      margin: 0;
+      padding: 25px 0;
+      font-size: 22px;
+      border-bottom: 1px solid #ebebeb;
+      color: #666666;
+}
+.home table {
+      width: 100%;
+      padding-top: 30px;
+      border-collapse: collapse;
+}
+.home table thead {
+      background-color: #ebeef1;
+      border-bottom: 1px solid #d3dae0;
+}
+.home table thead td {
+      padding: 10px;
+      font-weight: bold;
+      color: #767779;
+      font-size: 14px;
+}
+.home table tbody tr {
+      border-bottom: 1px solid #d3dae0;
+}
+.home table tbody tr:nth-child(even) {
+      background-color: #fbfcfc;
+}
+
+.home table tbody tr:hover td:nth-child(1) {
+      color: #FFFFFF;
+}
+.home table tbody tr td {
+      padding: 10px;
+}
+.home table tbody tr td:nth-child(1) {
+      color: #a5a7a9;
+}
+.home table tbody tr td.actions {
+      padding: 8px;
+      text-align: right;
+}
+.home table tbody tr td.actions .view, .home table tbody tr td.actions .edit, .home table tbody tr td.actions .trash {
+      display: inline-flex;
+      text-align: right;
+      text-decoration: none;
+      color: #FFFFFF;
+      padding: 10px 12px;
+      border-radius: 5px;
+}
+.home table tbody tr td.actions .trash {
+      background-color: #b73737;
+}
+.home table tbody tr td.actions .trash:hover {
+      background-color: #a33131;
+}
+.home table tbody tr td.actions .edit {
+      background-color: #37afb7;
+}
+.home table tbody tr td.actions .edit:hover {
+      background-color: #319ca3;
+}
+.home table tbody tr td.actions .view {
+      background-color: #37b770;
+}
+.home table tbody tr td.actions .view:hover {
+      background-color: #31a364;
+}
+.update form {
+      padding: 15px 0;
+      display: flex;
+      flex-flow: column;
+      width: 400px;
+}
+.update form label {
+      display: inline-flex;
+      width: 100%;
+      padding: 10px 0;
+      margin-right: 25px;
+}
+.update form input, .update form textarea {
+      padding: 10px;
+      width: 100%;
+      margin-right: 25px;
+      margin-bottom: 15px;
+      border: 1px solid #cccccc;
+}
+.update form textarea {
+      height: 200px;
+}
+.update form input[type="submit"] {
+      display: block;
+      background-color: #38b673;
+      border: 0;
+      font-weight: bold;
+      font-size: 14px;
+      color: #FFFFFF;
+      cursor: pointer;
+      width: 200px;
+      margin-top: 15px;
+      border-radius: 5px;
+}
+.update form input[type="submit"]:hover {
+      background-color: #32a367;
+}
+.yesno {
+      display: flex;
+      margin-left: 45%;
+}
+.delete .yesno a {
+      display: inline-block;
+      text-decoration: none;      
+      font-weight: bold;
+      color: #FFFFFF;
+      padding: 10px 15px;
+      margin: 15px 10px 15px 0;
+      border-radius: 5px;
+      right: 50%;
+}
+
+.poll-vote form {
+      display: flex;
+      flex-flow: column;
+      margin: auto;
+      justify-content: space-around;
+}
+.poll-vote form label {
+      padding-bottom: 10px;
+}
+.poll-vote form input[type="radio"] {
+      transform: scale(1.1);
+}
+.poll-vote form input[type="submit"], .poll-vote form a {
+      display: inline-block;
+      padding: 8px;
+      border-radius: 5px;
+      background-color: #38b673;
+      border: 0;
+      font-weight: bold;
+      font-size: 14px;
+      color: #FFFFFF;
+      cursor: pointer;
+      width: 150px;
+      margin-top: 15px;
+}
+.poll-vote form input[type="submit"]:hover, .poll-vote form a:hover {
+      background-color: #32a367;
+}
+.poll-vote form a {
+      text-align: center;
+      text-decoration: none;
+      background-color: #37afb7;
+      margin-left: 5px;
+}
+.poll-vote form a:hover {
+      background-color: #319ca3;
+}
+.poll-result .wrapper {
+      display: flex;
+      flex-flow: column;
+      margin-left: 35%;
+}
+.poll-result .wrapper .poll-question {
+      width: 50%;
+      padding-bottom: 5px;
+}
+.poll-result .wrapper .poll-question p {
+      margin: 0;
+      padding: 5px 0;
+}
+.poll-result .wrapper .poll-question p span {
+      font-size: 14px;
+}
+.poll-result .wrapper .poll-question .result-bar {
+      display: flex;
+      height: 25px;
+      min-width: 5%;
+      background-color: #38b673;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #FFFFFF;
+      justify-content: center;
+      align-items: center;
+}

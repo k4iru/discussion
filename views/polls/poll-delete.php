@@ -6,8 +6,8 @@ require_once '../../Model/Database.php';
 require_once '../../Model/Polls.php';
 require_once '../../Model/User.php';
 
-if(isset($_POST['id'])) {
-    $id = $_POST['id'];
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
     $db = Database::getDb();
     $dsn ="mysql:host=167.114.195.192;dbname=hughesbu_PHPKNIGHTS_ASSIGNMENT";
 
