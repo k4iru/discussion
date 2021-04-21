@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-
-require_once '../Model/Database.php';
-require_once '../Model/User.php';
+require_once '../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\User;
@@ -148,6 +146,8 @@ if (isset($_POST['submit'])) {
                 <input class="col-1" type="password" name="passwordConfirm" placeholder="Password">
 
                 <input type="submit" name="submit" value="Register">
+                <a href="/http-5202-group/views/login.php">Already have an account?</a>
+
 
                 <span class="error"> <?= $firstNameError; ?></span>
                 <span class="error"> <?= $lastNameError; ?></span>

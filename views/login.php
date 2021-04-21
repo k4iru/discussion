@@ -1,8 +1,6 @@
 <?php
 session_start();
-
-require_once '../Model/Database.php';
-require_once '../Model/User.php';
+require_once '../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\User;

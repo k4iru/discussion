@@ -1,6 +1,25 @@
 .discussion {
+    height: 75px;
+    display: flex;
+    width: 800px;
+    flex-direction: row;
     color: blue;
+    align-items: center;
+    margin: auto;
 }
 .discussion:hover {
     border: 1px solid red;
+}
+
+.discussion-title {
+    width: 550px;
+    text-align: left;
+}
+
+.discussion-replies {
+    width: 125px; /* (800-550) / 2*/
+}
+
+.discussion-last {
+    width: 125px; /* (800-550) / 2*/
 }

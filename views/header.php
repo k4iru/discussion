@@ -19,12 +19,12 @@
         </form>
         <?php
         // logout button if logged in
-        if (isset($_SESSION['valid']) == true) {
-            echo "
+        if (isset($_SESSION['valid']) == true) { ?>
+
             <form action='/http-5202-group/views/logout.php' method='POST'>
                 <input type='submit' name='logout' value='Logout'>
-            </form>";
-        } 
+            </form>"
+        <?php }
         ?>
     </nav>
 </header>
