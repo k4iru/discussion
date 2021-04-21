@@ -127,14 +127,13 @@ search-btn:active {
 
 /* Main */
 #main {
-    min-height: 78.6vh;
-    /* height: 80.6vh; */
     text-align: center;
     flex-grow: 1;
 }
 
 #main h1 {
-    margin: 7vh 0px 0px 0px;
+   /* dont use viewheight for margins */
+   /* for content styling put margins on section instead */
     font-size: 3em;
 }
 
