@@ -46,6 +46,7 @@ require_once '../../library/functions.php';
         <meta name="description" content="User Created Movie Lists">
         <meta name="keywords" content="Movie Lists">
         <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+        <link rel="stylesheet" href="../../styles/list-style.css" type="text/css">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     </head>
 
@@ -53,9 +54,11 @@ require_once '../../library/functions.php';
     <!--Header-->
     <?php require_once '../header.php' ?>
         <main id="main">
-            <div>
+            <div class="container">
+                <a href="./user-lists.php" id="btn_back" class="button back">Back</a>
+                <h1 class="main-header"> Add A Movie To Your List!</h1>
                 <!--    Form to Add Movie To a user created list -->
-                <form action="" method="post">
+                <form action="" method="post" class="form">
                     <input type="hidden" name="listId" value="<?= $listId; ?>"/>
                     <div class="form-group">
                         <label for="movieId">Add a Movie to your List! :</label>
@@ -73,10 +76,9 @@ require_once '../../library/functions.php';
 
                         </span>
                     </div>
-                    <a href="./user-lists.php" id="btn_back" class="btn btn-success float-left">Back</a>
                     <button type="submit" name="addList"
-                            class="btn btn-primary float-right" id="btn-submit">
-                        Add List
+                            class="button navigation-button" id="btn-submit">
+                        Add Movie
                     </button>
                 </form>
             </div>

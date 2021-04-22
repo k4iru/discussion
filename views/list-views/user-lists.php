@@ -61,20 +61,20 @@ if (isset($_SESSION['username'])) {
                             <td class="table-td">                                        
                                 <form action="update-list.php" method="post">
                                 <input type="hidden" name="id" value="<?= $list->id; ?>"/>
-                                <?php if($user->username == $_SESSION['username']) {
+                                <?php if($user->username == $_SESSION['username'] || $_SESSION['userGroup'] == 0) {
                                     ?>
-                                            <input type="submit" class="" name="updateList" value="Update"/>
+                                            <input type="submit" class="button" name="updateList" value="Update"/>
                                     <?php
                                 }
                                 ?>
                                 </form>
                             </td>
                             <td class="table-td">
-                                <?php if($user->username == $_SESSION['username']) {
+                                <?php if($user->username == $_SESSION['username'] || $_SESSION['userGroup'] == 0) {
                                         ?>
                                             <form action="delete-list.php" method="post">
                                                 <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
-                                                <input type="submit" class="" name="deleteList" value="Delete"/>
+                                                <input type="submit" class="button" name="deleteList" value="Delete"/>
                                             </form>
                                         <?php
                                     }
@@ -83,14 +83,14 @@ if (isset($_SESSION['username'])) {
                             <td class="table-td">
                                 <form action="details-list.php" method="post">
                                     <input type="hidden" name="id" value="<?=  $list->id; ?>"/>
-                                    <input type="submit" class="" name="detailsList" value="Details"/>
+                                    <input type="submit" class="button" name="detailsList" value="Details"/>
                                 </form>
                             </td>
                         </tr>
                     <?php } ?>
                     </tbody>
                 </table>
-                <a href="./add-list.php" id="btn_addList" class="">Add List</a>
+                <a href="./add-list.php" id="btn_addList" class="button navigation-button">Add List</a>
 
             </div>
         </main>

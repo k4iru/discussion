@@ -16,7 +16,7 @@ class Polls
     public function getOptionsforPoll($db, $poll_id){
         $query = "SELECT * FROM poll_answers WHERE poll_id = :id";
         $pdostm = $db->prepare($query);
-        $pst->bindParam(':id', $poll_id);
+        $pdostm->bindParam(':id', $poll_id);
         $pdostm->execute();
 
         //fetch all result
@@ -25,7 +25,7 @@ class Polls
     }
     
     public function getPollById($id, $db){
-        $sql = "SELECT poll_answers.options, polls.id, polls.title FROM polls, poll_answers where polls.id = poll_answers.poll_id AND polls.id = :id";
+        $sql = "SELECT * FROM polls where id = :id";
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
         $pst->execute();
@@ -74,13 +74,25 @@ class Polls
 
     }
 
-    public function updatePoll($db, $id, $title, $options){
-        $sql = "UPDATE polls SET title = :title, options = :options WHERE id = :id";
+    public function updatePoll($db, $id, $title){
+        $sql = "UPDATE polls SET title = :title WHERE id = :id" ;
 
         $pst =  $db->prepare($sql);
 
         $pst->bindParam(':id', $id);
-        $pst->bindParam(':title', $title);
+        $pst->bindParam(':title', $title);     
+
+        $count = $pst->execute();
+
+        return $count;
+    }
+
+    public function updateOptions($db, $id, $options){
+        $sql = "UPDATE poll_answers SET options = :options WHERE id = :id" ;
+
+        $pst =  $db->prepare($sql);
+
+        $pst->bindParam(':id', $id);
         $pst->bindParam(':options', $options);        
 
         $count = $pst->execute();

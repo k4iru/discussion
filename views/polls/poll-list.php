@@ -42,7 +42,7 @@ if (isset($_SESSION['username'])) {
             <th>Poll Title</th>            
             <th></th>
             <?php if ($_SESSION['userGroup'] == 0) { ?>
-            <th> </th> 
+            
             <?php } ?>
         </tr>
         </thead>
@@ -55,9 +55,10 @@ if (isset($_SESSION['username'])) {
                 <td><?= $poll->title ?></td>
                 <td>
                 <a href="poll-voting.php?id=<?= $poll->id ?>" class="view-poll" title="View Poll" name="">Vote Now</a>
-                </td>
+                
                 <?php if ($_SESSION['userGroup'] == 0) { ?>
-                <td>
+                
+                <a href="poll-update.php?id=<?= $poll->id ?>" class="create-poll" title="Create Poll" name="create">Update</a>
                 <a href="poll-confirmdelete.php?id=<?= $poll->id ?>" class="delete-poll" title="Delete Poll" name="delete">Delete</a>
                 </td>
                 <?php } ?>
@@ -71,7 +72,7 @@ if (isset($_SESSION['username'])) {
 </main>
 <?php include_once "../footer.php";
 } else {
-    header('Location: ../../index.php');
+    header('Location: ../login.php');
     die();
 }
 ?>

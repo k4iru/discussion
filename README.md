@@ -13,16 +13,27 @@
 - [X] Add movies to a list
 
 #### Qualitative
-- [ ] Pages are styled and responsive
+- [X] Pages are styled and responsive
 - [ ] Code is commented
 
+#### Privileges
+- [X] Users are able to see all Custom Lists and Details about those lists
+- [X] Users can only edit Custom Lists they've created
+- [X] Users can only delete Custom Lists they've created
+- [X] Admins can edit and delete any custom list
+
 #### To Add
-- [ ] Different Priviledges for admins and users for Lists
-- [ ] Delete Movies on a list
+- [ ] Delete Movies on a custom list
 
 ### In-Progress Status:
+- [X] User can see the progress of movies
+- [ ] Users can add progress on a movie
+- [ ] Users can edit progress on a movie
+- [ ] Pages are styled and responsive
 
 ### Payment System:
+- [X] Users can pay through the Paypal API
+- [ ] Users are given different website priviledges upon payment
 
 
 
