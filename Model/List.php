@@ -7,10 +7,10 @@ class Lists
 
 
         $sql = "SELECT * FROM lists";
-        $pdostm = $dbcon->prepare($sql);
-        $pdostm->execute();
+        $prepare = $dbcon->prepare($sql);
+        $prepare->execute();
 
-        $lists = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        $lists = $prepare->fetchAll(\PDO::FETCH_OBJ);
         return $lists;
     }
 
@@ -19,15 +19,15 @@ class Lists
         // SQL with placeholders (eg. :make)
         $sql = "INSERT INTO lists (list_name, creation_date, user_id) 
               VALUES (:title, :creationDate, :userId) ";
-        $pst = $db->prepare($sql);
+        $prepare = $db->prepare($sql);
 
         // binding the values to the placeholders
-        $pst->bindParam(':title', $title);
-        $pst->bindParam(':creationDate', $creationDate);
-        $pst->bindParam(':userId', $userId);
+        $prepare->bindParam(':title', $title);
+        $prepare->bindParam(':creationDate', $creationDate);
+        $prepare->bindParam(':userId', $userId);
 
         // Running the SQL query
-        $count = $pst->execute();
+        $count = $prepare->execute();
 
         // returns the count variable which is holding #of rows affected by query.
         return $count;
@@ -41,21 +41,23 @@ class Lists
         return $pst->fetch(\PDO::FETCH_OBJ);
     }   
 
-    public function updateList($id, $title, $userId, $db){
+    public function updateList($id, $title, $creationDate,$userId, $db){
         $sql = "Update lists
                 set list_name = :title,
+                creation_date = :creationdate,
                 user_id = :userId
                 WHERE id = :id
         
         ";
 
-        $pst =  $db->prepare($sql);
+        $prepare =  $db->prepare($sql);
 
-        $pst->bindParam(':title', $title);
-        $pst->bindParam(':userId', $userId);
-        $pst->bindParam(':id', $id);
+        $prepare->bindParam(':title', $title);
+        $prepare->bindParam(':creationdate', $creationDate);
+        $prepare->bindParam(':userId', $userId);
+        $prepare->bindParam(':id', $id);
 
-        $count = $pst->execute();
+        $count = $prepare->execute();
 
         return $count;
     }
@@ -63,9 +65,9 @@ class Lists
     public function deleteList($id, $db){
         $sql = "DELETE FROM lists WHERE id = :id";
 
-        $pst = $db->prepare($sql);
-        $pst->bindParam(':id', $id);
-        $count = $pst->execute();
+        $prepare = $db->prepare($sql);
+        $prepare->bindParam(':id', $id);
+        $count = $prepare->execute();
         return $count;
 
     }
@@ -73,11 +75,11 @@ class Lists
     // ListXMovies Database Methods
     public function getListDetails($listId, $db){
         $sql = "SELECT * FROM listsxmovies where list_id = :id";
-        $pst = $db->prepare($sql);
-        $pst->bindParam(':id', $listId);
-        $pst->execute();
+        $prepare = $db->prepare($sql);
+        $prepare->bindParam(':id', $listId);
+        $prepare->execute();
 
-        $lists = $pst->fetchAll(\PDO::FETCH_OBJ);
+        $lists = $prepare->fetchAll(\PDO::FETCH_OBJ);
         return $lists;
 
         // return $pst->fetch(\PDO::FETCH_OBJ);
@@ -88,14 +90,14 @@ class Lists
         // SQL with placeholders (eg. :make)
         $sql = "INSERT INTO listsxmovies (list_id, movie_id) 
               VALUES (:listId, :movieId) ";
-        $pst = $db->prepare($sql);
+        $prepare = $db->prepare($sql);
 
         // binding the values to the placeholders
-        $pst->bindParam(':listId', $listId);
-        $pst->bindParam(':movieId', $movieId);
+        $prepare->bindParam(':listId', $listId);
+        $prepare->bindParam(':movieId', $movieId);
 
         // Running the SQL query
-        $count = $pst->execute();
+        $count = $prepare->execute();
 
         // returns the count variable which is holding #of rows affected by query.
         return $count;
@@ -104,10 +106,10 @@ class Lists
     public function deleteMovieFromList($listId, $movieId, $db){
         $sql = "DELETE FROM listsxmovies WHERE list_id = :listId AND movie_id = :movieId";
 
-        $pst = $db->prepare($sql);
-        $pst->bindParam(':listId', $listId);
-        $pst->bindParam(':movieId', $movieId);
-        $count = $pst->execute();
+        $prepare = $db->prepare($sql);
+        $prepare->bindParam(':listId', $listId);
+        $prepare->bindParam(':movieId', $movieId);
+        $count = $prepare->execute();
         return $count;
 
     }
@@ -115,21 +117,21 @@ class Lists
     // Movie_Info Database Methods
     public function getMovie($movieId, $db){
         $sql = "SELECT * FROM movie_info where id = :id";
-        $pst = $db->prepare($sql);
-        $pst->bindParam(':id', $movieId);
-        $pst->execute();
+        $prepare = $db->prepare($sql);
+        $prepare->bindParam(':id', $movieId);
+        $prepare->execute();
 
-        return $pst->fetch(\PDO::FETCH_OBJ);
+        return $prepare->fetch(\PDO::FETCH_OBJ);
     }
 
     public function getAllMovies($dbcon){
 
 
         $sql = "SELECT * FROM movie_info";
-        $pdostm = $dbcon->prepare($sql);
-        $pdostm->execute();
+        $prepare = $dbcon->prepare($sql);
+        $prepare->execute();
 
-        $movies = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        $movies = $prepare->fetchAll(\PDO::FETCH_OBJ);
         return $movies;
     }
 

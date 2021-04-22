@@ -59,6 +59,7 @@ capture_payment($_SESSION['paypal']['phpknights']['id']);
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
     <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../../styles/list-style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
@@ -67,22 +68,25 @@ capture_payment($_SESSION['paypal']['phpknights']['id']);
         <?php require_once '../header.php' ?>
         
         <main id="main">
+            <div class="container">
+            <a href="../../index.php" id="btn_addList" class="button back">Return Home</a>  
             <?php 
                 if ($test == 'true') { ?>
-                    <p class="h1 text-center">Confirmation</p>
-                    <div class="m-1">
-                        <p>We have received your payment!</p>
+                    <h1 class="main-header">Confirmation</h1>
+                    <div>
+                        <p>Thank you, We have received your payment!</p>
+                        <p>You now have full access of all site features</p>
                     </div>
                 <?php 
                 } else { ?>
-                    <p class="h1 text-center">Unconfirmed</p>
-                    <div class="m-1">
+                    <h1 class="main-header">Unconfirmed</h1>
+                    <div>
                         <p>Something Went Wrong With your Payment!</p>
                     </div>
                 <?php 
                 }
             ?>
-            <a href="../../index.php" id="btn_addList" class="btn btn-success btn-lg float-right">Return Home</a>
+            </div>
         </main>
 
         <!--Footer-->
