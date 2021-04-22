@@ -1,8 +1,7 @@
 <?php
 //Start a new server session
 session_start();
-//Include the Database and the Movie models
-use PhPKnights\Model\{Database, Trailer};
+//use PhPKnights\Model\Database;
 //Autoload Documents
 require_once '../../vendor/autoload.php';
 
@@ -18,7 +17,7 @@ $id = $title = $fullTitle = "";
     <meta name="keywords" content="Movie, Trailers, Movie Trailers">
     <link rel="stylesheet" href="../../styles/style.css" type="text/css">
     <link rel="stylesheet" href="../../styles/trailer_style.css">
-    <script src="../scripts/script.js"></script>
+    <script src="../../scripts/script.js"></script>
   </head>
   <body>
     <header>
@@ -28,10 +27,12 @@ $id = $title = $fullTitle = "";
     <main class="master-container">
 
       <div class="form-container">
-        <h1>Search a Trailer</h1>
-        <form action="../../scripts/TrailerScript.php" method="POST">
+        <h1>Enter a Number Between 1 & 250</h1>
+        <form action="../../scripts/TrailerScript.php/validateForm" method="POST">
           <fieldset>
-            <input name="trailerSearch" type="text" class="input" required>
+            <input name="movieRank" type="number" class="input" required>
+
+            <input name="searchTrailer" type="submit" value="Search Trailers" class="submitBtn">
           </fieldset>
         </form>
       </div>
@@ -39,15 +40,6 @@ $id = $title = $fullTitle = "";
 
       <div class="trailer-container">
         <?php
-        //URL to IMDb Trailer API
-        $trailerURL = 'https://imdb-api.com/en/API/Title/k_tlju98cy/tt1375666/FullActor,Posters,Trailer,';
-        $response = file_get_contents($trailerURL);
-        $decodedResponse = json_decode($response);
-        //var_dump($decodedResponse);
-        foreach ($decodedResponse as $key => $value) {
-          var_dump($key);
-          //var_dump($key, $value);
-        }
         ?>
       </div>
 
