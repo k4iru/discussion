@@ -18,6 +18,7 @@ $progress =  $progressClass->getMovieProgress(Database::getDb(), 2, 1);
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
     <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../../styles/list_style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
