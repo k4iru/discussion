@@ -78,7 +78,7 @@ require_once '../../library/functions.php';
                     </div>
                     <button type="submit" name="addList"
                             class="button navigation-button" id="btn-submit">
-                        Add List
+                        Add Movie
                     </button>
                 </form>
             </div>
