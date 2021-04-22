@@ -78,7 +78,7 @@ if (isset($_SESSION['username'])) {
             </tbody>
         </table>
         <!-- USER CAN SEE ADD REVIEW -->
-        <?php if ($_SESSION['userGroup'] == 1) {?>
+        <?php if ($_SESSION['username']) {?>
         <!-- Add a Review -->
         <a href="./addReview.php" class="button">Add a Review</a>
         <?php }?>
