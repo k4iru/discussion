@@ -5,15 +5,32 @@ require_once '../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\Discussion;
+use PhPKnights\Model\User;
+use PhPKnights\Model\Post;
 
+// format date for use in threads
+function format_date($date) {
+    $today = new DateTime();
+    $diff = $today->diff($date);
+    if ($diff->days == 0) {
+        return "Today at " . date_format($date, 'g:iA');
+    }
+
+    else if ($diff->days < 6 && $diff->y == 0) {
+        return date_format($date, 'D \a\t g:iA');
+    }
+    else {
+        return date_format($date, 'M m,Y');
+    }
+
+}
 $db = Database::getDB();
 $thread = new Discussion();
+$user = new User();
+$post = new Post();
 
 $threads = $thread->listThreads($db);
 
-if (isset($_GET['submit'])) {
-    echo "test";
-}
 ?>
 
 
@@ -46,33 +63,35 @@ if (isset($_GET['submit'])) {
         }
         foreach ($threads as $t) {
             $id = $t->id;
+            $test = new DateTime($t->creation_date);
             $creation_date = new DateTime($t->creation_date);
-            $creation_date = date_format($creation_date, "Y-m-d");
             $title = $t->title;
             $last_post = new DateTime($t->last_post);
-            $last_post = date_format($last_post, "Y-m-d");
-            $last_post_user_id = $t->last_post_user_id;
-            $user_id = $t->user_id;
+            $last_post_user = $user->getUser($db, $t->last_post_user_id)->username;
+            $username = $user->getUser($db, $t->user_id)->username;
+            $post_count = $post->getThreadPostCount($db, $id)->count;
         ?>
 
             <div class="discussion" onclick="getPage(<?= $id; ?>)">
                 <div class="discussion-title">
-                    <h3><?= $title ?></h3>
+                    <p class="title"><?= $title ?></p>
 
-                    <p>User: <?= $user_id ?> <?= $creation_date ?></p>
+                    <p><a class="user" href="/http-5202-group/views/profile.php?user_id=<?= $t->user_id; ?>"><?= $username ?></a> &#x2022; <span class="date"><?= format_date($creation_date) ?></span></p>
                 </div>
                 <div class="discussion-replies">
-                    <p>Replies: 20</p>
+                    <p>Replies: <?= $post_count ?></p>
                 </div>
                 <div class="discussion-last">
-                    <p><?= $last_post_user_id ?></p>
-                    <p><?= $last_post ?></p>
+                    <p>Last Post By: <a class="user" href="/http-5202-group/views/profile.php?user_id=<?= $t->last_post_user_id; ?>"><?= $last_post_user ?></a></p>
+                    <p><span class="date"><?= format_date($last_post) ?></span></p>
                 </div>
             </div>
 
         <?php
         }
         ?>
+
+        <span class="page-spacer"></span>
     </main>
 
     <?php require_once 'footer.php'; ?>
