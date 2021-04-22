@@ -114,7 +114,7 @@ if (isset($_SESSION['username'])) {
                 <?php 
                         $user =  $userClass->getUser(Database::getDb(), $specificList->user_id);
                         if($user->username == $_SESSION['username'] || $_SESSION['userGroup'] == 0) { ?>
-                        <a href="../../views/list-views/add-movie-to-list.php" id="btn_addList" class="button navigation-button">Add Movie To List</a>
+                        <a href="../../views/list-views/add-movie-to-list.php" id="btn_addList" class="button">Add Movie To List</a>
                     <?php
                         }
                 ?>

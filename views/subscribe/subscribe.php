@@ -102,6 +102,7 @@ create_order($PAYPAL);
     <meta name="description" content="User Created Movie Lists">
     <meta name="keywords" content="Movie Lists">
     <link rel="stylesheet" href="../../styles/style.css" type="text/css">
+    <link rel="stylesheet" href="../../styles/list-style.css" type="text/css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 
@@ -110,10 +111,12 @@ create_order($PAYPAL);
         <?php require_once '../header.php' ?>
         
         <main id="main">
-            <p>
-                <a rel="<?= $rel; ?>" href="<?= $href; ?>">Pay with Paypal</a>
-            </p>
-            <a href="../../index.php" id="btn_addList" class="btn btn-success btn-lg float-right">Return Home</a>
+          <div class="container">                
+            <a href="../../index.php" id="btn_back" class="button back">Return Home</a>
+            <h1 class="main-header"> Subscribe Now To Get More Access to the Site</h1>
+            <p> For a One-Time Fee of 9.99 CAD, you can have full access to all Member Features such as Forums and Custom Movie Lists!</p>
+            <a rel="<?= $rel; ?>" href="<?= $href; ?>" class="button navigation-button">Pay with Paypal</a>
+          </div>
         </main>
 
         <!--Footer-->
