@@ -1,15 +1,16 @@
 <?php
 
+namespace PhPKnights\Model;
 use PhPKnights\Model\Movie;
 
-class TrailerData extends Movie{
-  private static string $VideoId;
-  private static string $VideoTitle;
-  private static string $VideoDescription;
-  private static string $ThumbnailUrl;
-  private static string $UploadDate;
-  private static string $Link;
-  private static string $LinkEmbed;
+class Trailer extends Movie{
+  private string $VideoId;
+  private string $VideoTitle;
+  private string $VideoDescription;
+  private string $ThumbnailUrl;
+  private string $UploadDate;
+  private string $Link;
+  private string $LinkEmbed;
 
 
   /**
@@ -104,16 +105,25 @@ class TrailerData extends Movie{
     return $this->LinkEmbed;
   }
 
+  function validateForm($movie, $db)
+  {
+    $query = "SELECT * FROM top250Movies WHERE rank_ =  $movie";
+    $pdoStm = $db->prepare($query);
+    $pdoStm->execute();
+
+    return $pdoStm->fetch();
+  }
+
   /**
    * @author Bryan Hughes
    * @return $ModifiedLink Takes it's $LinkEmbed property and Modifies it to be displayed in a webpage
    */
-  public function makeTrailer()
+  public function makeTrailer($URL)
   {
     //Open an iframe element tag
     $ModifiedLink = '<iframe class="trailer-frame" src="';
     //Append the Embeddable Link
-    $ModifiedLink .=  $this->LinkEmbed;
+    $ModifiedLink .=  $URL;
     //Append the remaining iframe data and the closing iframe tag
     $ModifiedLink .= '" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     //Return the modified link

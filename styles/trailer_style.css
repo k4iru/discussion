@@ -10,8 +10,8 @@
   width: 800px;
 }
 
-.trailers {
-  /*position: inherit;*/
+
+.trailer-frame {
+  width: 800px;
   height: 400px;
-  width: 200px;
 }

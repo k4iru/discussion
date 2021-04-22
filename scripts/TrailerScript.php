@@ -34,5 +34,3 @@ use PhPKnights\Model\Database;
 
 //  //var_dump($key, $value);
 //}
-
-?>
