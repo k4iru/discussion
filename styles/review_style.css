@@ -14,7 +14,7 @@ h1 {
 
 /* Styling header */
 .review-table thead tr {
-    background-color: #aec6cf;
+    background-color: black;
     color: #ffffff;
     text-align: left;
 }
@@ -37,7 +37,7 @@ h1 {
 
 /* Styling table rows - dark border to show end of the table */
 .review-table tbody tr:last-of-type {
-    border-bottom: 2px solid #7ea4b3;
+    border-bottom: 2px solid black;
 }
 
 .button {

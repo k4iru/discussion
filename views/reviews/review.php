@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
 
     <!-- MAIN REVIEW SECTION -->
     <main id="main">
-        <h1>Reviews in the Database</h1>
+        <h1>All Reviews</h1>
         <!-- Displaying Reviews in a Table -->
         <table class="review-table">
             <thead>
