@@ -98,7 +98,7 @@ if (isset($_SESSION['username'])) {
         <!--Footer-->
         <?php include_once "../footer.php";
             } else {
-                header('Location: ../../index.php');
+                header('Location: ../../login.php');
             }
         ?>
     </body>

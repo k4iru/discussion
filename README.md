@@ -49,6 +49,7 @@ Only Registered and logged in Users can access Poll.
 - [x] Admins can delete a poll
 - [x] Admins can vote in a poll
 - [x] Admins can see results of voting
+- [x] Admins can update poll
 -
 #### User Functionality
 - [x] Users can read a list of polls
@@ -56,9 +57,10 @@ Only Registered and logged in Users can access Poll.
 - [x] Users can see results of voting
 
 #### Qualitative
-- [ ] Pages are styled and responsive
-- [ ] Code is formatted & commented
+- [x] Pages are styled and responsive
+- [x] Code is formatted & commented
 
-#### Addional Features
-- [ ] Update the pole & options (in progress)
+#### Addional Features for Future
 - [ ] Allow users to create poll and update/delete their own created polls
+- [ ] Add a deadline for the duration of Poll
+- [ ] Add option to close or pause any poll by Admin

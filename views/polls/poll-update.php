@@ -2,50 +2,48 @@
 use PhPKnights\Model\{Database, Polls};
 require_once '../../vendor/autoload.php';
 
-
-
 session_start();
+$db = Database::getDb();
+$p = new Polls();
+
 if (isset($_SESSION['username'])) {
 
     $id = $_GET['id'];
-    $db = Database::getDb();
-    $p = new Polls();
     $poll_id = $id;
-    
+
     $title = $option = "";
-    
+
     $optionsall = $p->getOptionsforPoll($db, $poll_id);
+    $poll = $p->getPollById($id, $db);
+    //var_dump($poll);
+    // var_dump($optionsall);
 
-    $poll = $p->getPollById($id, $db);    
-    var_dump($poll);
-    var_dump($optionsall);
+    $title = $poll->title;
 
-     $title =  $poll->title;
-//     $option = $poll->options;
-//    $optiona = array($option);
-//    // $options = implode("", $optiona);
-
-  
-
-if(isset($_POST['update'])){
-
-    $id = $_POST['sid'];
-    $title = $_POST['title'];
-    $options = $_POST[$o->options];
-
-    $db = Database::getDb();
-    $p = new Polls();
-    $count = $p->updatePoll($db, $id, $title);
-    foreach ($optionsall as $o) {
-    $countoptions = $p->updateOptions($db, $id, $options);
+    if (isset($_POST['update-option'])) {
+        $optionid = $_POST['optionid'];
+        $options = $_POST['option'];
+        $countoptions = $p->updateOptions($db, $optionid, $options);
+        if ($countoptions) {
+            header('Location:  poll-list.php?');
+        } else {
+            echo "Error Updating Records";
+        }
     }
-    if($count && $countoptions){
-       header('Location:  poll-list.php');
-    } else {
-        echo "Error Updating Records";
-    } 
-}
 
+    if (isset($_POST['update'])) {
+        $id = $_POST['sid'];
+        $title = $_POST['title'];
+        //$options = $_POST['options'];AAA
+        var_dump($options);
+        $count = $p->updatePoll($db, $id, $title);
+
+        if ($count) {
+            header('Location:  poll-list.php');
+        } else {
+            echo "Error Updating Records";
+        }
+    }
     ?>
 
 <html lang="en">
@@ -68,17 +66,23 @@ if(isset($_POST['update'])){
     <div class="content update">
 	<h2>Update Poll</h2>
     <form action="" method="post">
-    <input type="hidden" name="sid" value="<?= $id; ?>" />
+    <input type="hidden" name="sid" value="<?= $id ?>" />
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" value="<?= $title; ?>">
-        <label for="options">Options </label>
-       <?php 
-        foreach ($optionsall as $o) { ?>
-            <input type="text" name="<?= $o->options; ?>" id="options" value="<?= $o->options; ?>">
-        <?php   }       ?>
-        <input type="submit" name="update"value="Update">
+        <input type="text" name="title" id="title" value="<?= $title ?>">
+        <input type="submit" name="update"value="Update Title">
     </form>
-
+       <?php
+       $optionno = 1;
+       $optionb = 1;
+       foreach ($optionsall as $o) { ?>
+        <form action="" method="post" >
+        <label for="option">Option <?php echo $optionno++; ?> </label>
+        <input type="hidden" name="optionid" value="<?= $o->id ?>" />
+        <input type="text"  name="option" id="option" value="<?= $o->options ?>">
+        <input type="submit" name="update-option" value="Update Option <?php echo $optionb++; ?>">
+        </form>
+        <?php }
+       ?>
 
            
            <a href="poll-list.php" class="view-poll">Back to List</a>
@@ -91,7 +95,6 @@ if(isset($_POST['update'])){
     header('Location: ../login.php');
     die();
 }
-
 ?>
 </body>
 </html>

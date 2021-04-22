@@ -31,4 +31,13 @@ class Discussion {
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
+
+    public function updateThread($db, $id, $user_id) {
+        $query = "UPDATE threads SET last_post = NOW(), last_post_user_id = :user_id WHERE id = :id";
+        $pst = $db->prepare($query);
+        $pst->bindParam(':id', $id);
+        $pst->bindParam(':user_id', $user_id);
+        $count = $pst->execute();
+        return $count;
+    }
 }

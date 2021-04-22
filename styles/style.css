@@ -6,6 +6,8 @@
     --secondary-bg: blue;
     --text-main   : white;
     --error-color : red;
+    --main-accent : #2B2B2B;
+    --board-main  : #1f1f1f;
 }
 
 *,

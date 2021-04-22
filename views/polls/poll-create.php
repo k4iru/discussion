@@ -3,6 +3,8 @@ use PhPKnights\Model\{Database, Polls};
 require_once '../../vendor/autoload.php';
 
 session_start();
+$db = Database::getDb();
+    $p = new Polls();
 if (isset($_SESSION['username'])) {
     $msg = '';
     if (!empty($_POST)) {
