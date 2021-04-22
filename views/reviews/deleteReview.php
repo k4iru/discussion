@@ -10,6 +10,7 @@ require_once '../../scripts/review-fill.php';
 
 session_start();
 
+//Deletes a review depending on which review the admin has clicked on
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
     $dbcon = Database::getDb();

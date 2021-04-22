@@ -55,6 +55,7 @@ if (isset($_POST["addReview"])) {
             <div>
                 <label for="review_movie">Movie: </label>
                 <select name="review_movie" id="review_movie">
+                    <!-- Filling the dropdown menu with the function fillSelect -->
                     <?php echo fillSelect($titles) ?>
                 </select>
             </div>

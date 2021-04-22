@@ -1,5 +1,6 @@
 <?php
 
+//Fill select function to populate MOVIE dropdown from top 250 movies table when user creates a review OR updates a review.
 function fillSelect($options, $select = "")
 {
 

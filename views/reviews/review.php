@@ -10,6 +10,8 @@ require_once '../../Model/Review.php';
 require_once '../../Model/Database.php';
 require_once '../../Model/User.php';
 
+//if user is logged in, gets information from database and puts it into object
+//if user is NOT logged in, sends user to a page telling them to login.
 if (isset($_SESSION['username'])) {
     $dbcon = Database::getDb();
     $reviewModel = new Review();
@@ -49,6 +51,7 @@ if (isset($_SESSION['username'])) {
                 </tr>
             </thead>
             <tbody>
+                <!-- Looping table through PHP to get each occurance -->
                 <?php foreach ($reviews as $review) {?>
                 <tr>
                     <td><?=$review->review_movie;?></td>
@@ -77,9 +80,9 @@ if (isset($_SESSION['username'])) {
                 <?php }?>
             </tbody>
         </table>
-        <!-- USER CAN SEE ADD REVIEW -->
+        <!-- USER & ADMIN CAN SEE ADD REVIEW -->
         <?php if ($_SESSION['username']) {?>
-        <!-- Add a Review -->
+        <!-- Add a Review Button -->
         <a href="./addReview.php" class="button">Add a Review</a>
         <?php }?>
     </main>

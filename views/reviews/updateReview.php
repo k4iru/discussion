@@ -17,6 +17,7 @@ $review_movie = $review_rating = $review_content = "";
 $r2 = new Review();
 $titles = $r2->getMovieTitles(Database::getDb());
 
+//Loop to put relevant data into selected review to update
 if (isset($_POST['updateReview'])) {
     $id = $_POST['id'];
     $dbcon = Database::getDb();
@@ -30,6 +31,7 @@ if (isset($_POST['updateReview'])) {
     $review_content = $review->review_content;
 }
 
+//Loop to UPDATE the new data
 if (isset($_POST['updateReviewFinal'])) {
     $id = $_POST['id'];
     $review_movie = $_POST['review_movie'];
@@ -67,6 +69,7 @@ if (isset($_POST['updateReviewFinal'])) {
         <!-- FORM TO ADD A REVIEW -->
         <form action="" method="post">
 
+            <!-- OPTION VALUES in EACH div are filled with the selected movie information -->
             <div>
                 <label for="review_movie">Movie: </label>
                 <select name="review_movie" id="review_movie">
