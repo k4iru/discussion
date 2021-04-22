@@ -82,15 +82,15 @@ if(isset($_POST['updList'])){
 
                         </span>
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="creationDate">Creation Date :</label>
-                        <input type="text" class="form-control" id="creationDate" name="creationDate"
+                    <div class="form-group">
+                        <!-- <label for="creationDate">Creation Date :</label> -->
+                        <input type="hidden" class="form-control" id="creationDate" name="creationDate"
                             value="<?= $creationDate; ?>" placeholder="Enter creationDate">
                         <span style="color: red">
 
                         </span>
 
-                    </div> -->
+                    </div>
                     <div class="form-group">
                         <!-- <label for="userId">userId :</label> -->
                         <input type="hidden" name="userId" value="<?= $userId; ?>" class="form-control"
