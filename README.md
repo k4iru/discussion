@@ -11,6 +11,7 @@
 - [x] Users can delete a list
 - [x] Users can see details about a list (information retrieved from movies table & listsxmovies bridging table)
 - [X] Add movies to a list
+- [X] Delete Movies on a custom list
 
 #### Qualitative
 - [X] Pages are styled and responsive
@@ -23,7 +24,6 @@
 - [X] Admins can edit and delete any custom list
 
 #### To Add
-- [ ] Delete Movies on a custom list
 
 ### In-Progress Status:
 - [X] User can see the progress of movies
