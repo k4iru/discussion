@@ -44,9 +44,8 @@ $id = $title = $fullTitle = "";
         $response = file_get_contents($trailerURL);
         $decodedResponse = json_decode($response);
         //var_dump($decodedResponse);
-
         foreach ($decodedResponse as $key => $value) {
-
+          var_dump($key);
           //var_dump($key, $value);
         }
         ?>
