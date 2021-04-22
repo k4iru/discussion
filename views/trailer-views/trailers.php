@@ -1,11 +1,12 @@
 <?php
 //Start a new server session
 session_start();
+use PhPKnights\Model\{Database, Movie};
 //use PhPKnights\Model\Database;
 //Autoload Documents
 require_once '../../vendor/autoload.php';
 
-$id = $title = $fullTitle = "";
+//$id = $title = $fullTitle = "";
 ?>
 <!DOCTYPE html>
 <html lang="EN">
@@ -28,7 +29,7 @@ $id = $title = $fullTitle = "";
 
       <div class="form-container">
         <h1>Enter a Number Between 1 & 250</h1>
-        <form action="../../scripts/TrailerScript.php/validateForm" method="POST">
+        <form method="POST">
           <fieldset>
             <input name="movieRank" type="number" class="input" required>
 
@@ -40,8 +41,31 @@ $id = $title = $fullTitle = "";
 
       <div class="trailer-container">
         <?php
+        function validateForm()
+        {
+          if (isset($_POST['searchTrailer']))
+          {
+            $rank = $_POST['movieRank'];
+            if ($rank < 1 || $rank > 250)
+            {
+              echo "Please enter a valid number";
+            } else
+            {
+              $db = Database::getDb();
 
+              $query = "SELECT * FROM top250Movies WHERE rank_ =  $rank";
+              $pdoStm = $db->prepare($query);
+              $pdoStm->execute();
+            }
+            //var_dump($pdoStm);
+            //$queryResult = json_encode($pdoStm);
+            //echo $queryResult;
+
+          return $pdoStm->fetchAll();
+        }
+          var_dump(validateForm());
         ?>
+
       </div>
 
 

@@ -3,20 +3,20 @@ use PhPKnights\Model\Database;
 
 
 
-function validateForm()
-{
-  if (isset($_POST['searchTrailer'])) {
-    $rank = $_POST['movieRank'];
-    $db = Database::getDb();
+//function validateForm()
+//{
+//  if (isset($_POST['searchTrailer'])) {
+//    $rank = $_POST['movieRank'];
+//    $db = Database::getDb();
 
-    $query = "SELECT * FROM top250Movies WHERE rank_ = :$rank";
-    $pdoStm = $db->prepare($query);
-    $pdoStm->execute();
-    return $pdoStm->fetchAll();
-  }else {
-    echo "error";
-  }
-}
+//    $query = "SELECT * FROM top250Movies WHERE rank_ = $rank";
+//    $pdoStm = $db->prepare($query);
+//    $pdoStm->execute();
+//    return $pdoStm->fetchAll();
+//  }else {
+//    echo "error";
+//  }
+//}
 
 
 
