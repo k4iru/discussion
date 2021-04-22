@@ -1,25 +1,86 @@
+/* Discussion.php */
 .discussion {
-    height: 75px;
-    display: flex;
-    width: 800px;
-    flex-direction: row;
-    color: blue;
-    align-items: center;
-    margin: auto;
+  color: var(--text-main);
+  background-color: var(--main-bg);
+  height: 75px;
+  display: flex;
+  max-width: 1200px;
+  flex-direction: row;
+  border-color: #888888;
+  border-style: solid;
+  border-width: 0px 1px 1px 0px;
+  margin: auto;
 }
 .discussion:hover {
-    border: 1px solid red;
+  background-color: var(--main-accent);
+}
+
+.user:hover {
+  color: var(--link-hover);
+}
+
+.date {
+  font-size: 0.9em;
 }
 
 .discussion-title {
-    width: 550px;
-    text-align: left;
+  padding: 12px;
+  border-color: #888888;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  height: 100%;
+  width: 60%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .discussion-replies {
-    width: 125px; /* (800-550) / 2*/
+  padding: 16px;
+  border-color: #888888;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  height: 100%;
+  width: 15%; /* (800-550) / 2*/
 }
 
 .discussion-last {
-    width: 125px; /* (800-550) / 2*/
+  text-align: right;
+  padding: 16px;
+  height: 100%;
+  width: 25%; /* (800-550) / 2*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.2em;
+}
+
+.page-spacer {
+  height: 100px;
+  display: block;
+}
+
+/* discussion_page.php */
+
+.post {
+  min-height: 200px;
+  width: 1200px;
+  display: flex;
+  margin: auto;
+  background-color: var(--main-bg);
+  color: var(--text-main);
+  flex-direction: row;
+}
+
+#main {
+  background-color: var(--board-main);
+}
+
+#main h1 {
+    color: var(--text-main);
+    padding: 0.5em;
 }
