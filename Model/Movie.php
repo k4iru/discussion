@@ -1,6 +1,10 @@
 <?php
 namespace PhPKnights\Model;
 
+/**
+ * @category Movies
+ * @author Bryan Hughes
+ */
 class Movie
 {
     private static string $id;
@@ -142,8 +146,17 @@ class Movie
     }
 
 
-    public static function makePoster($url) {
-        $poster = "<img class='movie-poster' src='$url' alt='Movie Poster'>";
+    /**
+     *
+     * @param string The URL to the movie's poster
+     * @author Bryan Hughes
+     * @return string is the imageUrl modified into an HTML image tag
+     */
+    public function makePoster()
+    {
+        $poster = "<img class='movie-poster' src='";
+        $poster .= $this->imageUrl;
+        $poster .= "' alt='Movie Poster'>";
         return $poster;
     }
 }
