@@ -19,8 +19,18 @@
   color: var(--link-hover);
 }
 
+.page-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.discussion-post {
+  text-align: left;
+}
+
 .date {
   font-size: 0.9em;
+  color: var(--text-main)
 }
 
 .discussion-title {
@@ -82,5 +92,39 @@
 
 #main h1 {
     color: var(--text-main);
-    padding: 0.5em;
+    padding: 0.5em 0;
+}
+
+.post {
+  margin: 16px auto;
+  box-shadow: 1px 1px #888888;
+}
+
+.profile-pic {
+  height: 100px;
+}
+
+.user-information {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  border-color: #888888;
+  border-style: solid;
+  border-width: 0px 1px 0px 0px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding-left: 12px;
+
+}
+
+.post-comment {
+  display: flex;
+  padding: 12px;
+  width: 1050px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.small-text {
+  font-size: 0.8em;
 }

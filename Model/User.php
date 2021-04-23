@@ -2,6 +2,7 @@
 
 namespace PhPKnights\Model;
 
+use DateTime;
 
 class User
 {
@@ -77,5 +78,11 @@ class User
 
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
+    }
+
+    public function formatJoinDate($date) {
+        $join_date = new DateTime($date);
+        return date_format($join_date, 'M m,Y');
+
     }
 }

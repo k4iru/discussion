@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\User;
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['valid'] = true;
         $_SESSION['userGroup'] = $authenticatedUser->user_group;
         $_SESSION['userId'] = $authenticatedUser->id;
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
         exit;
     } else {
         $err = "Invalid Username or Password";
@@ -51,13 +51,13 @@ if (isset($_POST['submit'])) {
     <title>Login</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/authentication.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/authentication.css">
     <script src="scripts/script.js"></script>
 </head>
 
 <body>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../header.php'; ?>
     <main id="main">
         <form id="registration-form" action="" method="POST">
             <div class="form-inputs">
@@ -68,11 +68,11 @@ if (isset($_POST['submit'])) {
 
                 <span class="error"><?= $err; ?></span>
                 <input type="submit" name="submit" value="Login">
-                <a href="/http-5202-group/views/register.php">Register Now</a>
+                <a href="register.php">Register Now</a>
             </div>
         </form>
     </main>
-    <?php require_once 'footer.php'; ?>
+    <?php require_once '../footer.php'; ?>
 </body>
 
 </html>
