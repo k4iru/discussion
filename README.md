@@ -64,3 +64,24 @@ Only Registered and logged in Users can access Poll.
 - [ ] Allow users to create poll and update/delete their own created polls
 - [ ] Add a deadline for the duration of Poll
 - [ ] Add option to close or pause any poll by Admin
+
+## Kyle Cheung
+
+### Authentication:
+
+- [x] Users can create a new user
+- [x] Users can log in as a user
+- [x] Passwords are hashed 
+- [x] Sessions used to authenticate user
+
+### Discussion Board:
+- [x] Users can browse discussion boards
+- [x] Logged in users can create a new discussion 
+- [x] Discussions are listed by last reply
+- [x] Discussion list creation date
+
+### Post:
+
+- [x] Logged in users can post replies in discussion threads
+- [x] On submission page is refreshed and updated
+- [x] User post count is updated
