@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\User;
@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['valid'] = true;
             $_SESSION['userGroup'] = $authenticatedUser->user_group;
             $_SESSION['userId'] = $authenticatedUser->id;
-            header('Location: ../index.php');
+            header('Location: ../../index.php');
             exit;
         }
     }
@@ -114,13 +114,13 @@ if (isset($_POST['submit'])) {
     <title>Register</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="Stylesheet" href="../styles/authentication.css">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="Stylesheet" href="../../styles/authentication.css">
     <script src="scripts/script.js"></script>
 </head>
 
 <body>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../header.php'; ?>
     <main id="main">
 
         <form id="registration-form" action="" method="POST">
@@ -146,7 +146,7 @@ if (isset($_POST['submit'])) {
                 <input class="col-1" type="password" name="passwordConfirm" placeholder="Password">
 
                 <input type="submit" name="submit" value="Register">
-                <a href="/http-5202-group/views/login.php">Already have an account?</a>
+                <a href="login.php">Already have an account?</a>
 
 
                 <span class="error"> <?= $firstNameError; ?></span>
@@ -157,7 +157,7 @@ if (isset($_POST['submit'])) {
             </div>
         </form>
     </main>
-    <?php require_once 'footer.php'; ?>
+    <?php require_once '../footer.php'; ?>
 </body>
 
 </html>

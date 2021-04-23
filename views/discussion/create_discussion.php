@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\Discussion;
@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     $post = new Post();
 
     if (!isset($_SESSION['valid'])) {
-        header ("Location: /http-5202-group/views/login.php");
+        header ("Location: /http-5202-group/views/authentication/login.php");
     }
 
     // check if title is empty then sanitize
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         echo $count;
         // $count true means successully posted
         if ($count) {
-            header('Location: /http-5202-group/views/discussions.php');
+            header('Location: /http-5202-group/views/discussion/discussions.php');
             exit;
         } else {
             // add custom error later
@@ -61,12 +61,12 @@ if (isset($_POST['submit'])) {
     <title>Create Thread</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../../styles/style.css">
     <script src="scripts/script.js"></script>
 </head>
 
 <body>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../header.php'; ?>
     <main id="main">
         <h1>Create Thread</h1>
 
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
             <input type="submit" name="submit" value="post">
         </form>
     </main>
-    <?php require_once 'footer.php'; ?>
+    <?php require_once '../footer.php'; ?>
 </body>
 
 </html>

@@ -33,7 +33,7 @@ session_start();
         <?php if (!isset($_SESSION['valid'])) {
         ?>
             <div class="homepage-grid">
-                <a href="views/login.php">
+                <a href="views/authentication/login.php">
                     <div class="card">
                         <!-- Image Sourced from fontawesome.com -->
                         <!-- https://fontawesome.com/license -->
@@ -50,7 +50,7 @@ session_start();
                         </div>
                     </div>
                 </a>
-                <a href="views/register.php">
+                <a href="views/authentication/register.php">
                     <div class="card">
                         <!-- Image Sourced from fontawesome.com -->
                         <!-- https://fontawesome.com/license -->
