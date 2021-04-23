@@ -22,6 +22,7 @@
 .page-container {
   max-width: 1200px;
   margin: auto;
+  
 }
 
 .discussion-post {
@@ -102,6 +103,10 @@
 
 .profile-pic {
   height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+
 }
 
 .user-information {
@@ -112,8 +117,7 @@
   border-style: solid;
   border-width: 0px 1px 0px 0px;
   align-items: flex-start;
-  justify-content: space-evenly;
-  padding-left: 12px;
+  padding: 12px;
 
 }
 
@@ -127,4 +131,63 @@
 
 .small-text {
   font-size: 0.8em;
+}
+
+.comment {
+  font-size: 1.2em;
+  text-align: left;
+  padding-top: 12px;
+  line-height: 1.5em;
+}
+
+.info {
+  display: flex;
+  height: 80px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+/* discussion page input box*/
+
+.text-area {
+  font-family: Garamond;
+  color: var(--text-main);
+  background-color: var(--main-accent);
+  padding: 12px;
+  resize: none;
+  width: 1000px;
+  min-height: 100px;
+  margin: auto;
+  border: none;
+}
+
+.btn {
+  color: var(--text-main);
+  font-family: 'Roboto';
+  width: 100px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  background-color: var(--link-hover);
+}
+
+.btn:hover {
+  color: var(--text-main);
+  background-color: var(--btn-hover);
+}
+
+#reply-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.new-thread-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
 }

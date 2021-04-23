@@ -34,18 +34,22 @@ $threads = $thread->listThreads($db);
 <body>
     <?php require_once '../header.php'; ?>
     <main id="main">
-        <h1>Discussion Board</h1>
+        <div class="page-container">
+            <h1>Discussion Board</h1>
+            <span class="new-thread-btn">
+                <?php if (isset($_SESSION['valid']) == true) { ?>
+                    <a href="/http-5202-group/views/discussion/create_discussion.php"><button class="btn">New Thread</button></a>
+                <?php } else { ?>
+                    <a href="/http-5202-group/views/authentication/login.php"><button>New Thread</button></a>
 
-        <?php if (isset($_SESSION['valid']) == true) { ?>
-            <a href="/http-5202-group/views/discussion/create_discussion.php"><button>New Thread</button></a>
-        <?php } else { ?>
-            <a href="/http-5202-group/views/authentication/login.php"><button>New Thread</button></a>
 
+                    <!-- have a php loop that lists threads by last updated date -->
+                <?php
 
-            <!-- have a php loop that lists threads by last updated date -->
+                } ?>
+            </span>
+        </div>
         <?php
-
-        }
         foreach ($threads as $t) {
             $id = $t->id;
             $test = new DateTime($t->creation_date);
