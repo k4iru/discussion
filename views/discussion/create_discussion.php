@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     $post = new Post();
 
     if (!isset($_SESSION['valid'])) {
-        header ("Location: /http-5202-group/views/authentication/login.php");
+        header ("Location: /views/authentication/login.php");
     }
 
     // check if title is empty then sanitize
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         echo $count;
         // $count true means successully posted
         if ($count) {
-            header('Location: /http-5202-group/views/discussion/discussions.php');
+            header('Location: /views/discussion/discussions.php');
             exit;
         } else {
             // add custom error later
