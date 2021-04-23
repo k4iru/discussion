@@ -24,7 +24,7 @@
             // logout button if logged in
             if (isset($_SESSION['valid']) == true) { ?>
 
-                <form action='functions/logout.php' method='POST'>
+                <form action='/functions/logout.php' method='POST'>
                     <input class='btn' type='submit' name='logout' value='Logout'>
                 </form>
         </div>

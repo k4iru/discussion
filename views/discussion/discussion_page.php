@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
         $threadCount = $thread->updateThread($db, $thread_id, $_SESSION['userId']);
 
         if ($postCount && $threadCount) {
-            header("Location: /http-5202-group/views/discussion/discussion_page.php?thread_id=$thread_id");
+            header("Location: /views/discussion/discussion_page.php?thread_id=$thread_id");
         } else {
             echo "Error";
         }
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/discussion.css">
-    <script src="scripts/script.js"></script>
+    <script src="/scripts/script.js"></script>
 </head>
 
 <body>
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
                     <!-- placeholder for user profile picture-->
                     <img src="https://api.time.com/wp-content/uploads/2019/11/gettyimages-459761948.jpg?quality=85&w=1024&h=512&crop=1" class="profile-pic"></img>
                     <div class="info">
-                        <p><a class="user" href="/http-5202-group/views/authentication/profile.php?user_id=<?= $user_id; ?>"><?= $poster->username ?></a></p>
+                        <p><a class="user" href="/views/authentication/profile.php?user_id=<?= $user_id; ?>"><?= $poster->username ?></a></p>
                         <p class="small-text">Joined: <?= $join_date ?></p>
                         <p class="small-text">Total Posts: <?= $user_post_count ?></p>
                     </div>
