@@ -14,35 +14,74 @@ $rel = '';
 
 function get_token($config) {
   $url = PAYPAL_API_URL . '/v1/oauth2/token';
-  $headers = array(
-    'Accept: application/json',
-    'Accept-Language: en_US'
+
+  $auth_string = $config['client_id'] . ':' . $config['client_secret'];
+  $encoded_auth = base64_encode($auth_string);
+
+  $data = array(
+    'grant_type' => 'client_credentials'
   );
-  //-H corresponds to HTTPHEADER
-  //-u corresponds to USERPWD
-  //-d corresponds to POSTFIELDS
-  $options = array(
-    CURLOPT_HTTPHEADER => $headers,
-    CURLOPT_URL => $url,
-    CURLOPT_POST => true,
-    CURLOPT_USERPWD => $config['client_id'] . ':' . $config['client_secret'],
-    CURLOPT_POSTFIELDS => 'grant_type=client_credentials',
-    CURLOPT_RETURNTRANSFER => true
+  $http_query = http_build_query($data);
+
+  $opts = array(
+    'http' => array (
+        'method'=>"POST",
+        'header'=>
+          "Content-type: application/json" . "\r\n" .
+          "Accept-language: en_US" . "\r\n" .
+          "Authorization: Basic " . $encoded_auth,
+        'content'=>$http_query
+    )
   );
-  $curl = curl_init();
-  curl_setopt_array($curl, $options);
-  $result = json_decode(curl_exec($curl));
-  // var_dump($result);
-  $_SESSION['paypal']['token'] = $result->access_token;
-  curl_close($curl);
+
+    $context = stream_context_create($opts);
+
+    // $fp = fopen($url, 'r', false, $context);
+    $response = file_get_contents($url, false, $context);
+    $decoded = json_decode($response);
+    // var_dump($decoded->access_token);
+    $_SESSION['paypal']['token'] = $decoded->access_token;
+    // print_r($opts);
+    // var_dump($opts);
+    // var_dump($fp);
+    // print_r(json_decode($response));
+
+
+
+  // CURL Like below is DEPRECATED IN LATER VERSIONS OF PHP so I had to change the way the request was sent to the API.
+  // https://www.php.net/manual/en/function.curl-init.php
+  // https://askubuntu.com/questions/1282005/php-curl-not-installed-in-php-7-4
+  // 
+
+  // $headers = array(
+  //   'Accept: application/json',
+  //   'Accept-Language: en_US'
+  // );
+
+  // //-H corresponds to HTTPHEADER
+  // //-u corresponds to USERPWD
+  // //-d corresponds to POSTFIELDS
+
+  // $options = array(
+  //   CURLOPT_HTTPHEADER => $headers,
+  //   CURLOPT_URL => $url,
+  //   CURLOPT_POST => true,
+  //   CURLOPT_USERPWD => $config['client_id'] . ':' . $config['client_secret'],
+  //   CURLOPT_POSTFIELDS => 'grant_type=client_credentials',
+  //   CURLOPT_RETURNTRANSFER => true
+  // );
+  // // print_r($options);
+  // $curl = curl_init();
+  // curl_setopt_array($curl, $options);
+  // $result = json_decode(curl_exec($curl));
+  // // var_dump($result->access_token);
+  // $_SESSION['paypal']['token'] = $result->access_token;
+  // curl_close($curl);
 }
 
 function create_order($config) {
   $url = PAYPAL_API_URL . '/v2/checkout/orders';
-  $headers = array(
-    "Content-Type: application/json",
-    "Authorization: Bearer " . $_SESSION['paypal']['token']
-  );
+
   $data = array(
     "intent" => "CAPTURE",
     "purchase_units" => array(
@@ -60,35 +99,87 @@ function create_order($config) {
     ) 
   );
 
-  // print json_encode($data);
+  $encoded_data = json_encode($data);
 
   $opts = array(
-    CURLOPT_HTTPHEADER => $headers,
-    CURLOPT_URL => $url,
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => json_encode($data),
-    CURLOPT_RETURNTRANSFER => true
+    'http' => array (
+        'method'=>"POST",
+        'header'=>
+          "Content-Type: application/json" . "\r\n" .
+          "Authorization: Bearer " . $_SESSION['paypal']['token'],
+        'content'=>$encoded_data
+    )
   );
 
-  $curl = curl_init(); //initialize curl session
-  curl_setopt_array($curl, $opts); //set curl options
-  $result = json_decode(curl_exec($curl));
-//   var_dump($result->id);
+  $context = stream_context_create($opts);
+  // print_r($opts);
 
-  $_SESSION['paypal']['phpknights']['id'] = $result->id;
-//   var_dump($test);
+  // $fp = fopen($url, 'r', false, $context);
+  $response = file_get_contents($url, false, $context);
+  $decoded = json_decode($response);
+  // var_dump($decoded);
+
+  $_SESSION['paypal']['phpknights']['id'] = $decoded->id;
 
   global $href;
   global $rel;
-  $href = $result->links[1]->href;
-  $rel = $result->links[1]->rel;
+  $href = $decoded->links[1]->href;
+  $rel = $decoded->links[1]->rel;
 
-//   echo($href . $rel);
+  // OLD STUFF 
 
-  curl_close($curl);
+  // $headers = array(
+  //   "Content-Type: application/json",
+  //   "Authorization: Bearer " . $_SESSION['paypal']['token']
+  // );
+  // $data = array(
+  //   "intent" => "CAPTURE",
+  //   "purchase_units" => array(
+  //     array(
+  //       "amount" => array(
+  //         "currency_code" => "CAD",
+  //         "value" => "10.00"
+  //       )
+  //     )
+  //   ),
+  //   'application_context' => array(
+  //     'brand_name' => 'PHP Knights Movie App',
+  //     'user_action' => 'PAY_NOW',
+  //     'return_url' => 'http://localhost/HTTP-5202-Group/views/subscribe/confirmation.php'
+  //   ) 
+  // );
+
+  // // print json_encode($data);
+
+  // $opts = array(
+  //   CURLOPT_HTTPHEADER => $headers,
+  //   CURLOPT_URL => $url,
+  //   CURLOPT_POST => true,
+  //   CURLOPT_POSTFIELDS => json_encode($data),
+  //   CURLOPT_RETURNTRANSFER => true
+  // );
+
+  // print_r($opts);
+
+  // $curl = curl_init(); //initialize curl session
+  // curl_setopt_array($curl, $opts); //set curl options
+  // $result = json_decode(curl_exec($curl));
+  // // var_dump($result->id);
+
+  // $_SESSION['paypal']['phpknights']['id'] = $result->id;
+//   var_dump($test);
+
+//   global $href;
+//   global $rel;
+//   $href = $result->links[1]->href;
+//   $rel = $result->links[1]->rel;
+
+// //   echo($href . $rel);
+
+//   curl_close($curl);
   // print '<p> Hello </p>';
-//   print '<a rel="' . $result->links[1]->rel . '" href="' . $result->links[1]->href . '">Pay with Paypal</a>';
-//   return $result->status;
+  // print '<a rel="' . $result->links[1]->rel . '" href="' . $result->links[1]->href . '">Pay with Paypal</a>';
+  // return $result->status;
 }
 
 get_token($PAYPAL);

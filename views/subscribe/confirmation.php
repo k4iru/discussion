@@ -11,30 +11,53 @@ $PAYPAL = array(
 );
 
 function capture_payment($id) {
-    // var_dump($id);
     $url = PAYPAL_API_URL . '/v2/checkout/orders/' . $id . '/capture' ;
-    $headers = array(
-      "Content-Type: application/json",
-      "Authorization: Bearer " . $_SESSION['paypal']['token']
-    );
-  
+    
     $opts = array(
-      CURLOPT_HTTPHEADER => $headers,
-      CURLOPT_URL => $url,
-      CURLOPT_POST => true,
-      // CURLOPT_POSTFIELDS => json_encode($data),
-      CURLOPT_RETURNTRANSFER => true
+    'http' => array (
+        'method'=>"POST",
+        'header'=>
+            "Content-Type: application/json" . "\r\n" .
+            "Authorization: Bearer " . $_SESSION['paypal']['token']
+    )
     );
-  
-    $curl = curl_init(); //initialize curl session
-    curl_setopt_array($curl, $opts); //set curl options
-    $result = json_decode(curl_exec($curl));
-    // var_dump($result->details[0]->issue);
+    
+    $context = stream_context_create($opts);
 
-    if ($result == NULL) {
-        $status =  '';
-    } else if (isset($result->details[0]->issue) && $result->details[0]->issue == "ORDER_ALREADY_CAPTURED") {
-        $status = "CAPTURED";
+    $response = @file_get_contents($url, false, $context);
+    $result = json_decode($response);
+    // print_r($result->status);
+    if (isset($result->status)) {
+        $_SESSION['paypal']['phpknights']['status'] = $result->status;
+    }
+
+
+    //  
+    // OLD STUFF
+    //
+
+    // $headers = array(
+    //   "Content-Type: application/json",
+    //   "Authorization: Bearer " . $_SESSION['paypal']['token']
+    // );
+  
+    // $opts = array(
+    //   CURLOPT_HTTPHEADER => $headers,
+    //   CURLOPT_URL => $url,
+    //   CURLOPT_POST => true,
+    //   // CURLOPT_POSTFIELDS => json_encode($data),
+    //   CURLOPT_RETURNTRANSFER => true
+    // );
+  
+    // $curl = curl_init(); //initialize curl session
+    // curl_setopt_array($curl, $opts); //set curl options
+    // $result = json_decode(curl_exec($curl));
+    // // var_dump($result->details[0]->issue);
+
+    if ($result == NULL && isset($_SESSION['paypal']['phpknights']['status'])) {
+        $status =  'CAPTURED';
+    } else if ($result == NULL) {
+        $status = "";
     } else {
         $status = $result->status;
     }
@@ -46,7 +69,7 @@ function capture_payment($id) {
         $test = "false";
     }
 
-    curl_close($curl);
+    // curl_close($curl);
 }
 
 capture_payment($_SESSION['paypal']['phpknights']['id']);
