@@ -1,219 +1,225 @@
 /* Layout */
 :root {
-    --link-color  : white;
-    --link-hover  : #F45B69;
-    --main-bg     : #141414;
-    --secondary-bg: blue;
-    --text-main   : white;
-    --error-color : red;
-    --main-accent : #2B2B2B;
-    --board-main  : #1f1f1f;
+  --link-color: white;
+  --link-hover: #f45b69;
+  --main-bg: #141414;
+  --secondary-bg: blue;
+  --text-main: white;
+  --error-color: red;
+  --main-accent: #2b2b2b;
+  --board-main: #1f1f1f;
 }
 
 *,
 *::before,
 *::after {
-    padding: 0;
-    margin : 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Garamond", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 /* Header */
 
 header {
-    /* height: 40vh;  why is the height set to 40% view height? */
-    width: 100vw;
-    background-color: var(--main-bg);
+  /* height: 40vh;  why is the height set to 40% view height? */
+  width: 100vw;
+  background-color: var(--main-bg);
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 nav {
-    width: auto;
-    height: auto;
-    /*margin : auto;*/
-    /*padding: 0.75em;*/
-    display: flex;
-    flex-flow: nowrap column;
-    justify-content: space-around;
+  width: auto;
+  height: auto;
+  /*margin : auto;*/
+  /*padding: 0.75em;*/
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: space-around;
 }
 
-
 .nav-list {
-    margin: auto;
+  margin: auto;
 }
 
 .options {
-    display: inline-block;
-    vertical-align: middle;
-    padding-right : 1em;
-    justify-content: space-evenly;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 1em;
+  justify-content: space-evenly;
 }
 
 .links:hover {
-    color: var(--link-hover);
-    transition: 1s;
+  color: var(--link-hover);
+  transition: 1s;
 }
 
 .error {
-    color: var(--error-color);
+  color: var(--error-color);
 }
 
 .links {
-    text-decoration: none;
-    color: var(--link-color);
-    margin: 0 2em;
+  text-decoration: none;
+  color: var(--link-color);
+  margin: 0 2em;
 }
 
 .nav-link:hover {
-    color: var(--link-hover);
+  color: var(--link-hover);
 }
 
-
 .navbar {
-    display       : flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 /* php knights logo */
 .logo {
-    height: 100px;
-    width: 100px;
+  height: 100px;
+  width: 100px;
 }
 
 /* search bar */
 
 .search-input {
-    font-style   : inherit;
-    padding      : 0.5em 1em;
-    border-radius: 5px;
-    border       : none;
-    margin-right : 0.5em;
+  font-style: inherit;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: none;
+  margin-right: 0.5em;
 }
 
 .search-input:focus {
-    border-style: solid 1px;
-    border-color: var(--link-hover);
+  border-style: solid 1px;
+  border-color: var(--link-hover);
 }
 
 .search-btn {
-    font-style      : inherit;
-    background-color: transparent;
-    color           : var(--link-color);
-    border-color    : var(--link-color);
-    border-style    : solid 1px;
-    border-radius   : 5px;
-    padding         : 0.4em 0.6em;
+  font-style: inherit;
+  background-color: transparent;
+  color: var(--link-color);
+  border-color: var(--link-color);
+  border-style: solid 1px;
+  border-radius: 5px;
+  padding: 0.4em 0.6em;
 }
 
 .search-btn:hover,
 search-btn:active {
-    color       : var(--link-hover);
-    border-color: var(--link-hover);
+  color: var(--link-hover);
+  border-color: var(--link-hover);
 }
 
 /* Main */
 #main {
-    text-align: center;
-    flex-grow: 1;
+  text-align: center;
+  flex-grow: 1;
 }
 
 #main h1 {
-   /* dont use viewheight for margins */
-   /* for content styling put margins on section instead */
-    font-size: 3em;
+  /* dont use viewheight for margins */
+  /* for content styling put margins on section instead */
+  font-size: 3em;
 }
 
 .homepage-bio {
-    margin-top: 3vh;
+  margin-top: 3vh;
 }
 
-.homepage-header img{
-    height: 600px;
-    width: auto;
+.homepage-header img {
+  height: 600px;
+  width: auto;
 }
 
 .homepage-grid {
-    display: flex;
-    justify-content: center;
-    margin: 2vh 0px;
+  display: flex;
+  justify-content: center;
+  margin: 2vh 0px;
 }
 
 .homepage-grid img {
-    height: 200px;
-    width: auto;
-    border-radius: 5px 5px 0 0;
+  height: 200px;
+  width: auto;
+  border-radius: 5px 5px 0 0;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    margin: 5vh 5vw;
-    width: 400px;
-    padding: 3vh 2vw;
-    transition: all .2s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  margin: 5vh 5vw;
+  width: 400px;
+  padding: 3vh 2vw;
+  transition: all 0.2s ease-in-out;
 }
 
 .card:hover {
-    background-color: #141414;
-    transform: scale(1.1);
-    color: white;
-
+  background-color: #141414;
+  transform: scale(1.1);
+  color: white;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .active {
-    display: block;
+  display: block;
 }
 
 .card img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .card-container {
-    margin: 2vh 0px 0px 0px;
+  margin: 2vh 0px 0px 0px;
 }
 
 /* Footer */
 
 footer {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 footer {
-    color: var(--text-main);
-    background-color: var(--main-bg);
-    padding: 1em;
+  color: var(--text-main);
+  background-color: var(--main-bg);
+  padding: 1em;
 }
 
-footer>ul {
-    text-align: center;
+footer > ul {
+  text-align: center;
 }
 
 .copyright {
-    font-size : 0.9em;
-    text-align: center;
-    margin: 1em auto;
+  font-size: 0.9em;
+  text-align: center;
+  margin: 1em auto;
 }
