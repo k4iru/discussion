@@ -1,27 +1,29 @@
 <?php
-//Start a new server session
 session_start();
 
 use PhPKnights\Model\{Database, Trailer};
-//use PhPKnights\Model\Database;
-//Autoload Documents
 require_once '../../vendor/autoload.php';
 
+//Connect to the Database
 $db = Database::getDb();
+//Store a new trailer object
 $trailer = new Trailer();
+
 if (isset($_POST['searchTrailer'])) {
+  //Capture user inputted rank
   $rank = $_POST['movieRank'];
+  //User input must be between 1 and 250
   if ($rank < 1 || $rank > 250) {
     echo "Please enter a valid number";
   } else {
+    //Capture the queryResult of the validateForm function
     $movieObj = $trailer->validateForm($rank, $db);
   }
 }
-//$id = $title = $fullTitle = "";
+
 ?>
 <!DOCTYPE html>
 <html lang="EN">
-
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Movie App 'Trailers' Page">
@@ -41,7 +43,7 @@ if (isset($_POST['searchTrailer'])) {
   <main class="master-container">
 
     <div class="form-container">
-      <h1>Enter a Number Between 1 & 250</h1>
+      <h1 class="title">Enter a Number Between 1 & 250</h1>
       <form method="POST">
         <fieldset>
           <input name="movieRank" type="number" class="input" required>
@@ -54,10 +56,11 @@ if (isset($_POST['searchTrailer'])) {
 
     <div class="trailer-container">
       <?php
-      //var_dump($movieObj->id);
       //URL to IMDb Trailer API
       $trailerURL = "https://imdb-api.com/en/API/Trailer/k_tlju98cy/$movieObj->id";
+
       $response = file_get_contents($trailerURL);
+
       $decodedResponse = json_decode($response);
       //var_dump($decodedResponse);
 
@@ -70,13 +73,9 @@ if (isset($_POST['searchTrailer'])) {
       $ModifiedLink .= '" title="Trailer Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
       echo $ModifiedLink;
-
-
       ?>
 
     </div>
-
-
   </main>
 
   <div class="footer-container">

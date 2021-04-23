@@ -105,13 +105,20 @@ class Trailer extends Movie{
     return $this->LinkEmbed;
   }
 
+  /**
+   * @* @author Bryan Hughes
+   * @* @param int $movie The IMDb rank for a movie
+   * @* @param object $db A Database connection
+   * @* @return mixed $queryResult The matching movie to rank inputted
+   */
   function validateForm($movie, $db)
   {
     $query = "SELECT * FROM top250Movies WHERE rank_ =  $movie";
     $pdoStm = $db->prepare($query);
     $pdoStm->execute();
+    $queryResult = $pdoStm->fetch();
 
-    return $pdoStm->fetch();
+    return $queryResult;
   }
 
   /**
