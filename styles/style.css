@@ -2,6 +2,7 @@
 :root {
   --link-color: white;
   --link-hover: #f45b69;
+  --btn-hover: #85353c;
   --main-bg: #141414;
   --secondary-bg: blue;
   --text-main: white;
@@ -43,7 +44,7 @@ body {
 
 header {
   /* height: 40vh;  why is the height set to 40% view height? */
-  width: 100vw;
+  width: 100%;
   background-color: var(--main-bg);
 }
 
@@ -69,7 +70,7 @@ nav {
 .options {
   display: inline-block;
   vertical-align: middle;
-  padding-right: 1em;
+  padding-right: 0.2em;
   justify-content: space-evenly;
 }
 
@@ -85,7 +86,8 @@ nav {
 .links {
   text-decoration: none;
   color: var(--link-color);
-  margin: 0 2em;
+  margin: 0 1em;
+  font-size: 1.2em;
 }
 
 .nav-link:hover {
@@ -93,6 +95,8 @@ nav {
 }
 
 .navbar {
+  margin: auto;
+  max-width: 1500px;
   display: flex;
   flex-direction: row;
 }
@@ -107,6 +111,7 @@ nav {
 
 .search-input {
   font-style: inherit;
+  height: 30px;
   padding: 0.5em 1em;
   border-radius: 5px;
   border: none;
@@ -222,4 +227,27 @@ footer > ul {
   font-size: 0.9em;
   text-align: center;
   margin: 1em auto;
+}
+
+.btn {
+  color: var(--text-main);
+  font-family: "Roboto";
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  background-color: var(--link-hover);
+}
+
+.btn:hover {
+  color: var(--text-main);
+  background-color: var(--btn-hover);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 }

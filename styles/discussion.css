@@ -175,7 +175,7 @@
 
 .btn:hover {
   color: var(--text-main);
-  background-color: var(--main-accent);
+  background-color: var(--btn-hover);
 }
 
 #reply-form {
