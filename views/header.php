@@ -1,11 +1,11 @@
 <header>
     <nav class="navbar">
-        <a href="/http-5202-group/index.php"><img src="/http-5202-group/images/newlogo.png" alt="php knights logo" class="logo" /></a>
+        <a href="/index.php"><img src="/images/newlogo.png" alt="php knights logo" class="logo" /></a>
         <ul class="nav-list">
             <li class="options"><a class="links" href="#">Movies</a></li>
             <li class="options"><a class="links" href="#">People</a></li>
-            <li class="options"><a class="links" href="/http-5202-group/views/discussion/discussions.php">Discussions</a></li>
-            <li class="options"><a class="links" href="/http-5202-group/views/authentication/profile.php">Profile</a></li>
+            <li class="options"><a class="links" href="/views/discussion/discussions.php">Discussions</a></li>
+            <li class="options"><a class="links" href="/views/authentication/profile.php">Profile</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/trailer-views/trailers.php">Trailers</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/posters.php">Posters</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/reviews/review.php">Reviews</a></li>

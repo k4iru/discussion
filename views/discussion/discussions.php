@@ -40,7 +40,7 @@ $threads = $thread->listThreads($db);
                 <?php if (isset($_SESSION['valid']) == true) { ?>
                     <a href="/http-5202-group/views/discussion/create_discussion.php"><button class="btn">New Thread</button></a>
                 <?php } else { ?>
-                    <a href="/http-5202-group/views/authentication/login.php"><button>New Thread</button></a>
+                    <a href="/http-5202-group/views/authentication/login.php"><button class="btn">New Thread</button></a>
 
 
                     <!-- have a php loop that lists threads by last updated date -->
