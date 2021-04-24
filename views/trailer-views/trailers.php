@@ -8,6 +8,7 @@ require_once '../../vendor/autoload.php';
 $db = Database::getDb();
 //Store a new trailer object
 $trailer = new Trailer();
+$movieObj = $trailer->validateForm(1, $db);
 
 if (isset($_POST['searchTrailer'])) {
   //Capture user inputted rank
@@ -56,8 +57,14 @@ if (isset($_POST['searchTrailer'])) {
 
     <div class="trailer-container">
       <?php
+
       //URL to IMDb Trailer API
       $trailerURL = "https://imdb-api.com/en/API/Trailer/k_tlju98cy/$movieObj->id";
+
+      if ($trailerURL == "undefined")
+      {
+        echo "Word";
+      }
 
       $response = file_get_contents($trailerURL);
 

@@ -1,17 +1,45 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
 .master-container {
   display: grid;
   place-content: center;
-  height: 70vh;
+  height: 100vh;
+  width: 100vw;
 }
 
 .trailer-container {
+  display: grid;
+  place-content: center;
   border: solid #000 2px;
-  height: 400px;
-  width: 800px;
+  height: 80vh;
+  width: 100vw;
 }
 
-
 .trailer-frame {
-  width: 800px;
-  height: 400px;
+  height: 100%;
+  width: 100%;
+}
+
+.form-container {
+  display: grid;
+  place-content: center;
+}
+
+fieldset {
+  border: none;
+}
+
+.input {
+  height: 50px;
+  width: 400px;
+  margin: 2em auto;
+  padding: 4px 3px;
+}
+
+.submitBtn {
+  height: 50px;
+  width: 125px;
+  font-size: 1em;
 }
