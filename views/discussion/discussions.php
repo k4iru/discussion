@@ -28,24 +28,28 @@ $threads = $thread->listThreads($db);
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/discussion.css">
-    <script src="/http-5202-group/scripts/discussion.js"></script>
+    <script src="../../scripts/discussion.js"></script>
 </head>
 
 <body>
     <?php require_once '../header.php'; ?>
     <main id="main">
-        <h1>Discussion Board</h1>
+        <div class="page-container">
+            <h1>Discussion Board</h1>
+            <span class="new-thread-btn">
+                <?php if (isset($_SESSION['valid']) == true) { ?>
+                    <a href="/views/discussion/create_discussion.php"><button class="btn">New Thread</button></a>
+                <?php } else { ?>
+                    <a href="/views/authentication/login.php"><button class="btn">New Thread</button></a>
 
-        <?php if (isset($_SESSION['valid']) == true) { ?>
-            <a href="/http-5202-group/views/discussion/create_discussion.php"><button>New Thread</button></a>
-        <?php } else { ?>
-            <a href="/http-5202-group/views/authentication/login.php"><button>New Thread</button></a>
 
+                    <!-- have a php loop that lists threads by last updated date -->
+                <?php
 
-            <!-- have a php loop that lists threads by last updated date -->
+                } ?>
+            </span>
+        </div>
         <?php
-
-        }
         foreach ($threads as $t) {
             $id = $t->id;
             $test = new DateTime($t->creation_date);
@@ -61,13 +65,13 @@ $threads = $thread->listThreads($db);
                 <div class="discussion-title">
                     <p class="title"><?= $title ?></p>
 
-                    <p><a class="user" href="/http-5202-group/views/authentication/profile.php?user_id=<?= $t->user_id; ?>"><?= $username ?></a> &#x2022; <span class="date"><?= format_date($creation_date) ?></span></p>
+                    <p><a class="user" href="/views/authentication/profile.php?user_id=<?= $t->user_id; ?>"><?= $username ?></a> &#x2022; <span class="date"><?= format_date($creation_date) ?></span></p>
                 </div>
                 <div class="discussion-replies">
                     <p>Replies: <?= $post_count ?></p>
                 </div>
                 <div class="discussion-last">
-                    <p>Last Post By: <a class="user" href="/http-5202-group/views/authentication/profile.php?user_id=<?= $t->last_post_user_id; ?>"><?= $last_post_user ?></a></p>
+                    <p>Last Post By: <a class="user" href="/views/authentication/profile.php?user_id=<?= $t->last_post_user_id; ?>"><?= $last_post_user ?></a></p>
                     <p><span class="date"><?= format_date($last_post) ?></span></p>
                 </div>
             </div>
