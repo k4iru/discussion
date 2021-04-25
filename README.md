@@ -87,16 +87,17 @@ Only Registered and logged in Users can access Poll.
 - [x] User post count is updated
 
 
-##Bryan Hughes
-###Trailers
+## Bryan Hughes
+
+### Trailers
 - [#] User can search a number between 1 and 250
 - [#] The data is validated a Database connection is established
 - [#] A query is sent to list the top 250 movies
 - [#] If the number inputted by the user matches a rank in the database, show the corresponding trailer
-- [] Display the movie information retreived from the database on the HTML page
+- [ ] Display the movie information retreived from the database on the HTML page
 
-###Posters
-- [] User can search the title of a movie
-- [] A database connection is established
-- [] A query is sent to the database to select all movies LIKE '%user input%'
-- [] Loop through the movie object to display it's poster and information
+### Posters
+- [ ] User can search the title of a movie
+- [ ] A database connection is established
+- [ ] A query is sent to the database to select all movies LIKE '%user input%'
+- [ ] Loop through the movie object to display it's poster and information
