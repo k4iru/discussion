@@ -8,7 +8,9 @@ require_once '../../vendor/autoload.php';
 $db = Database::getDb();
 //Store a new trailer object
 $trailer = new Trailer();
+//Set the $movieObj to the #1 rank so there's a trailer on load
 $movieObj = $trailer->validateForm(1, $db);
+
 
 if (isset($_POST['searchTrailer'])) {
   //Capture user inputted rank
@@ -37,18 +39,15 @@ if (isset($_POST['searchTrailer'])) {
 </head>
 
 <body>
-  <header>
-    <?php require_once '../header.php' ?>
-  </header>
   <!--Master Container-->
   <main class="master-container">
+    <?php require_once '../header.php' ?>
 
     <div class="form-container">
-      <h1 class="title">Enter a Number Between 1 & 250</h1>
       <form method="POST">
+        <h1 class="title">Enter a Number Between 1 & 250</h1>
         <fieldset>
           <input name="movieRank" type="number" class="input" required>
-
           <input name="searchTrailer" type="submit" value="Search Trailers" class="submitBtn">
         </fieldset>
       </form>
@@ -60,11 +59,6 @@ if (isset($_POST['searchTrailer'])) {
 
       //URL to IMDb Trailer API
       $trailerURL = "https://imdb-api.com/en/API/Trailer/k_tlju98cy/$movieObj->id";
-
-      if ($trailerURL == "undefined")
-      {
-        echo "Word";
-      }
 
       $response = file_get_contents($trailerURL);
 
@@ -83,12 +77,9 @@ if (isset($_POST['searchTrailer'])) {
       ?>
 
     </div>
-  </main>
-
-  <div class="footer-container">
-    <!--Footer-->
     <?php require_once '../footer.php' ?>
-  </div>
+  </main>
+  <!--Footer-->
 </body>
 
 </html>

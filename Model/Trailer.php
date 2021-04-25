@@ -128,7 +128,7 @@ class Trailer extends Movie{
   public function makeTrailer($URL)
   {
     //Open an iframe element tag
-    $ModifiedLink = '<iframe class="trailer-conta" src="';
+    $ModifiedLink = '<iframe class="trailer-container" src="';
     //Append the Embeddable Link
     $ModifiedLink .=  $URL;
     //Append the remaining iframe data and the closing iframe tag
