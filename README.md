@@ -90,10 +90,10 @@ Only Registered and logged in Users can access Poll.
 ## Bryan Hughes
 
 ### Trailers
-- [#] User can search a number between 1 and 250
-- [#] The data is validated a Database connection is established
-- [#] A query is sent to list the top 250 movies
-- [#] If the number inputted by the user matches a rank in the database, show the corresponding trailer
+- [x] User can search a number between 1 and 250
+- [x] The data is validated a Database connection is established
+- [x] A query is sent to list the top 250 movies
+- [x] If the number inputted by the user matches a rank in the database, show the corresponding trailer
 - [ ] Display the movie information retreived from the database on the HTML page
 
 ### Posters
