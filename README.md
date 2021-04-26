@@ -89,6 +89,12 @@ Only Registered and logged in Users can access Poll.
 
 ## Bryan Hughes
 
+### Database Creation
+- [x] Created a database on a remote server
+- [x] Created user accounts for myself and the team
+- [x] Stored and shared the credentials to the team
+- [x] Faciliated users connecting to the database remotely
+
 ### Trailers
 - [x] User can search a number between 1 and 250
 - [x] The data is validated a Database connection is established
