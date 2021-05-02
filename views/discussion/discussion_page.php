@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 
-
+<!DOCTYPE HTML>
 <html lang="en">
 
 <head>
@@ -67,6 +67,8 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/discussion.css">
     <script src="/scripts/script.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="/http-5202-group/scripts/tinymce.js"></script>
 </head>
 
 <body>
@@ -108,7 +110,7 @@ if (isset($_POST['submit'])) {
                 <div class="user-information"><img src="https://api.time.com/wp-content/uploads/2019/11/gettyimages-459761948.jpg?quality=85&w=1024&h=512&crop=1" class="profile-pic"></img></div>
                 <div class="post-comment">
                     <form id="reply-form" action="" method="POST">
-                        <textarea class="text-area" name="content" placeholder="Write your reply..."></textarea>
+                        <textarea class="text-area text-editor" name="content" placeholder="Write your reply..."></textarea>
                         <input class="btn" type="submit" name="submit" value="Post">
                     </form>
                 </div>

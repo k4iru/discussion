@@ -4,7 +4,7 @@
         <ul class="nav-list">
             <li class="options"><a class="links" href="#">Movies</a></li>
             <li class="options"><a class="links" href="#">People</a></li>
-            <li class="options"><a class="links" href="/views/discussion/discussions.php">Discussions</a></li>
+            <li class="options"><a class="links" href="/http-5202-group/views/discussion/discussions.php">Discussions</a></li>
             <li class="options"><a class="links" href="/views/authentication/profile.php">Profile</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/trailer-views/trailers.php">Trailers</a></li>
             <li class="options"><a class="links" href="/http-5202-group/views/posters.php">Posters</a></li>
