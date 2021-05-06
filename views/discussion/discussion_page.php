@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../../vendor/autoload.php';
-require_once '../../functions/date_format.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\Discussion;

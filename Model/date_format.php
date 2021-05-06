@@ -1,7 +1,8 @@
 <?php
+
 function format_date($date)
 {
-    $today = new DateTime();
+    $today = new \DateTime();
     $diff = $today->diff($date);
     if ($diff->days == 0) {
         return "Today at " . date_format($date, 'g:iA');

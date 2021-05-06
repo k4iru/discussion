@@ -1,19 +1,20 @@
 <?php
 session_start();
-
+$root = getenv('ROOT');
 require_once '../../vendor/autoload.php';
-require_once '../../functions/date_format.php';
+require_once '../../Model/date_format.php';
 
-use PhPKnights\Model\Database;
-use PhPKnights\Model\Discussion;
-use PhPKnights\Model\User;
-use PhPKnights\Model\Post;
 
+$db = \PhPKnights\Model\Database::getDb();
+$thread =  new \PhPKnights\Model\Discussion();
+$user = new \PhPKnights\Model\User();
+$post = new \PhPKnights\Model\Post();
+/*
 $db = Database::getDB();
 $thread = new Discussion();
 $user = new User();
 $post = new Post();
-
+*/
 $threads = $thread->listThreads($db);
 
 ?>
@@ -26,9 +27,9 @@ $threads = $thread->listThreads($db);
     <title>Discussion Board</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles/style.css">
-    <link rel="stylesheet" href="../../styles/discussion.css">
-    <script src="../../scripts/discussion.js"></script>
+    <link rel="stylesheet" href="<?= $root ?>/styles/style.css">
+    <link rel="stylesheet" href="<?= $root ?>/styles/discussion.css">
+    <script src="<?= $root ?>/scripts/discussion.js"></script>
 </head>
 
 <body>
@@ -38,9 +39,9 @@ $threads = $thread->listThreads($db);
             <h1>Discussion Board</h1>
             <span class="new-thread-btn">
                 <?php if (isset($_SESSION['valid']) == true) { ?>
-                    <a href="/views/discussion/create_discussion.php"><button class="btn">New Thread</button></a>
+                    <a href="<?= $root ?>/views/discussion/create_discussion.php"><button class="btn">New Thread</button></a>
                 <?php } else { ?>
-                    <a href="/views/authentication/login.php"><button class="btn">New Thread</button></a>
+                    <a href="<?= $root ?>/views/authentication/login.php"><button class="btn">New Thread</button></a>
 
 
                     <!-- have a php loop that lists threads by last updated date -->

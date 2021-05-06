@@ -1,18 +1,16 @@
 <?php
 session_start();
+$root = getenv('ROOT');
 require_once '../../vendor/autoload.php';
 
-use PhPKnights\Model\Database;
-use PhPKnights\Model\Discussion;
-use PhPKnights\Model\Post;
+$db = \PhPKnights\Model\Database::getDb();
+$thread =  new \PhPKnights\Model\Discussion();
+$post = new \PhPKnights\Model\Post();
 
 $title = $titleError = $content = $contentError = "";
 $err = false;
 
 if (isset($_POST['submit'])) {
-    $db = Database::getDB();
-    $thread = new Discussion();
-    $post = new Post();
 
     if (!isset($_SESSION['valid'])) {
         header ("Location: /views/authentication/login.php");
@@ -43,7 +41,7 @@ if (isset($_POST['submit'])) {
         echo $count;
         // $count true means successully posted
         if ($count) {
-            header('Location: /views/discussion/discussions.php');
+            header('Location: ' . $root .'/views/discussion/discussions.php');
             exit;
         } else {
             // add custom error later
