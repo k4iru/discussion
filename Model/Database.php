@@ -1,12 +1,13 @@
 <?php
 namespace PhPKnights\Model;
 
+// change later
 class Database
 {
     //properties
-    private static $user = 'hughesbu_bryan_hughes';
-    private static $pass = 'xsSt(3rtE2uk$y';
-    private static $dsn = 'mysql:host=167.114.195.192;dbname=hughesbu_PHPKNIGHTS_ASSIGNMENT';
+    private static $user = 'root';
+    private static $pass = '';
+    private static $dsn = 'mysql:host=localhost;dbname=movie_db';
     private static $dbcon;
     
     private function __construct()
