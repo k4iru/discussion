@@ -9,7 +9,6 @@ class Discussion {
         $pst = $db->prepare($query);
         $pst->bindParam(':title', $title);
         $pst->bindParam(':userId', $userId);
-        
         // if added to db then return the last inserted id, else return 0;
         if ($pst->execute()) {
             $lastInsertId = $db->lastInsertId();

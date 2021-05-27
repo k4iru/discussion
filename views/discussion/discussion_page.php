@@ -1,11 +1,13 @@
 <?php
 session_start();
 require_once '../../vendor/autoload.php';
+require_once '../../Model/date_format.php';
 
 use PhPKnights\Model\Database;
 use PhPKnights\Model\Discussion;
 use PhPKnights\Model\Post;
 use PhPKnights\Model\User;
+
 
 
 $db = Database::getDB();
@@ -66,8 +68,8 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/discussion.css">
     <script src="/scripts/script.js"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="/http-5202-group/scripts/tinymce.js"></script>
+    <script src="https://cdn.tiny.cloud/1/hkjnfgn59n558lrgjdjdha68n1d3bhpctu8j4uwepgtc1984/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="/scripts/tinymce.js"></script>
 </head>
 
 <body>
