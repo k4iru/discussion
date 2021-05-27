@@ -1,109 +1,25 @@
-# PHP Knights Movie Application
+# Discussion Board
 
-## Adam Galek
+check it out at http://discussion.kylecheung.ca/
 
-### User Created Movie Lists:
+## Description
 
-#### Basic Crud
-- [x] Users can create a new list
-- [x] Users can read a list of lists
-- [x] Users can update a list
-- [x] Users can delete a list
-- [x] Users can see details about a list (information retrieved from movies table & listsxmovies bridging table)
-- [X] Add movies to a list
-- [X] Delete Movies on a custom list
+Discussion board implemented using PHP and MYSQL to manage content. Features user authentication with hashed passwords and self expiring sessions for security. Discussion threads store meta data such as last post date, last user to post, post creator. User posts are also counted allowing users to easily see their total post count.
 
-#### Qualitative
-- [X] Pages are styled and responsive
-- [ ] Code is commented
+## Technology Used
 
-#### Privileges
-- [X] Users are able to see all Custom Lists and Details about those lists
-- [X] Users can only edit Custom Lists they've created
-- [X] Users can only delete Custom Lists they've created
-- [X] Admins can edit and delete any custom list
+* `PHP` 
+* `MYSQL` 
+* `HTML` 
+* `CSS` 
+* `Linux`
 
-#### To Add
+## Lessons Learned
 
-### In-Progress Status:
-- [X] User can see the progress of movies
-- [ ] Users can add progress on a movie
-- [ ] Users can edit progress on a movie
-- [ ] Pages are styled and responsive
+The hardest thing about working with php by far was trying to get headers and links working and redirecting properly. We included our headers in php to avoid having to rewrite code, so we couldn't use relative referencing since a link to the discussions page from the homepage would not be the same from the profile section. Instead we used absolute positioning. However, because we are working on multiple projects. We also need to include the parent folder in the reference since htdocs is the actually root directory. Our links ended up looking something like this:
 
-### Payment System:
-- [X] Users can pay through the Paypal API
-- [ ] Users are given different website priviledges upon payment
+`href=/http-5202-movietracker/views/authentication/login.php`
 
+This worked pretty well for development. But when it was time to deploy this wouldn't work since `\http-5202-movietracker` would now be the root directory once hosted. I fixed this by adding a .htaccess file that set an environment variable for the root and using that in our links like so
 
-
-
-## Muhammad Danyal Effendi
-
-### Poll Feature:
-Only Registered and logged in Users can access Poll.
-
-#### Admin Functionality
-- [x] Admins can create a new poll
-- [x] Admins can read a list of polls
-- [x] Admins can delete a poll
-- [x] Admins can vote in a poll
-- [x] Admins can see results of voting
-- [x] Admins can update poll
--
-#### User Functionality
-- [x] Users can read a list of polls
-- [x] Users can vote in a poll
-- [x] Users can see results of voting
-
-#### Qualitative
-- [x] Pages are styled and responsive
-- [x] Code is formatted & commented
-
-#### Addional Features for Future
-- [ ] Allow users to create poll and update/delete their own created polls
-- [ ] Add a deadline for the duration of Poll
-- [ ] Add option to close or pause any poll by Admin
-
-## Kyle Cheung
-
-### Authentication:
-
-- [x] Users can create a new user
-- [x] Users can log in as a user
-- [x] Passwords are hashed 
-- [x] Sessions used to authenticate user
-
-### Discussion Board:
-- [x] Users can browse discussion boards
-- [x] Logged in users can create a new discussion 
-- [x] Discussions are listed by last reply
-- [x] Discussion list creation date
-
-### Post:
-
-- [x] Logged in users can post replies in discussion threads
-- [x] On submission page is refreshed and updated
-- [x] User post count is updated
-
-
-## Bryan Hughes
-
-### Database Creation
-- [x] Created a database on a remote server
-- [x] Created user accounts for myself and the team
-- [x] Stored and shared the credentials to the team
-- [x] Faciliated users connecting to the database remotely
-
-### Trailers
-- [x] User can search a number between 1 and 250
-- [x] The data is validated a Database connection is established
-- [x] A query is sent to list the top 250 movies
-- [x] If the number inputted by the user matches a rank in the database, show the corresponding trailer
-- [ ] Display the movie information retreived from the database on the HTML page
-
-### Posters
-- [ ] User can search the title of a movie
-- [ ] A database connection is established
-- [ ] A query is sent to the database to select all movies LIKE '%user input%'
-- [ ] Loop through the movie object to display it's poster and information
+`href="<?= $root ?>/views/authentication/profile.php?user_id=<?= $t->last_post_user_id; ?>"`
