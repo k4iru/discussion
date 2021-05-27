@@ -1,5 +1,7 @@
 # Discussion Board
 
+This branch is heavily modified to only contain the features by Kyle Cheung
+
 check it out at http://discussion.kylecheung.ca/
 
 ## Description
