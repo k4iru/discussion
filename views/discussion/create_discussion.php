@@ -13,7 +13,7 @@ $err = false;
 if (isset($_POST['submit'])) {
 
     if (!isset($_SESSION['valid'])) {
-        header ("Location: /views/authentication/login.php");
+        header("Location: /views/authentication/login.php");
     }
 
     // check if title is empty then sanitize
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         echo $count;
         // $count true means successully posted
         if ($count) {
-            header('Location: ' . $root .'/views/discussion/discussions.php');
+            header('Location: ' . $root . '/views/discussion/discussions.php');
             exit;
         } else {
             // add custom error later
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -60,7 +60,9 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/style.css">
-    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="../../styles/discussion.css">
+    <script src="https://cdn.tiny.cloud/1/hkjnfgn59n558lrgjdjdha68n1d3bhpctu8j4uwepgtc1984/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="<?= $root ?>/scripts/tinymce.js"></script>
 </head>
 
 <body>
@@ -69,17 +71,16 @@ if (isset($_POST['submit'])) {
         <h1>Create Thread</h1>
 
         <form action="" method="POST">
-            <div>
+            <div class="title-container">
                 <label for="title">Title</label>
                 <input type="text" name="title" value=<?= $title; ?>> <span class="error"> <?= $titleError; ?></span>
             </div>
 
-            <div>
-                <label for="content">Message</label>
-                <textarea name="content" rows="10" cols="80" value=<?= $content; ?>></textarea> <span class="error"> <?= $contentError; ?></span>
+            <div class="container">
+                <textarea class="text-area text-editor" name="content" rows="10" cols="80" value=<?= $content; ?>></textarea> <span class="error"> <?= $contentError; ?></span>
             </div>
 
-            <input type="submit" name="submit" value="post">
+            <input class="btn" type="submit" name="submit" value="post">
         </form>
     </main>
     <?php require_once '../footer.php'; ?>

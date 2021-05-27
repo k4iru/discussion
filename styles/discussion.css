@@ -191,3 +191,32 @@
   width: 100%;
   text-align: left;
 }
+
+.container { 
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+label {
+  display: inline;
+}
+
+.title-container {
+  padding: 12px;
+}
+
+.title-container label {
+  padding-right: 12px;
+  color: var(--text-main);
+  font-size: 1.3em;
+}
+
+.title-container input {
+  border: none;
+  width: 200px;
+  color: var(--text-main);
+  background-color: #2a3746;
+  padding: 8px 12px;
+  border-radius: 3px;
+}

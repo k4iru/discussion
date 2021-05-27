@@ -66,13 +66,13 @@ $threads = $thread->listThreads($db);
                 <div class="discussion-title">
                     <p class="title"><?= $title ?></p>
 
-                    <p><a class="user" href="/views/authentication/profile.php?user_id=<?= $t->user_id; ?>"><?= $username ?></a> &#x2022; <span class="date"><?= format_date($creation_date) ?></span></p>
+                    <p><a class="user" href="<?= $root ?>/views/authentication/profile.php?user_id=<?= $t->user_id; ?>"><?= $username ?></a> &#x2022; <span class="date"><?= format_date($creation_date) ?></span></p>
                 </div>
                 <div class="discussion-replies">
                     <p>Replies: <?= $post_count ?></p>
                 </div>
                 <div class="discussion-last">
-                    <p>Last Post By: <a class="user" href="/views/authentication/profile.php?user_id=<?= $t->last_post_user_id; ?>"><?= $last_post_user ?></a></p>
+                    <p>Last Post By: <a class="user" href="<?= $root ?>/views/authentication/profile.php?user_id=<?= $t->last_post_user_id; ?>"><?= $last_post_user ?></a></p>
                     <p><span class="date"><?= format_date($last_post) ?></span></p>
                 </div>
             </div>
